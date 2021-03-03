@@ -23,16 +23,16 @@ public class PlotPanel extends JPanel{
         this.setBackground(Color.white);
         
         Graphics2D g2D = (Graphics2D) g;
-        g2D.setPaint(new Color(254 , 125 , 65));
+        g2D.setPaint(new Color(250 , 222 , 36));
         
         g2D.setRenderingHint( RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2D.setRenderingHint( RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         
-        float dash1[] = {15f};
+        float dash1[] = {30f , 10f};
         BasicStroke bstr = new BasicStroke(2.0f,
                         BasicStroke.CAP_BUTT,
                         BasicStroke.JOIN_MITER,
-                        10.0f, dash1, 0.0f);
+                        12f, dash1, 10f);
         
         
         g2D.fill(ps);
