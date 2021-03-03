@@ -1,11 +1,14 @@
 
 package ku.cs.model.sa;
+import ku.cs.model.sa.graphics.PlotFrame;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import org.locationtech.jts.geom.*;
 import org.locationtech.jts.io.WKTReader;
+import org.locationtech.jts.awt.PolygonShape;
+import java.util.ArrayList;
 
 public class Polygon {
 
@@ -126,6 +129,33 @@ public class Polygon {
         
         
         return false;
+    }
+    
+    /*********************Plot*********************************************/
+    
+    public boolean plotPolygon(){
+        
+        if (poly != null){
+            org.locationtech.jts.geom.Polygon pl_test = (org.locationtech.jts.geom.Polygon) poly.copy();
+            
+            pl_test.apply(new org.locationtech.jts.geom.util.AffineTransformation().setToReflection(1, 0));
+            pl_test.apply(new org.locationtech.jts.geom.util.AffineTransformation().setToTranslation(30, 500));
+            
+            ArrayList<Coordinate[]> innerHoles = new ArrayList<>();
+            
+            for(int i=0 ; i <  pl_test.getNumInteriorRing() ; i++)
+                innerHoles.add( pl_test.getInteriorRingN(i).getCoordinates());
+            
+            PolygonShape ps = new PolygonShape( pl_test.getExteriorRing().getCoordinates() , innerHoles);
+            
+            PlotFrame plt = new PlotFrame(ps);
+            
+            return true;
+            
+        }
+        
+        return false;
+        
     }
     
     /*********************Setters and Getters******************************/
