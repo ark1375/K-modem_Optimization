@@ -4,6 +4,8 @@ package ku.cs.model.sa.graphics;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Point2D;
+import org.locationtech.jts.awt.PointShapeFactory;
 import org.locationtech.jts.awt.PolygonShape;
 
 public class PlotPanel extends JPanel{
@@ -40,15 +42,13 @@ public class PlotPanel extends JPanel{
         g2D.setStroke(bstr);
         g2D.setPaint(new Color(40 , 40 , 40));
         g2D.draw(ps);
-//        g2D.setPaint(Color.black);
-//        g2D.setBackground(Color.BLACK);
-//        g2D.transform(new AffineTransform(new double[]{1 , 0 , 0 , -1 , 0 , 0}));
-        
 
+//        PointShapeFactory.Circle psf = new PointShapeFactory.Circle(5);
+//        Shape sp = psf.createPoint(new Point2D.Double(210,130));
+//        g2D.setStroke(new BasicStroke(2));
+//        g2D.draw(sp);
 
         
-    
-   
     }
     
     

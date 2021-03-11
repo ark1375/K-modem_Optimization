@@ -27,6 +27,12 @@ public class Modem {
         setX(x);
         setY(y);
     }
+    
+    public Modem(double x , double y , int k) {
+        setX(x);
+        setY(y);
+        setK(k);
+    }
 
 
     public void setK(int k) {
