@@ -269,63 +269,69 @@ public class VPCalculator {
 
     public static double monteCarloVP(int itterations , Polygon poly , Modem[] modem){
         
-        Envelope exteriorBound = poly.getPoly().getEnvelope().getEnvelopeInternal();
-        
-        RandomPointsInGridBuilder rpigb = new RandomPointsInGridBuilder();
-        rpigb.setNumPoints(1);
-        rpigb.setExtent( exteriorBound );
+//        Envelope exteriorBound = poly.getPoly().getEnvelope().getEnvelopeInternal();
+//        
+//        RandomPointsInGridBuilder rpigb = new RandomPointsInGridBuilder();
+//        rpigb.setNumPoints(1);
+//        rpigb.setExtent( exteriorBound );
         
         ArrayList<Coordinate> vPoly = new ArrayList<>();
         
-        
         long t = System.currentTimeMillis();
         
-        for(int i = 0 ; i < itterations / 4 ; i++ ){
+        int nPointsInPolygon = 0 , nPointsInVisibilityPolygon = 0;
+        
+        for(int i = 0 ; i < itterations ; i++ ){
 
-                Coordinate radnomCord = rpigb.getGeometry().getCoordinate();
+                Coordinate radnomCord = poly.randomPoint();
                 Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
 
                 int numberOfVisibleModems = 0;
+                if (poly.getPoly().contains(radnomPoint)){
+                    nPointsInPolygon++ ;
+                    
+                    for(Modem m : modem){
 
-                for(Modem m : modem){
+                        LineSegment ray = new LineSegment(m.getCordinates() , radnomCord);
+                        LineString rayString = ray.toGeometry(new GeometryFactory());
 
-                    LineSegment ray = new LineSegment(m.getCordinates() , radnomCord);
-                    LineString rayString = ray.toGeometry(new GeometryFactory());
+                        Geometry gm = poly.getPoly().intersection(rayString);
 
-                    Geometry gm = poly.getPoly().intersection(rayString);
+                        if ( gm.getCoordinates().length - 2 <= m.getK())
+                            numberOfVisibleModems++;
+    //
+    //                    if ( numberOfIntersections(poly, rayString) <= m.getK() && poly.getPoly().contains(radnomPoint) )
+    //                        numberOfVisibleModems++;
 
-                    if ( gm.getCoordinates().length - 2 <= m.getK() && poly.getPoly().contains(radnomPoint) )
-                        numberOfVisibleModems++;
-//
-//                    if ( numberOfIntersections(poly, rayString) <= m.getK() && poly.getPoly().contains(radnomPoint) )
-//                        numberOfVisibleModems++;
+                    }
 
-
+                    if (numberOfVisibleModems >= 1 ){ 
+//                        vPoly.add(new Coordinate( (int)radnomCord.x ,(int)radnomCord.y ) );
+                        nPointsInVisibilityPolygon++ ;
+                    }
                 }
-
-                if (numberOfVisibleModems == 1 ) 
-                    vPoly.add(new Coordinate( (int)radnomCord.x ,(int)radnomCord.y ) );
         }
         
-        System.out.println((System.currentTimeMillis() - t) / 1000f);
-
-        String str = "MULTIPOINT(";
-        for(Coordinate cr : vPoly)
-            str += "(" + cr.x + " " + cr.y + "), ";
+//        System.out.println((System.currentTimeMillis() - t) / 1000f);
+//
+//        String str = "MULTIPOINT(";
+//        for(Coordinate cr : vPoly)
+//            str += "(" + cr.x + " " + cr.y + "), ";
+//        
+//        str = str.substring(0, str.length() -3 ) + "))";
+//        System.out.println(str);
+//        
+//        try {
+//            BufferedWriter br = new BufferedWriter(new FileWriter("e:\\file.csv"));
+//            br.write(str);
+//            br.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(VPCalculator.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
-        str = str.substring(0, str.length() -3 ) + "))";
-        System.out.println(str);
         
-        try {
-            BufferedWriter br = new BufferedWriter(new FileWriter("e:\\file.csv"));
-            br.write(str);
-            br.close();
-        } catch (IOException ex) {
-            Logger.getLogger(VPCalculator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        return (nPointsInVisibilityPolygon / (double) nPointsInPolygon);
         
-        
-        return 0f;
     }
     
     private static int numberOfIntersections(Polygon poly , LineString string){

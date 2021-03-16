@@ -11,8 +11,10 @@ public class Main {
 //        VPCalculator.unholedVisibilityPolygon(pl, new Modem(210 , 130));
 //        pl.plotPolygon();
 //      
-        VPCalculator.monteCarloVP(100000 , pl , new Modem[]{ new Modem(130 , 42 , 2) , new Modem(210 , 380 , 2) } );
-
+//        System.out.println(VPCalculator.monteCarloVP(10000 , pl , new Modem[]{ new Modem(130 , 42 , 8) , new Modem(210 , 380 , 4) } ));
+        GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 2, 2, 500, 500, 0, 20);
+        gna.runGenetics();
+        System.out.println(gna.getPopulation().subList(0, 10));
     }
     
 }

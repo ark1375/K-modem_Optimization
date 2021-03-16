@@ -9,6 +9,7 @@ import org.locationtech.jts.geom.*;
 import org.locationtech.jts.io.WKTReader;
 import org.locationtech.jts.awt.PolygonShape;
 import java.util.ArrayList;
+import org.locationtech.jts.shape.random.RandomPointsInGridBuilder;
 
 public class Polygon {
 
@@ -25,6 +26,9 @@ public class Polygon {
         readPolygonXML(path);
         
     }
+    
+    
+    /************* Read Write Functions ****************/
     
     public boolean readPolygonWKT(String path){
         
@@ -155,6 +159,24 @@ public class Polygon {
         }
         
         return false;
+        
+    }
+    
+    /********************* Utility Functions *****************************/
+    
+    public Coordinate randomPoint(){
+        
+        Envelope exteriorBound = poly.getEnvelope().getEnvelopeInternal();
+        RandomPointsInGridBuilder rpigb = new RandomPointsInGridBuilder();
+        rpigb.setNumPoints(1);
+        rpigb.setExtent( exteriorBound );
+        
+        
+        while(true){
+            Coordinate tmp = rpigb.getGeometry().getCoordinate();
+            if (poly.contains(new GeometryFactory().createPoint(tmp)))
+                return tmp;
+        }
         
     }
     
