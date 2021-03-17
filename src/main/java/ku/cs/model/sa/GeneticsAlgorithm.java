@@ -56,7 +56,7 @@ public class GeneticsAlgorithm {
         //might be a problem in accsending or decssending problem
         
         population.sort(Comparator.comparing(Chromosome::getFitness));
-//        Collections.reverse(population);
+        Collections.reverse(population);
         
     }
     
@@ -64,17 +64,18 @@ public class GeneticsAlgorithm {
         
         sortChromosomes();
         population = new ArrayList<Chromosome>(population.subList(0, geneticPopulation));
-        Collections.reverse(population);
+//        Collections.reverse(population);
         
     }
     
     public void runGenetics(){
         
         for (int i = 0 ; i < numberOfGenerations ; i++){
-            System.out.printf("Itteration: %d\nCrossover Started\n" , i+1 );
+            System.out.printf("\nItteration: %d\nCrossover Started\n" , i+1 );
             crossoverThePopulation();
-            System.out.println("Crossover Done \nSelection Started");
-            //mutate line
+            System.out.println("Crossover Done \nMutation Started");
+            mutatePopulation();
+            System.out.println("Mutation Done \nSelection Started");
             selection();
             System.out.printf("Selection Done \nBCF: %f \n**********************\n" , population.get(0).getFitness());
         }
@@ -90,7 +91,21 @@ public class GeneticsAlgorithm {
         
     }
     
-    private void mutatePopulation(){}
+    private void mutatePopulation(){
+    
+        int numberOfMutation = (int) mutationRate * geneticPopulation;
+        Collections.shuffle(population);
+        
+        for (int i = 0 ; i < numberOfMutation ; i++){
+            Coordinate crdRandom = ply.randomPoint();
+            Modem randomModem = new Modem(crdRandom.x , crdRandom.y , defaultKValue);
+            int whichModem = new Random().nextInt(numberOfModems);
+            
+            population.get(i).modemList[whichModem] = randomModem;     
+            
+        }
+    
+    }
 
     public Polygon getPly() {
         return ply;
@@ -186,6 +201,15 @@ public class GeneticsAlgorithm {
             fitness = VPCalculator.monteCarloVP(monteCarloItterations, ply, modemList);
         }
         
+        @Override
+        public String toString(){
+            String s = "";
+            for (Modem m : modemList){
+                s += String.format("X: %f  ,  Y:%f\n" , m.getCordinates().x , m.getCordinates().y);
+            }
+            return s;
+        }
+         
         public void mutate(){
             
         }
