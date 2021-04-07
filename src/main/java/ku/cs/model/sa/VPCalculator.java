@@ -24,6 +24,8 @@ import org.locationtech.jts.shape.random.RandomPointsInGridBuilder;
 
 public class VPCalculator {
     
+    static int totalNumberOfPoints = 0;
+    
     public static org.locationtech.jts.geom.Polygon unholedVisibilityPolygon(Polygon poly , Modem modem){
         
         LineString outterBoundery = poly.getPoly().getExteriorRing();
@@ -85,130 +87,154 @@ public class VPCalculator {
     }
 
     public static double monteCarloVP_MT(int itterations , Polygon poly , Modem[] modem){
+                
+        int totalVisiblePoints = 0;
         
-        Envelope exteriorBound = poly.getPoly().getEnvelope().getEnvelopeInternal();
-        
-        RandomPointsInGridBuilder rpigb = new RandomPointsInGridBuilder();
-        rpigb.setNumPoints(1);
-        rpigb.setExtent( exteriorBound );
-        
-        ArrayList<Coordinate> vPoly = new ArrayList<>();
-        
-        int numberOfInnerPoints = 0;
         long t = System.currentTimeMillis();
 
         ExecutorService exs = Executors.newFixedThreadPool(4);
         
         Callable<Integer> t1 = () -> {
             
+            int nPointsInVisibilityPolygon = 0;
+            
             for(int i = 0 ; i < itterations / 4 ; i++ ){
 
-                Coordinate radnomCord = rpigb.getGeometry().getCoordinate();
+                Coordinate radnomCord = poly.randomPoint();
                 Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
-
+                totalNumberOfPoints++;
+                
                 int numberOfVisibleModems = 0;
 
                 for(Modem m : modem){
 
                     LineSegment ray = new LineSegment(m.getCordinates() , radnomCord);
                     LineString rayString = ray.toGeometry(new GeometryFactory());
-
-                    Geometry gm = poly.getPoly().intersection(rayString);
-
-                    if ( gm.getCoordinates().length - 2 <= m.getK() && poly.getPoly().contains(radnomPoint) )
+//
+//                        Geometry gm = poly.getPoly().intersection(rayString);
+//
+//                        if ( gm.getCoordinates().length - 2 <= m.getK())
+//                            numberOfVisibleModems++;
+//    
+                    if ( numberOfIntersections(poly, ray) <= m.getK() )
                         numberOfVisibleModems++;
 
                 }
 
-                if (numberOfVisibleModems == 1 ) 
-                    vPoly.add(new Coordinate( (int)radnomCord.x ,(int)radnomCord.y ) );
+                if (numberOfVisibleModems == 1 )
+                    nPointsInVisibilityPolygon++ ;
+
             }            
             
-            return 0;
+            return nPointsInVisibilityPolygon;
         };
         
         Callable<Integer> t2 = () -> {
             
+            int nPointsInVisibilityPolygon = 0 , numberOfInvestigatedPoint = 0;
+            
             for(int i = itterations / 4 ; i < itterations / 2 ; i++ ){
 
-                Coordinate radnomCord = rpigb.getGeometry().getCoordinate();
+                Coordinate radnomCord = poly.randomPoint();
                 Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
-
+                totalNumberOfPoints++;
+                
                 int numberOfVisibleModems = 0;
 
                 for(Modem m : modem){
 
                     LineSegment ray = new LineSegment(m.getCordinates() , radnomCord);
                     LineString rayString = ray.toGeometry(new GeometryFactory());
-
-                    Geometry gm = poly.getPoly().intersection(rayString);
-
-                    if ( gm.getCoordinates().length - 2 <= m.getK() && poly.getPoly().contains(radnomPoint) )
+//
+//                        Geometry gm = poly.getPoly().intersection(rayString);
+//
+//                        if ( gm.getCoordinates().length - 2 <= m.getK())
+//                            numberOfVisibleModems++;
+//    
+                    if ( numberOfIntersections(poly, ray) <= m.getK() )
                         numberOfVisibleModems++;
 
                 }
 
-                if (numberOfVisibleModems == 1 ) 
-                    vPoly.add(new Coordinate( (int)radnomCord.x ,(int)radnomCord.y ) );
+                if (numberOfVisibleModems == 1 )
+                    nPointsInVisibilityPolygon++ ;
+
             }            
             
-            return 0;
+            return nPointsInVisibilityPolygon;
+            
         };
         
         Callable<Integer> t3 = () -> {
             
-            for(int i = itterations / 2 ; i < (3 * itterations / 4) ; i++ ){
+            int nPointsInVisibilityPolygon = 0 , numberOfInvestigatedPoint = 0;
+            
+            for(int i = itterations / 2 ; i < 3 * itterations / 4 ; i++ ){
 
-                Coordinate radnomCord = rpigb.getGeometry().getCoordinate();
+                Coordinate radnomCord = poly.randomPoint();
                 Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
-
+                totalNumberOfPoints++;
+                
                 int numberOfVisibleModems = 0;
 
                 for(Modem m : modem){
 
                     LineSegment ray = new LineSegment(m.getCordinates() , radnomCord);
                     LineString rayString = ray.toGeometry(new GeometryFactory());
-
-                    Geometry gm = poly.getPoly().intersection(rayString);
-
-                    if ( gm.getCoordinates().length - 2 <= m.getK() && poly.getPoly().contains(radnomPoint) )
+//
+//                        Geometry gm = poly.getPoly().intersection(rayString);
+//
+//                        if ( gm.getCoordinates().length - 2 <= m.getK())
+//                            numberOfVisibleModems++;
+//    
+                    if ( numberOfIntersections(poly, ray) <= m.getK() )
                         numberOfVisibleModems++;
 
                 }
 
-                if (numberOfVisibleModems == 1 ) 
-                    vPoly.add(new Coordinate( (int)radnomCord.x ,(int)radnomCord.y ) );
+                if (numberOfVisibleModems == 1 )
+                    nPointsInVisibilityPolygon++ ;
+
             }            
             
-            return 0;
+            return nPointsInVisibilityPolygon;
+            
         };
         
         Callable<Integer> t4 = () -> {
             
-            for(int i = (3 * itterations / 4) ; i < itterations ; i++ ){
+            int nPointsInVisibilityPolygon = 0 , numberOfInvestigatedPoint = 0;
+            
+            for(int i = 3 * itterations / 4 ; i < itterations ; i++ ){
 
-                Coordinate radnomCord = rpigb.getGeometry().getCoordinate();
+                Coordinate radnomCord = poly.randomPoint();
                 Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
-
+                totalNumberOfPoints++;
+                
                 int numberOfVisibleModems = 0;
 
                 for(Modem m : modem){
 
                     LineSegment ray = new LineSegment(m.getCordinates() , radnomCord);
                     LineString rayString = ray.toGeometry(new GeometryFactory());
-
-                    Geometry gm = poly.getPoly().intersection(rayString);
-
-                    if ( gm.getCoordinates().length - 2 <= m.getK() && poly.getPoly().contains(radnomPoint) )
+//
+//                        Geometry gm = poly.getPoly().intersection(rayString);
+//
+//                        if ( gm.getCoordinates().length - 2 <= m.getK())
+//                            numberOfVisibleModems++;
+//    
+                    if ( numberOfIntersections(poly, ray) <= m.getK() )
                         numberOfVisibleModems++;
 
                 }
 
-                if (numberOfVisibleModems == 1 ) 
-                    vPoly.add(new Coordinate( (int)radnomCord.x ,(int)radnomCord.y ) );
+                if (numberOfVisibleModems == 1 )
+                    nPointsInVisibilityPolygon++ ;
+
             }            
             
-            return 0;
+            return nPointsInVisibilityPolygon;
+            
         };
         
         Future<Integer> f1 = exs.submit(t1);
@@ -217,64 +243,77 @@ public class VPCalculator {
         Future<Integer> f4 = exs.submit(t4);
         
         try{
-            f1.get();
-            f2.get();
-            f3.get();
-            f4.get();
-            if (f1.isDone()) System.out.println("f1 done");
-            if (f2.isDone()) System.out.println("f2 done");
-            if (f3.isDone()) System.out.println("f3 done");
-            if (f4.isDone()) System.out.println("f4 done");
-            System.out.println((System.currentTimeMillis() - t) / 1000f);
-
+            totalVisiblePoints += f1.get();
+            totalVisiblePoints += f2.get();
+            totalVisiblePoints += f3.get();
+            totalVisiblePoints += f4.get();
         }
         catch(Exception ex){
-            System.out.println(ex);
         }
         
         try {
-            System.out.println("attempt to shutdown executor");
             exs.shutdown();
             exs.awaitTermination(5, TimeUnit.SECONDS);
         }
         catch (InterruptedException e) {
-            System.err.println("tasks interrupted");
         }
         
         finally {
             if (!exs.isTerminated()) {
-                System.err.println("cancel non-finished tasks");
             }
             exs.shutdownNow();
-            System.out.println("shutdown finished");
         }
+//        System.out.println(totalVisiblePoints);
+//        System.out.println(totalNumberOfPoints);
         
-        String str = "MULTIPOINT(";
-        for(Coordinate cr : vPoly)
-            str += "(" + cr.x + " " + cr.y + "), ";
+        double returnedValue = totalVisiblePoints / (double) totalNumberOfPoints;
+        totalNumberOfPoints = 0;
         
-        str = str.substring(0, str.length() -3 ) + "))";
-        System.out.println(str);
-//        try {
-//            BufferedWriter br = new BufferedWriter(new FileWriter("e:\\file.csv"));
-//            br.write(str);
-//            br.close();
-//        } catch (IOException ex) {
-//            Logger.getLogger(VPCalculator.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        return returnedValue;
         
-        
-        return 0f;
     }
 
-    public static double monteCarloVP(int itterations , Polygon poly , Modem[] modem){
+    public static double monteCarloVP(int itterations , Polygon poly , Modem[] modem ){
+                
+        long t = System.currentTimeMillis();
         
-//        Envelope exteriorBound = poly.getPoly().getEnvelope().getEnvelopeInternal();
-//        
-//        RandomPointsInGridBuilder rpigb = new RandomPointsInGridBuilder();
-//        rpigb.setNumPoints(1);
-//        rpigb.setExtent( exteriorBound );
+        int nPointsInPolygon = 0 , nPointsInVisibilityPolygon = 0;
         
+        for(int i = 0 ; i < itterations ; i++ ){
+
+                Coordinate radnomCord = poly.randomPoint();
+                Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
+
+                int numberOfVisibleModems = 0;
+                
+                nPointsInPolygon++ ;
+
+                for(Modem m : modem){
+
+                    LineSegment ray = new LineSegment(m.getCordinates() , radnomCord);
+                    LineString rayString = ray.toGeometry(new GeometryFactory());
+
+//                    Geometry gm = poly.getPoly().intersection(rayString);
+//
+//                    if ( gm.getCoordinates().length - 2 <= m.getK())
+//                        numberOfVisibleModems++;
+    
+                    if ( numberOfIntersections(poly, ray) <= m.getK() )
+                        numberOfVisibleModems++;
+
+                }
+
+                if (numberOfVisibleModems == 1 )
+                    nPointsInVisibilityPolygon++ ;
+
+        }
+        
+        return (nPointsInVisibilityPolygon / (double) nPointsInPolygon);
+        
+    }
+    
+    public static void monteCarloVP_SavePoints(int itterations , Polygon poly , Modem[] modem , String path , boolean showTimeDifference){
+       
         ArrayList<Coordinate> vPoly = new ArrayList<>();
         
         long t = System.currentTimeMillis();
@@ -294,12 +333,12 @@ public class VPCalculator {
 
                     LineSegment ray = new LineSegment(m.getCordinates() , radnomCord);
                     LineString rayString = ray.toGeometry(new GeometryFactory());
+                    
+//                    Geometry gm = poly.getPoly().intersection(rayString);
 //
-//                        Geometry gm = poly.getPoly().intersection(rayString);
-//
-//                        if ( gm.getCoordinates().length - 2 <= m.getK())
-//                            numberOfVisibleModems++;
-//    
+//                    if ( gm.getCoordinates().length - 2 <= m.getK())
+//                        numberOfVisibleModems++;
+
                     if ( numberOfIntersections(poly, ray) <= m.getK() )
                         numberOfVisibleModems++;
 
@@ -312,25 +351,25 @@ public class VPCalculator {
                 
         }
         
-        System.out.println((System.currentTimeMillis() - t) / 1000f);
-
+        if (showTimeDifference)
+            System.out.println((System.currentTimeMillis() - t) / 1000f);
+        
         String str = "MULTIPOINT(";
         for(Coordinate cr : vPoly)
             str += "(" + cr.x + " " + cr.y + "), ";
         
         str = str.substring(0, str.length() -3 ) + "))";
-        System.out.println(str);
+//        System.out.println(str);
         
         try {
-            BufferedWriter br = new BufferedWriter(new FileWriter("e:\\file.csv"));
+            BufferedWriter br = new BufferedWriter(new FileWriter(path + "\\montecarlo_out.txt"));
             br.write(str);
             br.close();
         } catch (IOException ex) {
             Logger.getLogger(VPCalculator.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        
         
-        return (nPointsInVisibilityPolygon / (double) nPointsInPolygon);
+        
         
     }
     
@@ -347,43 +386,63 @@ public class VPCalculator {
         for (LineString ls : shells){
         
             for (int i = 0 ; i < ls.getNumPoints() - 1 ; i++){
-                Coordinate A , B , C , D;
+                Coordinate A , B , C , D , intersction_point;
 
-                A = new Coordinate ((int)ls.getCoordinateN(i).x , (int)ls.getCoordinateN(i).y);
-                B = new Coordinate ((int)ls.getCoordinateN(i + 1).x , (int)ls.getCoordinateN(i + 1).y);
-                C = new Coordinate ((int)string.p1.x , (int)string.p1.y);
-                D = new Coordinate ((int)string.p0.x , (int)string.p0.y);
-
-                double x = 0;
-                double y = 0;
-                double a1 = B.y - A.y;
-                double b1 = A.x - B.x; 
-                double c1 = a1*(A.x) + b1*(A.y); 
-                double a2 = D.y - C.y; 
-                double b2 = C.x - D.x; 
-                double c2 = a2*(C.x)+ b2*(C.y); 
-                double determinant = a1*b2 - a2*b1; 
+                A = new Coordinate (ls.getCoordinateN(i).x , ls.getCoordinateN(i).y);
+                B = new Coordinate (ls.getCoordinateN(i + 1).x , ls.getCoordinateN(i + 1).y);
+                C = new Coordinate (string.p1.x , string.p1.y);
+                D = new Coordinate (string.p0.x , string.p0.y);
                 
-                if (determinant == 0)
+                
+                double difX_1 = A.x - B.x;
+                double difY_1 = A.y - B.y;
+                double difX_2 = C.x - D.x;
+                double difY_2 = C.y - D.y;
+                double denominator = difX_1 * difY_2 - difX_2 * difY_1;
+                
+                if (denominator == 0)
                     continue;
                 
+                intersction_point = new Coordinate();
+                intersction_point.x = (((A.x * B.y - A.y * B.x) * difX_2 - (C.x * D.y - C.y * D.x) * difX_1) / denominator);
+                intersction_point.y = (((A.x * B.y - A.y * B.x) * difY_2 - (C.x * D.y - C.y * D.x) * difY_1) / denominator);
                 
-                else {
-                    x = (b2*c1 - b1*c2)/determinant; 
-                    y = (a1*c2 - a2*c1)/determinant;
-                }
-                
-                if (    x>=Math.min(A.x, B.x) &&
-                        x<=Math.max(A.x, B.x) &&
-                        y>=Math.min(A.y, B.y) &&
-                        y<=Math.max(A.y, B.y) &&
-                        x>=Math.min(C.x, D.x) &&
-                        x<=Math.max(C.x, D.x) &&
-                        y>=Math.min(C.y, D.y) &&
-                        y<=Math.max(C.y, D.y)){
-                    
+                boolean isItBetweenLine1 = intersction_point.x >= Math.min(A.x, B.x) && intersction_point.x <= Math.max(A.x, B.x);
+                boolean isItBetweenLine2 = intersction_point.x >= Math.min(C.x, D.x) && intersction_point.x <= Math.max(C.x, D.x);
+                if ( isItBetweenLine1 && isItBetweenLine2)
                     count++;
-                }
+                
+//                double x = 0;
+//                double y = 0;
+//                double a1 = B.y - A.y;
+//                double b1 = A.x - B.x; 
+//                double c1 = a1*(A.x) + b1*(A.y); 
+//                double a2 = D.y - C.y; 
+//                double b2 = C.x - D.x; 
+//                double c2 = a2*(C.x)+ b2*(C.y); 
+//                double determinant = a1*b2 - a2*b1; 
+//                
+//                if (determinant == 0){
+//                    count++;
+//                    continue;
+//                }
+//                
+//                else {
+//                    x = (float) (b2*c1 - b1*c2)/determinant; 
+//                    y = (float) (a1*c2 - a2*c1)/determinant;
+//                }
+//                
+//                if (    x>=Math.min(A.x, B.x) &&
+//                        x<=Math.max(A.x, B.x) &&
+//                        y>=Math.min(A.y, B.y) &&
+//                        y<=Math.max(A.y, B.y) &&
+//                        x>=Math.min(C.x, D.x) &&
+//                        x<=Math.max(C.x, D.x) &&
+//                        y>=Math.min(C.y, D.y) &&
+//                        y<=Math.max(C.y, D.y)){
+//                    
+//                    count++;
+//                }
             }
         
         }

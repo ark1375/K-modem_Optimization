@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.GeometryFactory;
 
 public class GeneticsAlgorithm {
     
@@ -63,7 +64,7 @@ public class GeneticsAlgorithm {
     private void selection(){
         
         sortChromosomes();
-        population = new ArrayList<Chromosome>(population.subList(0, geneticPopulation));
+        population = new ArrayList<>(population.subList(0, geneticPopulation));
 //        Collections.reverse(population);
         
     }
@@ -71,13 +72,23 @@ public class GeneticsAlgorithm {
     public void runGenetics(){
         
         for (int i = 0 ; i < numberOfGenerations ; i++){
-            System.out.printf("\nItteration: %d\nCrossover Started\n" , i+1 );
-            crossoverThePopulation();
-            System.out.println("Crossover Done \nMutation Started");
+            
+//            System.out.printf("\nItteration: %d\nCrossover Started\n" , i+1 );
+//            crossoverThePopulation();
+//            System.out.println("Crossover Done \nMutation Started");
+//            mutatePopulation();
+//            System.out.println("Mutation Done \nSelection Started");
+//            selection();
+//            System.out.printf("Selection Done \nBCF: %f \n\n**********************\n" , population.get(0).getFitness());
+            
+            System.out.printf("\nItteration: %d\nMutation Started\n" , i+1 );
             mutatePopulation();
-            System.out.println("Mutation Done \nSelection Started");
+            System.out.println("Mutation Done \nCrossover Started");
+            crossoverThePopulation();
+            System.out.println("Crossover Done \nSelection Started");
             selection();
-            System.out.printf("Selection Done \nBCF: %f \n**********************\n" , population.get(0).getFitness());
+            System.out.printf("Selection Done \nBCF: %f \n\n**********************\n" , population.get(0).getFitness());
+            
         }
     
     }
@@ -107,6 +118,27 @@ public class GeneticsAlgorithm {
     
     }
 
+    
+    
+    
+    
+    public Modem[] getBestGene(){
+        
+        return population.get(0).modemList;
+        
+    }
+    
+    public ArrayList<Modem[]> getTopTenResults(){
+        
+        ArrayList<Modem[]> topTen = new ArrayList<>();
+        
+        for (int i = 0 ; i < 10 ; i++)
+            topTen.add( population.get(0).modemList );
+        
+        return topTen;
+    
+    }   
+    
     public Polygon getPly() {
         return ply;
     }
@@ -139,6 +171,12 @@ public class GeneticsAlgorithm {
         return population;
     }
 
+    
+    
+    
+    
+    
+    
     public void setPly(Polygon ply) {
         this.ply = ply;
     }
@@ -225,11 +263,25 @@ public class GeneticsAlgorithm {
             Chromosome newChr = new Chromosome(false);
             Modem[] modemList = new Modem[chr1.modemList.length];
             
-            for (int i = 0 ; i < chr1.modemList.length ; i++)
-                if ( i % 2 == 0 )
-                    modemList[i] = chr1.modemList[i];
+            for (int i = 0 ; i < chr1.modemList.length ; i++){
+            
+                if ( i % 2 == 0 ){
+                    //For getting it back to normal just remove all the line till firs else
+                    
+//                    Coordinate crd = new Coordinate();
+//                    crd.x = (chr1.modemList[i].getCordinates().x + this.modemList[i].getCordinates().x) /2f;
+//                    crd.y = (chr1.modemList[i].getCordinates().y + this.modemList[i].getCordinates().y) /2f;
+//                    
+//                    if( ply.getPoly().contains(new GeometryFactory().createPoint(crd)) )
+//                        modemList[i] = new Modem(crd.x, crd.y ,defaultKValue);
+//                    else
+                        modemList[i] = chr1.modemList[i];
+                    
+                }
                 else 
                     modemList[i] = this.modemList[i];
+            
+            }
             
             newChr.modemList = modemList;
             newChr.setFitness();

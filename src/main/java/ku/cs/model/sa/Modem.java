@@ -60,4 +60,8 @@ public class Modem {
         return cordinates;
     }
 
+    @Override
+    public String toString(){
+        return String.format("(%f %f)\n", cordinates.x , cordinates.y);
+    }
 }
