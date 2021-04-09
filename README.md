@@ -11,13 +11,16 @@ This repository contains  
 - Test Cases   
 - A Randomly generated dataset of simple geometries   
 
-**Warning!** The following readme file **Dose Not** contain detailed information about the problem.   
+**Warning!**   
+The following readme file **Dose Not** contain detailed information about the problem.   
 For further information on technical details of the problem, experiments and theire results, check out here [Technical Details](TechincalDetails.md)
 
-### Table of Contents
-* Problem Description   
-* Requirements
-* Installation  
-* A tour of the code  
-* How to use?  
-* Credits  
+## Table of Contents
+* [Problem Description](Problem-Description)   
+* [Requirements]
+* [Installation]  
+* [A tour of the code]  
+* [How to use?]  
+* [Credits]  
+
+## Problem Description
