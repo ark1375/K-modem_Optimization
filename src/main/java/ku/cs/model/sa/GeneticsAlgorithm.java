@@ -73,21 +73,21 @@ public class GeneticsAlgorithm {
         
         for (int i = 0 ; i < numberOfGenerations ; i++){
             
-//            System.out.printf("\nItteration: %d\nCrossover Started\n" , i+1 );
-//            crossoverThePopulation();
-//            System.out.println("Crossover Done \nMutation Started");
-//            mutatePopulation();
-//            System.out.println("Mutation Done \nSelection Started");
-//            selection();
-//            System.out.printf("Selection Done \nBCF: %f \n\n**********************\n" , population.get(0).getFitness());
-            
-            System.out.printf("\nItteration: %d\nMutation Started\n" , i+1 );
-            mutatePopulation();
-            System.out.println("Mutation Done \nCrossover Started");
+            System.out.printf("\nItteration: %d\nCrossover Started\n" , i+1 );
             crossoverThePopulation();
-            System.out.println("Crossover Done \nSelection Started");
+            System.out.println("Crossover Done \nMutation Started");
+            mutatePopulation();
+            System.out.println("Mutation Done \nSelection Started");
             selection();
             System.out.printf("Selection Done \nBCF: %f \n\n**********************\n" , population.get(0).getFitness());
+            
+//            System.out.printf("\nItteration: %d\nMutation Started\n" , i+1 );
+//            mutatePopulation();
+//            System.out.println("Mutation Done \nCrossover Started");
+//            crossoverThePopulation();
+//            System.out.println("Crossover Done \nSelection Started");
+//            selection();
+//            System.out.printf("Selection Done \nBCF: %f \n\n**********************\n" , population.get(0).getFitness());
             
         }
     
@@ -104,7 +104,7 @@ public class GeneticsAlgorithm {
     
     private void mutatePopulation(){
     
-        int numberOfMutation = (int) mutationRate * geneticPopulation;
+        int numberOfMutation = (int) (mutationRate * geneticPopulation);
         Collections.shuffle(population);
         
         for (int i = 0 ; i < numberOfMutation ; i++){

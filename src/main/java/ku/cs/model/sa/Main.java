@@ -14,7 +14,7 @@ public class Main {
         
         //(Polygon , NumberOfModems , DefaultKValue , MonteCarloItterations , Population , MutationRate , Generations)
         
-        GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 1000, 1000, 0.25, 25);
+        GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 500, 200, 0.25, 30);
         gna.runGenetics();
         System.out.println(gna.getPopulation().get(0));
         System.out.println(gna.getPopulation().get(gna.getPopulation().size() -1));
