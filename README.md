@@ -13,14 +13,24 @@ This repository contains  
 
 **Warning!**   
 The following readme file **Dose Not** contain detailed information about the problem.   
-For further information on technical details of the problem, experiments and theire results, check out here [Technical Details](TechincalDetails.md)
+For further information on technical details of the problem, experiments and theire results, check out [Technical Details](TechincalDetails.md)
 
 ## Table of Contents
 * [Problem Description](#problem-description)
-* [Requirements]
-* [Installation]  
-* [A tour of the code]  
-* [How to use?]  
-* [Credits]  
+* [Requirements](#requirements)
+* [Installation](#installation) 
+* [A tour of the code](#a_tour_of_the_code) 
+* [How to use?](#how_to_use?)
+* [Credits](#credits)  
 
 ## Problem Description
+
+## Requirements
+
+## Installation
+
+## A Tour of the Code
+
+## How to use?
+
+## Credits
