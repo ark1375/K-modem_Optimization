@@ -1,21 +1,24 @@
-# Model_SA A Solve for K-Modem Problem
+# ModelSA
 
-Welcome to Model-SA.
-The code before you is a simple solve for K-Modem problem (Problem description availabe below) and it is the result of two students bachelors project (Check the contributors).
-The code itself is writen in __Java__ (Requirements are listed below) and it is havily depended on the JTS geometry libreary.   
+Welcome to Model-SA.   
 
-This repository contains  
-    1. The Projects Source
-    2. Documentation and Screenshots
-    3. Test Cases
-    4. A Randomly generated dataset of simple geometrys
-    
-For further information about the project, techincal details of the stated problem, installation, a simple tour of the code and help on how to set up the code, continue reading.
+The code before you is a simple solution for **K-Modem Problem** (Problem description available below) and it is the result of two students' bachelor's project (Check the contributors).  
+The code itself is written in __Java__ (Requirements are listed below) and it is heavily dependent on the JTS geometry library.   
 
-#### Table of Contents
-    * Problem Description
-    * Technical Details
-    * Instalation
-    * A tour of the code
-    * How to use?
-    * Credits
+This repository contains   
+- The Projects Source   
+- Documentation and Screenshots   
+- Test Cases   
+- A Randomly generated dataset of simple geometries   
+
+  
+**Warning!** $~~~$ The following readme file **Dose Not** contain detailed information about the problem.   
+For further information on technical details of the problem, experiments and theire results, check out here [Technical Details](TechincalDetails.md)
+
+### Table of Contents
+* Problem Description   
+* Requirements
+* Installation  
+* A tour of the code  
+* How to use?  
+* Credits  
