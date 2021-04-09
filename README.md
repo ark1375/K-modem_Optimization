@@ -16,7 +16,7 @@ The following readme file **Dose Not** contain detailed information about the pr
 For further information on technical details of the problem, experiments and theire results, check out here [Technical Details](TechincalDetails.md)
 
 ## Table of Contents
-* [Problem Description](Problem-Description)
+* [Problem Description](problem-description)
 * [Requirements]
 * [Installation]  
 * [A tour of the code]  
@@ -24,4 +24,3 @@ For further information on technical details of the problem, experiments and the
 * [Credits]  
 
 ## Problem Description
-[Problem-Description]
