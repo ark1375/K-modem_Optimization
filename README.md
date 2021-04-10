@@ -19,7 +19,7 @@ For further information on technical details of the problem, experiments, and th
 ## Table of Contents
 * [Problem Description](#problem-description)
 * [Requirements](#requirements)
-* [Installation](#installation) 
+* [Installation and Setup](#installation_and_setup) 
 * [A Tour of the Code](#a_tour_of_the_code) 
 * [How to use?](#how_to_use?)
 * [Credits](#credits)  
@@ -91,9 +91,17 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 </code></pre>Congratulations, you just installed Maven.
 
 3. **Installing JDK**  
-```
-s60e c6de
-```
+    -   Head to [Oracles Websit](https://www.oracle.com/java/technologies/javase-downloads.html) and download JDK.  
+    
+    -   Run the downloaded file. The installation must be prety straight forward. Just remember the directory that you are installing JDK in.  
+    
+    -   When the installation is over, follow [these](https://javatutorial.net/set-java-home-windows-10) instructions to add **JAVA_HOME** to your enviroment variables.  
+    
+    -   Open a command line prompt and type in `java -version`. It must show something like this:<pre>
+<code>java version "1.8.0_261"
+Java(TM) SE Runtime Environment (build 1.8.0_261-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.261-b12, mixed mode)
+</code></pre>
 
 4. **Installing NetBeans** _optional_  
 
