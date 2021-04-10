@@ -64,7 +64,8 @@ However, you need to make a little modification to your NetBeans to build the pr
 _Cloning_ and _Building_ the JTS repo is recomended though not neccesary. After building JTS, You can use the **JTS TestBuilder** to create your own test cases for runinng the code. Find out more about it in the installation section.  
 
 ## Installation and Setup
-If you are new too writing and building programs, make sure to follow every step of the installation. This part will cover **ALL** the things you need to do to run the code.  
+**_Note:_** This installation and setup guide is for Windows operating system. Future updates may include support for linux.  
+If you are new too writing and building programs, make sure to follow every step of the installation and setup. It will cover **ALL** the things you need to do to run the code.  
 The +++++ part of the guide is on building JTS and using it's TestBuilder tool for creating your own test cases. You can skip that if your not interestead in that. 
 ### Installation  
 
@@ -72,6 +73,13 @@ The +++++ part of the guide is on building JTS and using it's TestBuilder tool f
 Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Componenet* window, make sure to check `Git Bash Here` under *Windows Explorer integration* tab. Other than that, use the installations recomended settings and you're good to go.  
 
 2. **Installing Maven**  
+First, download Maven's **Binary zip archive** from [here](https://maven.apache.org/download.cgi). Extract the zip file in a secure loaction (for example your Prograrm Files folder in Windows partition).  
+Now you need to add the mavens bin folder to your windows path envoirment variables. In the extracted maven directory, copy the bin folder's path (for example `C:\Program Files\apache-maven-3.8.1\bin`).  
+Press `WIN + R` to open up *Run* (WIN is windows key on the keyboard), type in `SystemPropertiesAdvanced` and hit Enter.  
+Now the *System Properties* window is open. Click on *Envoirment Variable* and from the _User Variable_ section, click on _Path_ and then click on _Edit_. In the pop-up window, click on _New_. Paste the path that you just copied and click _OK_ to make the changes.  
+Open up a command prompt (hit start and type `cmd`) and type `mvn --version`. It must show something like this:  
+![scr2](/docs/screenshots/sc2.jpg)  
+Congradulations you just installed Maven. 
 
 3. **Installing JDK**  
 
