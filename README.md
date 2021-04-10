@@ -26,10 +26,10 @@ For further information on technical details of the problem, experiments, and th
 
 ## Problem Description
 ### Original K-Modem Description
-For the original description of the K-Modem problem, check out the [Technical Details](TechincalDetails.md/#problem_description).
+For the original description of the K-Modem problem, check out the [Technical Details](TechincalDetails.md#problem_description).
 
 ### This Variation of K-Modem Problem
-_**Note**: This is a subset of the original K-Modem illumination problem and it is the actual problem that the code is written for. With little adjustments (check [Technical Details](TechincalDetails.md/#problem_description)) the code can solve the original problem as well. The solution code for the original K-Modem Illumination problem will be included in future updates._  
+_**Note**: This is a subset of the original K-Modem illumination problem and it is the actual problem that the code is written for. With little adjustments (check [Technical Details](TechincalDetails.md#problem_description)) the code can solve the original problem as well. The solution code for the original K-Modem Illumination problem will be included in future updates._  
   
 
 Let **_P_** be a simple polygon consist of an outer shell (the outer walls) and zero or more holes (check the screenshot below). Given the number of k-modems available **_q_**, and the penetration rate **_k_**, what are the best coordinates to put the k-modems on, such that the maximum area of the given polygon is covered.   
