@@ -93,7 +93,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 3. **Installing JDK**  
     -   Head to [Oracles Websit](https://www.oracle.com/java/technologies/javase-downloads.html) and download JDK.  
     
-    -   Run the downloaded file. The installation must be prety straight forward. Just remember the directory that you are installing JDK in.  
+    -   Run the installation. It must be prety straight forward. Just remember the directory that you are installing JDK in.  
     
     -   When the installation is over, follow [these](https://javatutorial.net/set-java-home-windows-10) instructions to add **JAVA_HOME** to your enviroment variables.  
     
@@ -101,9 +101,10 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 <code>java version "1.8.0_261"
 Java(TM) SE Runtime Environment (build 1.8.0_261-b12)
 Java HotSpot(TM) 64-Bit Server VM (build 25.261-b12, mixed mode)
-</code></pre>
-
+</code></pre>  
+    
 4. **Installing NetBeans** _optional_  
+Installing the NetBeans is optional but recomended. Download and install NetBeans using [this](https://netbeans.apache.org/download/index.html) link.  
 
 ### Setup the Project
 
