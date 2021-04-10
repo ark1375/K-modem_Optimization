@@ -42,7 +42,8 @@ Using the available code alongside JTS Testbuilder, you can create your own maps
 
 
 ## Requirements
-
+_For running and simple use of the code, having knowledge of Java is not essential though recomended_  
+  
 1. **JDK 8 (Or Higher)**   
 Because some essential part of the code is written using newer features of Java, installing JDK8 or higher is a requirement for running the project. 
 
@@ -52,11 +53,19 @@ Because some essential part of the code is written using newer features of Java,
 2. **Maven 3.6**  
 Having Maven around is Recommended. With Maven installed, you don't need to worry about dependencies and package installations. Also, the installation guide in this readme is directly using Maven for building the project.
 
-3. **NetBeans 8 (Or Higher) _Recomended_**  
-The project itself is written using NetBeans so for convenient use, it is recommended to have NetBeans installed as well.  
-However, you need to make a little modification to your NetBeans to build the project directly. More on that in the Installation section.
+3. **Git and Git Bash**  _Recomended_
+Download and install the latest version of Git Bash for convinient use of Git. Though it is not necessary, I recomend installing it anyway.   
 
-## Installation
+4. **NetBeans 8 (Or Higher)** _Recomended_  
+The project itself is written using NetBeans so for convenient use, it is recommended to have NetBeans installed as well.  
+However, you need to make a little modification to your NetBeans to build the project directly. More on that in the Installation section.  
+
+5. **Clone JTS Repository** _Recomended_
+_Cloning_ and _Building_ the JTS repo is recomended though not neccesary. After building the JTS, You can use the JTS TestBuilder to create your own test cases for runinng the code. Find out more about it in the installation section.  
+
+## Installation  
+If you are new too writing and building programs, make sure to follow every step of the installation. This part will cover ALL the things you need to do to run the code.  
+The +++++ part of the guide is on building JTS itself for using it's TestBuilder tool 
 
 ## A Tour of the Code
 
