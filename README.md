@@ -53,8 +53,8 @@ Because some essential part of the code is written using newer features of Java,
 2. **Maven 3.6**  
 Having Maven around is Recommended. With Maven installed, you don't need to worry about dependencies and package installations. Also, the installation guide in this readme is directly using Maven for building the project.
 
-3. **Git and Git Bash**  _Recomended_  
-Download and install the latest version of Git Bash for convinient use of Git. Though it is not necessary, I recomend installing it anyway.   
+3. **Git and Git Bash**  
+Download and install the latest version of Git Bash for convinient use of Git.
 
 4. **NetBeans 8 (Or Higher)** _Recomended_  
 The project itself is written using NetBeans so for convenient use, it is recommended to have NetBeans installed as well.  
@@ -63,9 +63,21 @@ However, you need to make a little modification to your NetBeans to build the pr
 5. **Clone JTS Repository** _Recomended_  
 _Cloning_ and _Building_ the JTS repo is recomended though not neccesary. After building JTS, You can use the **JTS TestBuilder** to create your own test cases for runinng the code. Find out more about it in the installation section.  
 
-## Installation  
-If you are new too writing and building programs, make sure to follow every step of the installation. This part will cover ALL the things you need to do to run the code.  
-The +++++ part of the guide is on building JTS itself for using it's TestBuilder tool 
+## Installation and Setup
+If you are new too writing and building programs, make sure to follow every step of the installation. This part will cover **ALL** the things you need to do to run the code.  
+The +++++ part of the guide is on building JTS and using it's TestBuilder tool for creating your own test cases. You can skip that if your not interestead in that. 
+### Installation  
+
+1. **Installing Git**  
+Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Componenet* window, make sure to check `Git Bash Here` under *Windows Explorer integration*. Other than that, use the installations recomended settings and you're good to go.  
+
+2. **Installing Maven**  
+
+3. **Installing JDK**  
+
+4. **Installing NetBeans** _optional_  
+
+### Setup the Project
 
 ## A Tour of the Code
 
