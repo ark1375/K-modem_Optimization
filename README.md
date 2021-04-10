@@ -60,7 +60,7 @@ Download and install the latest version of Git Bash for convinient use of Git. T
 The project itself is written using NetBeans so for convenient use, it is recommended to have NetBeans installed as well.  
 However, you need to make a little modification to your NetBeans to build the project directly. More on that in the Installation section.  
 
-5. **Clone JTS Repository** _Recomended_
+5. **Clone JTS Repository** _Recomended_  
 _Cloning_ and _Building_ the JTS repo is recomended though not neccesary. After building the JTS, You can use the JTS TestBuilder to create your own test cases for runinng the code. Find out more about it in the installation section.  
 
 ## Installation  
