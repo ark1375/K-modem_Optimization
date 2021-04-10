@@ -74,17 +74,23 @@ Simply download and install Git from [here](https://git-scm.com/downloads). When
 
 2. **Installing Maven**  
 First, download Maven's **Binary zip archive** from [here](https://maven.apache.org/download.cgi). Extract the zip file in a secure loaction (for example your Prograrm Files folder in Windows partition).  
-Now you need to add the mavens bin folder to your windows path envoirment variables. In the extracted maven directory, copy the bin folder's path (for example `C:\Program Files\apache-maven-3.8.1\bin`).  
-Press `WIN + R` to open up *Run* (WIN is windows key on the keyboard), type in `SystemPropertiesAdvanced` and hit Enter.  
-Now the *System Properties* window is open. Click on *Envoirment Variable* and from the _User Variable_ section, click on _Path_ and then click on _Edit_. In the pop-up window, click on _New_. Paste the path that you just copied and click _OK_ to make the changes.  
-Open up a command prompt (hit start and type `cmd`) and type `mvn --version`.  
+Now you need to add the mavens bin folder to your windows path envoirment variables.  
+
+    * In the extracted maven directory, copy the bin folder's path (for example `C:\Program Files\apache-maven-3.8.1\bin`).  
+    * Press `WIN + R` to open up *Run* (WIN is windows key on the keyboard), type in `SystemPropertiesAdvanced` and hit Enter.  
+    * In *System Properties* window, click on *Envoirment Variable*.
+    * From the _System Variable_ section, click on _Path_ and then click on _Edit_. 
+    * In the pop-up window, click on _New_ and paste the path that you just copied and click _OK_ to make the changes.  
+    
+Open up a command prompt and use `mvn --version`.  
 It must show something like this:<pre>
 <code>Apache Maven 3.6.3 (--------------some code--------------)
 Maven home: C:\Program Files (x86)\apache-maven-3.6.3\bin\..
 Java version: 15.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-15.0.1
 Default locale: en_US, platform encoding: ---- some code ----
 OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
-</code></pre>
+</code></pre>  
+Congratulations, you just installed Maven.
 
 3. **Installing JDK**  
 ```
