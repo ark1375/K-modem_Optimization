@@ -41,10 +41,13 @@ The main practical usage of the problem comes from finding the optimal positions
 Using the available code alongside JTS Testbuilder, you can create your own maps and find the optimal position for your modems inside the map (check out [How to Use?](#how_to_use?)).
 
 
-## Requirements  
-*1. JDK 8 (or higher)
-Because some essential part of the code is writen using newer features of Java, installing JDK8 or higher is a requirement for running the project.   
-**Warning!** You need **JDK (Java Development Kit)** for building and running the project.  **DO NOT INSTALL JRE (Java Runtime Environment) INSTEAD**.
+## Requirements
+
+1. **JDK 8 (Or Higher)**   
+Because some essential part of the code is writen using newer features of Java, installing JDK8 or higher is a requirement for running the project. 
+
+    **Warning!**  
+    You need **JDK (Java Development Kit)** for building and running the project.  **DO NOT INSTALL JRE (Java Runtime Environment) INSTEAD**.
 
 ## Installation
 
