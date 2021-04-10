@@ -80,7 +80,7 @@ Now the *System Properties* window is open. Click on *Envoirment Variable* and f
 Open up a command prompt (hit start and type `cmd`) and type `mvn --version`.  
 It must show something like this:       
     
-```
+```bash
 Apache Maven 3.6.3 (--------------some code--------------)
 Maven home: C:\Program Files (x86)\apache-maven-3.6.3\bin\..
 Java version: 15.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-15.0.1
