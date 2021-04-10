@@ -42,7 +42,7 @@ Using the available code alongside JTS Testbuilder, you can create your own maps
 
 
 ## Requirements
-_For running and simple use of the code, having knowledge of Java is not essential though recomended_  
+_Having knowledge of Java for running and simple use of the code is not essential though recomended_  
   
 1. **JDK 8 (Or Higher)**   
 Because some essential part of the code is written using newer features of Java, installing JDK8 or higher is a requirement for running the project. 
@@ -53,7 +53,7 @@ Because some essential part of the code is written using newer features of Java,
 2. **Maven 3.6**  
 Having Maven around is Recommended. With Maven installed, you don't need to worry about dependencies and package installations. Also, the installation guide in this readme is directly using Maven for building the project.
 
-3. **Git and Git Bash**  _Recomended_
+3. **Git and Git Bash**  _Recomended_  
 Download and install the latest version of Git Bash for convinient use of Git. Though it is not necessary, I recomend installing it anyway.   
 
 4. **NetBeans 8 (Or Higher)** _Recomended_  
