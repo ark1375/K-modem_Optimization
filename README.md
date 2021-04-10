@@ -78,6 +78,7 @@ Now you need to add the mavens bin folder to your windows path envoirment variab
 Press `WIN + R` to open up *Run* (WIN is windows key on the keyboard), type in `SystemPropertiesAdvanced` and hit Enter.  
 Now the *System Properties* window is open. Click on *Envoirment Variable* and from the _User Variable_ section, click on _Path_ and then click on _Edit_. In the pop-up window, click on _New_. Paste the path that you just copied and click _OK_ to make the changes.  
 Open up a command prompt (hit start and type `cmd`) and type `mvn --version`. It must show something like this:  
+
   ![scr2](/docs/screenshots/sc2.jpg)  
   Congradulations you just installed Maven. 
 
