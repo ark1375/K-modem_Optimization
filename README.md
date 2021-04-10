@@ -48,7 +48,7 @@ Because some essential part of the code is written using newer features of Java,
 
     *Warning!*  
     You need **JDK (Java Development Kit)** for building and running the project.  
-    **DO NOT INSTALL JRE (Java Runtime Environment)**.   
+    DO NOT INSTALL JRE (Java Runtime Environment).   
 2. **Maven 3.6**  
 Having Maven around is Recommended. With Maven installed, you don't need to worry about dependencies and package installations. Also, the installation guide in this readme is directly using Maven for building the project.
 
