@@ -75,7 +75,7 @@ Simply download and install Git from [here](https://git-scm.com/downloads). When
 2. **Installing Maven**  
 First, download Maven's **Binary zip archive** from [here](https://maven.apache.org/download.cgi). Extract the zip file in a secure loaction (for example your Prograrm Files folder in Windows partition).  
 
-Now you need to add the mavens bin folder to your windows path envoirment variables.  
+Now you need to add the mavens bin folder to your windows path envoirment variables.
 
     * In the extracted maven directory, copy the bin folder's path (for example `C:\Program Files\apache-maven-3.8.1\bin`).  
     * Press `WIN + R` to open up *Run* (WIN is windows key on the keyboard), type in `SystemPropertiesAdvanced` and hit Enter.  
