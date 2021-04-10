@@ -79,7 +79,8 @@ Simply download and install Git from [here](https://git-scm.com/downloads). When
         * Press `WIN + R` to open up *Run* (WIN is windows key on the keyboard), type in `SystemPropertiesAdvanced` and hit Enter.  
         * In *System Properties* window, click on *Envoirment Variable*.
         * From the _System Variable_ section, click on _Path_ and then click on _Edit_. 
-        * In the pop-up window, click on _New_ and paste the path that you just copied and click _OK_ to make the changes.  
+        * In the pop-up window, click on _New_ and paste the path that you just copied and click _OK_ to make the changes. 
+
     -   Open up a command prompt and use `mvn --version`.
 It must show something like this:<pre>
 <code>Apache Maven 3.6.3 (--------------some code--------------)
