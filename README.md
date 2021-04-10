@@ -51,7 +51,7 @@ You need **JDK (Java Development Kit)** for building and running the project.  
 2. **Maven 3.6**  
 Having Maven around is Recommended. With Maven installed, you don't need to worry about dependencies and package installations. Also, the installation guide in this readme is directly using Maven for building the project.
 
-3. **NetBeans 8 (Or Higher) _Recomended_   
+3. **NetBeans 8 (Or Higher) _Recomended_**   
 The project itself is written using NetBeans so for convenient use, it is recommended to have NetBeans installed as well.  
 However, you need to make a little modification to your NetBeans to build the project directly. More on that in the Installation section.
 
