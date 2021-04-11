@@ -132,6 +132,15 @@ For updating NetBeans Maven:
     - Extract it and copy all the files inside the `apache-maven-version` folder.
     - Navigate inside NetBeans installation directory and open the `Java` folder.
     - Inside the `maven` folder, paste and replace everything that you copied.
+    
+4. **Clone and Build JTS** _optional_<br>
+In order to use JTS TestBuilder to create your own polygons and geometries, you need to clone and build JTS libreary itself.<br>
+Head to [JTS Repository](https://github.com/locationtech/jts) for more information about JTS geometry library.<br>
+    - Create another empty folder and open GitBash prompt as explained previously.
+    - Type in `git clone https://github.com/locationtech/jts.git` and hit enter.
+    - Navigate inside the cloned repository using `cd` command (`cd jts`).
+    - Type `mvn clean install` to install dependencies and build JTS.
+    - Use `java -jar modules/app/target/JTSTestBuilder.jar` to run JTS TestBuilder.
 
 ## A Tour of the Code
 
