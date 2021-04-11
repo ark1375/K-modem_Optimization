@@ -143,7 +143,7 @@ Now that you setedup everything you need, it's time to learn how to run and how 
 _**Note**: Reading this section is optional, skip to **How To Use** if not interestead._<br>
 I won't go deep into details of the code (for that, refer to [Technical Details](TechincalDetails.md#problem_description)) but I will give you enough information to be able to understand the basic idea of it.<br>
 I will begin with explaining the classes.<br>
-* The Polygon Class  
+* __The Polygon Class__  
     As the name implies, Using this class you can import your polygons into the program. Note that the programs design is based  on **Importing the Polygons** and not to create them on sight using code or GUI.<br><br>
 You can create polygons in two ways.  
 
@@ -160,6 +160,10 @@ pl.readPolygonXML(path);
 pl.readPolygonWKT(path);
 </code></pre>
 
+* **The Moedem Class**  
+You won't need to use this class directly. Just know that using this class, you can create K-Modems. Every modem will have a Peneteration Rate (_k_) and a 2D cordinate (x and y).
+<br>
+* **VPCalculator*
 
 Future updates may include support for common CAD file formats like .DXF or .DWG.
 ## Credits
