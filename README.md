@@ -192,7 +192,9 @@ As you are creating an object, the parameters that you'll need to pass to the co
     
     Now that you are familiar with the parameters, you can create objects like this:<pre>
  <code class="language-jave">GeneticsAlgorithm gna;
-    gna = new GeneticsAlgorithm(polygon, numberOfModems, k , monteCarloItter, popSize, mutationRate, numberOfGens)</code></pre>
+    gna = new GeneticsAlgorithm(
+            polygon, numberOfModems, k , monteCarloItter, popSize, mutationRate, numberOfGens
+                                )</code></pre>
 
 
 
