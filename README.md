@@ -144,14 +144,14 @@ _**Note**: Reading this section is optional, skip to **How To Use** if not inter
 I won't go deep into details of the code (for that, refer to [Technical Details](TechincalDetails.md#problem_description)) but I will give you enough information to be able to understand the basic idea of it.<br>
 I will begin with explaining the classes.<br>
 * The Polygon Class  
-    As the name implies, Using this class you can import your polygons into the program. Note that the programs design is based  on **Importing the Polygons** and not to create them on sight using code or GUI.<br>
+    As the name implies, Using this class you can import your polygons into the program. Note that the programs design is based  on **Importing the Polygons** and not to create them on sight using code or GUI.<br><br>
 You can create polygons in two ways.  
-
     1. Using empty constructor to build an object and reading the poygon later.<br>
 ```java
 Polygon pl = new Polygon();
 pl.readPolygonXML(path);
-```
+``` 
+
     2. Passing path directly to the constructor.<br>
 ```java
 Polygon pl = new Polygon(path);
