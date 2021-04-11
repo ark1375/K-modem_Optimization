@@ -153,8 +153,7 @@ pl.readPolygonXML(path);
 </code></pre>
     - Passing path directly to the constructor.<pre>
     <code class = "language-java">Polygon pl = new Polygon(path)</code></pre>  
-    
- Polygon class can read XML files created by JTS TestBuilder. It is also compatible with WKT files. But in order to take advantage of WKT you need to create an empty object and use `readPolygonWKT` method to read WKT directly (check out the box bellow).<pre>
+    Polygon class can read XML files created by JTS TestBuilder. It is also compatible with WKT files. But in order to take advantage of WKT you need to create an empty object and use `readPolygonWKT` method to read WKT directly (check out the box bellow).<pre>
 <code class = "language-java">Polygon pl = new Polygon();
 pl.readPolygonWKT(path);
 </code></pre>
