@@ -70,8 +70,8 @@ The +++++ part of the guide is on building JTS and using its TestBuilder tool fo
 ### Installation  
 
 1. **Installing Git**  
-    
-Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Component* window, make sure to check `Git Bash Here` under the *Windows Explorer integration* tab. Other than that, use the installation's recommended settings and you're good to go.<br><br>
+
+    Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Component* window, make sure to check `Git Bash Here` under the *Windows Explorer integration* tab. Other than that, use the installation's recommended settings and you're good to go.<br><br>
 
 
 2. **Installing Maven**  
