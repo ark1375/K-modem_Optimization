@@ -45,7 +45,7 @@ Using the available code alongside JTS Testbuilder, you can create your own maps
 _Having knowledge of Java for running and simple use of the code is not essential though recomended_  
 
 1. **JDK 8 (Or Higher)**  
-Because some essential part of the code is written using newer features of Java, installing JDK8 or higher is a requirement for running the project.<br>*Warning!* You need **JDK (Java Development Kit)** for building and running the project.<br>DO NOT INSTALL JRE (Java Runtime Environment).  
+Because some essential part of the code is written using newer features of Java, installing JDK8 or higher is a requirement for running the project.<br><br>*Warning!* You need **JDK (Java Development Kit)** for building and running the project.<br>DO NOT INSTALL JRE (Java Runtime Environment).  
 2. **Maven 3.6**  
 Having Maven around is Recommended. With Maven installed, you don't need to worry about dependencies and package installations. Also, the installation guide in this readme is directly using Maven for building the project.
 
