@@ -161,8 +161,8 @@ pl.readPolygonWKT(path);
 </code></pre>
 
 * **The Moedem Class**  
-You won't need to use this class directly. Just know that using this class, you can create K-Modems. Every modem will have a Peneteration Rate (_k_) and a 2D cordinate (x and y).
-<br>
+You won't need to use this class directly. Just know that this is K-Modem class. Every modem will have a Peneteration Rate (_k_) and a 2D cordinate (_x_ and _y_).  
+
 * **VPCalculator*
 
 Future updates may include support for common CAD file formats like .DXF or .DWG.
