@@ -60,8 +60,8 @@ However, you need to make a little modification to your NetBeans to build the pr
 _Cloning_ and _Building_ the JTS repo is recommended though not necessary. After building JTS, You can use the **JTS TestBuilder** to create your own test cases for running the code. Find out more about it in the installation section.  
 
 ## Installation and Setup
-_**Note:** This installation and setup guide is for Windows operating system. Future updates may include support for Linux._<br>
-If you are new to writing and building programs, make sure to follow every step of the installation and setup. It will cover **ALL** the things you need to do to run the code.  
+_**Note:** This installation and setup guide is for Windows operating system. Future updates may include support for Linux._<br><br>
+If you are new to writing and building programs, make sure to follow every step of the installation and setup. It will cover **ALL** the things you need to do to run the code.<br>
 The +++++ part of the guide is on building JTS and using its TestBuilder tool for creating your own test cases. You can skip that if you are not interested in that. 
 ### Installation Guide<br>  
 
