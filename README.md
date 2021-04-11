@@ -3,7 +3,7 @@
 Welcome to Model-SA.   
 
 This project is a simple solution for the **K-Modem Illumination Problem**.<br>
-We used the Monte Carlo technique alongside with Genetics Algorithm for solving the problem.<br>
+We used the Monte Carlo technique alongside with Genetics Algorithm for solving the problem.<br>  
 The code itself is written in __Java__ (Requirements are listed below) and it is heavily dependent on the JTS geometry library.   
 
 This repository contains   
@@ -32,7 +32,7 @@ For the original description of the K-Modem problem, check out the [Technical De
 _**Note**: This is a subset of the original K-Modem illumination problem and it is the actual problem that the code is written for. With little adjustments (check [Technical Details](TechincalDetails.md#problem_description)) the code can solve the original problem as well. The solution code for the original K-Modem Illumination problem will be included in future updates._  
   
 
-Let **_P_** be a simple polygon consist of an outer shell (the outer walls) and zero or more holes (check the screenshot below). Given the number of k-modems available **_q_**, and the penetration rate **_k_**, what are the best coordinates to put the k-modems on, such that the maximum area of the given polygon is covered<br>  
+Let **_P_** be a simple polygon consist of an outer shell (the outer walls) and zero or more holes (check the screenshot below). Given the number of k-modems available **_q_**, and the penetration rate **_k_**, what are the best coordinates to put the k-modems on, such that the maximum area of the given polygon is covered<br>
 Another custom variation of the problem comes from the assumption that the k-modems can have signal confliction. If any point is covered by more than one k-modem, signal confliction happens and the point is not covered anymore.   
 ![sc1](/docs/screenshots/sc1.jpg)
 
@@ -44,20 +44,15 @@ Using the available code alongside JTS Testbuilder, you can create your own maps
 ## Requirements
 _Having knowledge of Java for running and simple use of the code is not essential though recomended_  
 
-1. **JDK 8 (Or Higher)**  
-Because some essential part of the code is written using newer features of Java, installing JDK8 or higher is a requirement for running the project.<br><br>*Warning!* You need **JDK (Java Development Kit)** for building and running the project.<br>DO NOT INSTALL JRE (Java Runtime Environment).  
+1. **JDK 8 (Or Higher)**<br>
+*Warning!* You need **JDK (Java Development Kit)** for building and running the project.<br>DO NOT INSTALL JRE (Java Runtime Environment).  
 2. **Maven 3.6**  
-Having Maven around is Recommended. With Maven installed, you don't need to worry about dependencies and package installations. Also, the installation guide in this readme is directly using Maven for building the project.
 
 3. **Git and Git Bash**  
-Download and install the latest version of Git Bash for convenient use of Git.
 
-4. **NetBeans 8 (Or Higher)** _Recomended_  
-The project itself is written using NetBeans so for convenient use, it is recommended to have NetBeans installed as well.  
-However, you need to make a little modification to your NetBeans to build the project directly. More on that in the Installation section.  
+4. **NetBeans 8 (Or Higher)** _Recomended_   
 
 5. **Clone JTS Repository** _Recomended_  
-_Cloning_ and _Building_ the JTS repo is recommended though not necessary. After building JTS, You can use the **JTS TestBuilder** to create your own test cases for running the code. Find out more about it in the installation section.  
 
 ## Installation and Setup
 _**Note:** This installation and setup guide is for Windows operating system. Future updates may include support for Linux._<br><br>
@@ -91,9 +86,9 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
 3. **Installing JDK**  
 
-    - Head to [Oracles Websit](https://www.oracle.com/java/technologies/javase-downloads.html) and download JDK.
+    - Head to [Oracles Website](https://www.oracle.com/java/technologies/javase-downloads.html) and download JDK.
     
-    - Run the installation. It must be pretty straightforward. Use the recommended settings for installation. Just remember the directory that you are installing JDK in.
+    - Run the installation. Use the recommended settings for installation. Just remember the directory that you are installing JDK in.
     - When the installation is over, follow [these](https://javatutorial.net/set-java-home-windows-10) instructions to add **JAVA_HOME** to your environment variables.
     - Open a command-line prompt and type in `java -version`. It must show something like this:<pre>
 <code>java version "1.8.0_261"
