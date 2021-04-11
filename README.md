@@ -109,7 +109,18 @@ Installing the NetBeans is optional but recommended. Download and install NetBea
     **_Note:_** While installing the NetBeans, you will encounter a field in which you need to pass in the directory you installed JDK in. If you installed JDK correctly, this field should be filled automatically. If not, close the setup, follow the instructions provided in the last paragraph of _Installing JDK_ and run the setup again.
     <br><br>
 
-### Setup the Project
+### Setup the Project<br>  
+Now that we installed all the requirements of the project, it's time to set them up.<br>
+1. **Clone the Repository**  
+
+    - Create an empty folder anywhere in your computer and navigate inside it.
+    - Right Click and chose __Git Bash Here__.
+    - In the opened up shell prompt, type in `git clone https://github.com/ark1375/model_SA.git` and hit enter.<br>
+    Git will download the repository from the github server.<br>
+
+2. **Build the Project using Maven**  
+
+    - 
 
 ## A Tour of the Code
 
