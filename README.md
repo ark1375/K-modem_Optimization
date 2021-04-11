@@ -46,7 +46,7 @@ _Having knowledge of Java for running and simple use of the code is not essentia
 
 1. **JDK 8 (Or Higher)**<br>
 *Warning!* You need **JDK (Java Development Kit)** for building and running the project.<br>DO NOT INSTALL JRE (Java Runtime Environment).  
-2. **Maven 3.6**  
+2. **Maven 3.6 (Or Higher)**  
 
 3. **Git and Git Bash**  
 
