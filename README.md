@@ -210,10 +210,9 @@ As you are creating an object, the parameters that you'll need to pass to the co
     One additional option is `gna.getTopTenResults()` which returns a 10 size ArrayList of best K-Modem Arrays.<br><br>
     _**Note:** Future updates will include a faster algorithims for calculating modem coverage. This will increase total speed of program considerably._
     
-    
-    
-    
-    
+### How to Use<br>
+
+
     For each itteration of the algorithim, you will have something printed out in your console.
     ```
     Itteration: 1
@@ -233,12 +232,6 @@ As you are creating an object, the parameters that you'll need to pass to the co
     System.out.println(gna.getPopulation().get(0));
     ```
     This will print out the best indivuals genes which is the cordinates of the modem.
-    
-
-### How to Use<br>
-
-
-
 
 
 
