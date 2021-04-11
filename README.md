@@ -142,7 +142,7 @@ Now that you setedup everything you need, it's time to learn how to run and how 
 ### A Tour of the Code<br>
 _**Note**: Reading this section is optional, skip to **How To Use** if not interestead._<br>
 I won't go deep into details of the code (for that, refer to [Technical Details](TechincalDetails.md#problem_description)) but I will give you enough information to be able to understand the basic idea of it.<br>
-I will begin with explaining the classes.<br>
+I will begin with explaining the important classes.<br>
 * __The Polygon Class__  
     As the name implies, Using this class you can import your polygons into the program. Note that the programs design is based  on **Importing the Polygons** and not to create them on sight using code or GUI.<br><br>
 You can create polygons in two ways.  
@@ -163,7 +163,38 @@ pl.readPolygonWKT(path);
 * **The Moedem Class**  
 You won't need to use this class directly. Just know that this is K-Modem class. Every modem will have a Peneteration Rate (_k_) and a 2D cordinate (_x_ and _y_).  
 
-* **VPCalculator*
+* **VPCalculator Class**
+This static class contains algorithms for calculating the visiblity areas of modems (where there is signal coverage).<br>
+You won't be using this class directly as well.
+
+* **GeneticsAlgorithm Class**  
+This is the heart of the project. GeneticAlgorithm is the class that handles everything. After importing a polygon into the program, you have to use this class to pass in your desiered parameters and find the optimal solutions. It will do so by creating a population of arbitary size and run **Genetics Algorithm** on them.<br>
+As you are creating an object, the parameters that you'll need to pass to the constructor are listed in order:
+    - The Polygon
+    - Number of Modems
+    - Default K Value<br>   Peneteration Rate of Signals, _how many walls signals can pass thorugh_)
+    - Monte Carlo Itterations<br>   Because the program is using a method called Monte Carlo Method to estimate the signal coverage of the modems, you need to determain the number of itterations for the method. Obviouslt, higher number of itterations will lead to higher precisions but at the cost of system resources. **Set this number somewhere between 1000 and 10000 based on your CPU power.**. 
+    - Size of Population<br>
+    This is the population that you'll be running genetics algorithm on. Higher values will lead to faster convergance and higher precissions but proceed with caution. Setting this number too high will consume an enormous amount of system power. **Set this number somewhere between 100 and 1000 based on your CPU power.**
+    - Mutation Rate<br>
+    This will determain how many indiviuals in the population will Mutate in every generation. You have to pass in a number between 0 and 1.
+    For example if you have a mutation rate of 0.1, in every generation, 10% of the population will be mutated randomly.
+    - Generations<br>
+    This parameter will detrmin the number of itterations for genetics algorihthim. Obviously, higher number of itterations will lead to more acurate result but at the price of time. **Set this number between 25 and 100 based on your system power and your own patiance.**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Future updates may include support for common CAD file formats like .DXF or .DWG.
 ## Credits
