@@ -150,8 +150,9 @@ You can create polygons in two ways.
 ```java
 Polygon pl = new Polygon();
 pl.readPolygonXML(path);
-``` 
-    - Passing path directly to the constructor.<br>
+```
+<br> 
+    - Passing path directly to the constructor.
 ```java
 Polygon pl = new Polygon(path);
 ```
