@@ -69,7 +69,7 @@ If you are new to writing and building programs, make sure to follow every step 
 The +++++ part of the guide is on building JTS and using its TestBuilder tool for creating your own test cases. You can skip that if you are not interested in that. 
 ### Installation  
 
-1. **Installing Git**  
+1. **Installing Git**  <br>
 Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Component* window, make sure to check `Git Bash Here` under the *Windows Explorer integration* tab. Other than that, use the installation's recommended settings and you're good to go.<br><br>
 
 
