@@ -106,8 +106,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.261-b12, mixed mode)
 </code></pre>
     - If you encounter any errors, follow [these](https://www.javatpoint.com/how-to-set-path-in-java) instructions.  
     
-<br></br>    
-4. **Installing NetBeans** _optional_  
+    
+4. **Installing NetBeans** _optional_<br>  
 Installing the NetBeans is optional but recommended. Download and install NetBeans using [this link](https://netbeans.apache.org/download/index.html).<br>
     **_Note:_** While installing the NetBeans, you will encounter a field in which you need to pass in the directory you installed JDK in. If you installed JDK correctly, this field should be filled automatically. If not, close the setup, follow the instructions provided in the last paragraph of _Installing JDK_ and run the setup again.
 
