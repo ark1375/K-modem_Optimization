@@ -58,6 +58,7 @@ public class GeneticsAlgorithm {
         
         population.sort(Comparator.comparing(Chromosome::getFitness));
         Collections.reverse(population);
+        System.out.printf("Best Chromosome:%f\tWorst Chromosome:%f\n" , population.get(0).getFitness() , population.get(population.size()-1).getFitness());
         
     }
     
@@ -90,6 +91,9 @@ public class GeneticsAlgorithm {
 //            System.out.printf("Selection Done \nBCF: %f \n\n**********************\n" , population.get(0).getFitness());
             
         }
+        
+        for (int i=0 ; i < 10 ; i++)
+            System.out.printf("Chromosome %d Fitness: %f\n" , i , population.get(i).getFitness());
     
     }
     
@@ -112,7 +116,8 @@ public class GeneticsAlgorithm {
             Modem randomModem = new Modem(crdRandom.x , crdRandom.y , defaultKValue);
             int whichModem = new Random().nextInt(numberOfModems);
             
-            population.get(i).modemList[whichModem] = randomModem;     
+            population.get(i).modemList[whichModem] = randomModem;  
+            population.get(i).setFitness();
             
         }
     
@@ -133,7 +138,7 @@ public class GeneticsAlgorithm {
         ArrayList<Modem[]> topTen = new ArrayList<>();
         
         for (int i = 0 ; i < 10 ; i++)
-            topTen.add( population.get(0).modemList );
+            topTen.add( population.get(i).modemList );
         
         return topTen;
     
