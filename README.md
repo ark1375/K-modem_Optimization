@@ -147,13 +147,15 @@ I will begin with explaining the important classes.<br>
     As the name implies, Using this class you can import your polygons into the program. Note that the programs design is based  on **Importing the Polygons** and not to create them on sight using code or GUI.<br><br>
 You can create polygons in two ways.  
 
-    - Using empty constructor to build an object and reading the poygon later.<pre>
-<code class = "language-java">Polygon pl = new Polygon();
-pl.readPolygonXML(path);
-</code></pre>
+    - Using empty constructor to build an object and reading the poygon later.
+        ```java
+        Polygon pl = new Polygon();
+        pl.readPolygonXML(path);
+        ```
     - Passing path directly to the constructor.<pre>
-<code class = "language-java">Polygon pl = new Polygon(path)</code></pre>
-
+        ```java
+        Polygon pl = new Polygon(path);
+        ```
 
     Polygon class can read XML files created by JTS TestBuilder. It is also compatible with WKT files. But in order to take advantage of WKT you need to create an empty object and use `readPolygonWKT` method to read WKT directly (check out the box bellow).<br>
     ```java
