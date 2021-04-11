@@ -70,7 +70,7 @@ The +++++ part of the guide is on building JTS and using its TestBuilder tool fo
 ### Installation  
 
 1. **Installing Git**  
-Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Component* window, make sure to check `Git Bash Here` under the *Windows Explorer integration* tab. Other than that, use the installation's recommended settings and you're good to go.  
+Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Component* window, make sure to check `Git Bash Here` under the *Windows Explorer integration* tab. Other than that, use the installation's recommended settings and you're good to go.<br><br>
 
 
 2. **Installing Maven**  
@@ -104,13 +104,14 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 Java(TM) SE Runtime Environment (build 1.8.0_261-b12)
 Java HotSpot(TM) 64-Bit Server VM (build 25.261-b12, mixed mode)
 </code></pre>
-    - If you encounter any errors, follow [these](https://www.javatpoint.com/how-to-set-path-in-java) instructions.  
+    - If you encounter any errors, follow [these](https://www.javatpoint.com/how-to-set-path-in-java) instructions.<br><br>
     
     
 4. **Installing NetBeans** _optional_  
 Installing the NetBeans is optional but recommended. Download and install NetBeans using [this link](https://netbeans.apache.org/download/index.html).<br>
 
     **_Note:_** While installing the NetBeans, you will encounter a field in which you need to pass in the directory you installed JDK in. If you installed JDK correctly, this field should be filled automatically. If not, close the setup, follow the instructions provided in the last paragraph of _Installing JDK_ and run the setup again.
+    <br><br>
 
 ### Setup the Project
 
