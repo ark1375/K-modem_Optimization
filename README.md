@@ -159,6 +159,8 @@ pl.readPolygonXML(path);
 <code class = "language-java">Polygon pl = new Polygon();
 pl.readPolygonWKT(path);
 </code></pre>
+    Future updates may include support for common CAD file formats like .DXF or .DWG.
+
 
 * **The Moedem Class**  
 You won't need to use this class directly. Just know that this is K-Modem class. Every modem will have a Peneteration Rate (_k_) and a 2D cordinate (_x_ and _y_).  
@@ -202,7 +204,6 @@ As you are creating an object, the parameters that you'll need to pass to the co
 
 
 
-Future updates may include support for common CAD file formats like .DXF or .DWG.
 ## Credits
 
 ## Sources
