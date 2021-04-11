@@ -115,12 +115,23 @@ Now that we installed all the requirements of the project, it's time to set them
 
     - Create an empty folder anywhere in your computer and navigate inside it.
     - Right Click and chose __Git Bash Here__.
-    - In the opened up shell prompt, type in `git clone https://github.com/ark1375/model_SA.git` and hit enter.<br>
-    Git will download the repository from the github server.<br>
+    - In the opened up Bash Prompt, type in `git clone https://github.com/ark1375/model_SA.git` and hit enter.<br>
+    Git will clone the repository from the github server to your local machine.<br>
 
-2. **Build the Project using Maven**  
+2. **Using Maven to Install Dependencies**  _Skip this part if you are using NetBeans_    
 
-    - 
+    - Inside the cloned repository, you can find a **pom.xml** file. This is the mavens pom file that specifies the details of the project including build options and most importantly, dependencies.
+    - Open a comand prompt (cmd) and navigate inside the cloned repository. 
+    - Type in `mvn clean install`. Using this command, maven will install all the dependencies you need to run the project.
+    
+3. **Configuring NetBeans**  _Skip this part if you are using Maven_ <br>
+NetBeans should automaticaly recognize the repository as a _Project Direcotry_. Using __Open Project..._ from the file menu, open the project inside NetBeans.<br>
+If you are using NetBeans 11 or higher, you simply can Build and Run the project. NetBeans uses Maven directl to automaticaly install dependencies. __However__ it is recomended to update NetBeans Maven especialy if you are using an older version of NetBeans.<br>
+For updating NetBeans Maven:  
+    - Download the Maven's Bin file explained in **Installing Maven** section one. 
+    - Extract it and copy all the files inside the `apache-maven-version` folder.
+    - Navigate inside NetBeans installation directory and open `Java` folder.
+    - Instide `maven` folder, paste and replace everything that you copied.
 
 ## A Tour of the Code
 
