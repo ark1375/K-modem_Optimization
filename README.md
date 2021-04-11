@@ -3,7 +3,7 @@
 Welcome to Model-SA.   
 
 This project is a simple solution for the **K-Modem Illumination Problem**.<br>
-We used the Monte Carlo technique alongside with Genetics Algorithm for solving the problem.<br>  
+We used the Monte Carlo technique alongside with Genetics Algorithm for solving the problem.<br>
 The code itself is written in __Java__ (Requirements are listed below) and it is heavily dependent on the JTS geometry library.   
 
 This repository contains   
