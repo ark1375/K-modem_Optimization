@@ -208,7 +208,7 @@ As you are creating an object, the parameters that you'll need to pass to the co
     `gna.getPopulation()` will return an ArrayList of the population. Each element of ArrayList is a **Chromosome** which contains an array of K-Modems. You can use a code like `gna.getPopulation().get(someIndex).modemList` to have access to the ArrayList of K-Modems.<br>
     Also you can use `gna.getBestGene()` to directly access the best gene availabe. This will return an array of K-Modems.
     One additional option is `gna.getTopTenResults()` which returns a 10 size ArrayList of best K-Modem Arrays.<br><br>
-    _**Note:** Future updates will include a faster algorithims for calculating modem coverage. This will increase total speed of program considerably.
+    _**Note:** Future updates will include a faster algorithims for calculating modem coverage. This will increase total speed of program considerably._
     
     
     
