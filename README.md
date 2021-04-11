@@ -191,8 +191,8 @@ As you are creating an object, the parameters that you'll need to pass to the co
     This parameter will detrmin the number of itterations for genetics algorihthim. Obviously, higher number of itterations will lead to more acurate result but at the price of time.<br> **Set this number between 25 and 100 based on your system power and your own patiance.**
     
     Now that you are familiar with the parameters, you can create objects like this:<pre>
- <code class="language-java">GeneticsAlgorithm gna;
-    gna = new GeneticsAlgorithm( poly, numOfModems, k , MCItter, popSize, mutRate, numOfGens )</code></pre>
+ <code class="java">GeneticsAlgorithm gna;
+    gna = new GeneticsAlgorithm( poly, numOfModems, k , MCItter, popSize, mutRate, numOfGens );</code></pre>
 
 
 
