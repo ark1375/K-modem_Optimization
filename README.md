@@ -137,9 +137,33 @@ In order to use JTS TestBuilder to create your own polygons and geometries, you 
     - Use `java -jar modules/app/target/JTSTestBuilder.jar` to run JTS TestBuilder.<br><br>
     Head to [JTS Repository](https://github.com/locationtech/jts) for more information about JTS geometry library.<br>
 
-## A Tour of the Code
+## How to Use?<br>
+Now that you setedup everything you need, it's time to learn how to run and how to properly use the code. A little tour of the code will be a great place to start.
+### A Tour of the Code<br>
+_**Note**: Reading this section is optional, skip to **How To Use** if not interestead._<br>
+I won't go deep into details of the code (for that, refer to [Technical Details](TechincalDetails.md#problem_description)) but I will give you enough information to be able to understand the basic idea of it.<br>
+I will begin with explaining the classes.<br>
+* The Polygon Class  
+    As the name implies, Using this class you can import your polygons into the program. Note that the programs design is based  on **Importing the Polygons** and not to create them on sight using code or GUI.  
+You can create polygons in two ways.
 
-## How to Use?
+    1. Using empty constructor to build an object and reading the poygon later.<br>
+```java
+Polygon pl = new Polygon();
+pl.readPolygonXML(path);
+```
+    2. Passing path directly to the constructor.<br>
+```java
+Polygon pl = new Polygon(path);
+```
+
+ Polygon class can read XML files created by JTS TestBuilder. It is also compatible with WKT files. But in order to take advantage of WKT you need to create an empty object and use `readPolygonWKT` method to read WKT directly (check out the box bellow).
+```java
+Polygon pl = new Polygon();
+pl.readPolygonWKT(path);
+```
+
+
 Future updates may include support for common CAD file formats like .DXF or .DWG.
 ## Credits
 
