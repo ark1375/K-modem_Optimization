@@ -124,7 +124,7 @@ Now that we installed all the requirements of the project, it's time to set them
     - Open a comand prompt (cmd) and navigate inside the cloned repository. 
     - Type in `mvn clean install`. Using this command, maven will install all the dependencies you need to run the project.
     
-3. **Configuring NetBeans**  _Skip this part if you are using Maven_ <br><SUP>&nbsp;</SUP>
+3. **Configuring NetBeans**  _Skip this part if you are using Maven_ <SUP>&nbsp;</SUP><br>
 NetBeans should automaticaly recognize the repository as a _Project Direcotry_. Using __Open Project...__ from the file menu, open the project inside NetBeans.<br>
 If you are using NetBeans 11 or higher, you simply can Build and Run the project. NetBeans uses Maven directl to automaticaly install dependencies. __However__ it is recomended to update NetBeans Maven especialy if you are using an older version of NetBeans.<br><br>
 For updating NetBeans Maven:
