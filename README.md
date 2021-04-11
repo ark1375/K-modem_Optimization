@@ -2,8 +2,8 @@
 
 Welcome to Model-SA.   
 
-This project is a simple solution for the **K-Modem Illumination Problem**.  
-We used the Monte Carlo technique alongside with Genetics Algorithm for solving the problem.  
+This project is a simple solution for the **K-Modem Illumination Problem**.<br>
+We used the Monte Carlo technique alongside with Genetics Algorithm for solving the problem.<br>  
 The code itself is written in __Java__ (Requirements are listed below) and it is heavily dependent on the JTS geometry library.   
 
 This repository contains   
@@ -12,8 +12,8 @@ This repository contains  
 - Test Cases   
 - A Randomly generated dataset of simple geometries   
 
-**Warning!**   
-The following readme file **Dose Not** contains detailed information about the problem.  
+**Warning!**<br>
+The following readme file **Dose Not** contains detailed information about the problem.<br>  
 For further information on technical details of the problem, experiments, and their results, check out [Technical Details](TechincalDetails.md).
 
 ## Table of Contents
@@ -32,7 +32,7 @@ For the original description of the K-Modem problem, check out the [Technical De
 _**Note**: This is a subset of the original K-Modem illumination problem and it is the actual problem that the code is written for. With little adjustments (check [Technical Details](TechincalDetails.md#problem_description)) the code can solve the original problem as well. The solution code for the original K-Modem Illumination problem will be included in future updates._  
   
 
-Let **_P_** be a simple polygon consist of an outer shell (the outer walls) and zero or more holes (check the screenshot below). Given the number of k-modems available **_q_**, and the penetration rate **_k_**, what are the best coordinates to put the k-modems on, such that the maximum area of the given polygon is covered.   
+Let **_P_** be a simple polygon consist of an outer shell (the outer walls) and zero or more holes (check the screenshot below). Given the number of k-modems available **_q_**, and the penetration rate **_k_**, what are the best coordinates to put the k-modems on, such that the maximum area of the given polygon is covered<br>  
 Another custom variation of the problem comes from the assumption that the k-modems can have signal confliction. If any point is covered by more than one k-modem, signal confliction happens and the point is not covered anymore.   
 ![sc1](/docs/screenshots/sc1.jpg)
 
