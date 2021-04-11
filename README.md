@@ -62,7 +62,7 @@ _Cloning_ and _Building_ the JTS repo is recommended though not necessary. After
 ## Installation and Setup
 _**Note:** This installation and setup guide is for Windows operating system. Future updates may include support for Linux._<br><br>
 If you are new to writing and building programs, make sure to follow every step of the installation and setup. It will cover **ALL** the things you need to do to run the code.<br>
-**Setup the Project** section 4 is about building JTS and using its TestBuilder tool for creating your own test cases. You can skip it if you are not interested in that. 
+**Setup the Project Section 4** is about building JTS and using its TestBuilder tool for creating your own test cases. You can skip it if you are not interested in that. 
 ### Installation Guide<br>  
 
 1. **Installing Git**  
