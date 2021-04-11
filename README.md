@@ -145,7 +145,7 @@ I won't go deep into details of the code (for that, refer to [Technical Details]
 I will begin with explaining the classes.<br>
 * The Polygon Class  
     As the name implies, Using this class you can import your polygons into the program. Note that the programs design is based  on **Importing the Polygons** and not to create them on sight using code or GUI.<br>
-You can create polygons in two ways.
+You can create polygons in two ways.  
     1. Using empty constructor to build an object and reading the poygon later.<br>
 ```java
 Polygon pl = new Polygon();
