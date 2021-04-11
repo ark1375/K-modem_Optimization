@@ -151,7 +151,7 @@ You can create polygons in two ways.
 Polygon pl = new Polygon();
 pl.readPolygonXML(path);
 ```
-<br> 
+<br>
     - Passing path directly to the constructor.
 ```java
 Polygon pl = new Polygon(path);
