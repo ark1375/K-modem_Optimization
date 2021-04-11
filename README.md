@@ -72,6 +72,7 @@ The +++++ part of the guide is on building JTS and using its TestBuilder tool fo
 1. **Installing Git**  
 Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Component* window, make sure to check `Git Bash Here` under the *Windows Explorer integration* tab. Other than that, use the installation's recommended settings and you're good to go.  
 
+
 2. **Installing Maven**  
     - Download Maven's **Binary zip archive** from [here](https://maven.apache.org/download.cgi). Extract the zip file in a secure location (for example your Program Files folder in Windows partition).
     
@@ -91,6 +92,7 @@ Default locale: en_US, platform encoding: ---- some code ----
 OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 </code></pre>Congratulations, you just installed Maven.  
 
+
 3. **Installing JDK**  
 
     - Head to [Oracles Websit](https://www.oracle.com/java/technologies/javase-downloads.html) and download JDK.
@@ -103,6 +105,7 @@ Java(TM) SE Runtime Environment (build 1.8.0_261-b12)
 Java HotSpot(TM) 64-Bit Server VM (build 25.261-b12, mixed mode)
 </code></pre>
     - If you encounter any errors, follow [these](https://www.javatpoint.com/how-to-set-path-in-java) instructions.  
+    
     
 4. **Installing NetBeans** _optional_  
 Installing the NetBeans is optional but recommended. Download and install NetBeans using [this link](https://netbeans.apache.org/download/index.html).<br>
