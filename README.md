@@ -198,9 +198,44 @@ As you are creating an object, the parameters that you'll need to pass to the co
     GeneticsAlgorithm gna;
     gna = new GeneticsAlgorithm( poly, numOfModems, k , MCItter, popSize, mutRate, numOfGens );
     ```
+    After creating your object, use `runGenetics` method to run the algorithim.
+    ```java
+    GeneticsAlgorithm gna;
+    gna = new GeneticsAlgorithm( poly, numOfModems, k , MCItter, popSize, mutRate, numOfGens );
+    gna.runGenetics();
+    ```
+    For getting the output of the algorithim, there are several `get` methodes provided in GeneticAlgorithm class for convinient use.<br>
+    `gna.getPopulation()` will return an ArrayList of the population. Each element of ArrayList is a **Chromosome** which contains an array of K-Modems. You can use a code like `gna.getPopulation().get(someIndex).modemList` to have access to the ArrayList of K-Modems.<br>
+    Also you can use `gna.getBestGene()` to directly access the best gene availabe. This will return an array of K-Modems.
+    One additional option is `gna.getTopTenResults()` which returns a 10 size ArrayList of best K-Modem Arrays.<br><br>
+    _**Note:** Future updates will include a faster algorithims for calculating modem coverage. This will increase total speed of program considerably.
+    
+    
+    
+    
+    
+    For each itteration of the algorithim, you will have something printed out in your console.
+    ```
+    Itteration: 1
+    Crossover Started
+    Crossover Done 
+    Mutation Started
+    Mutation Done 
+    Selection Started
+    Selection Done 
+    BCF: 0.996000
+    ```
+    BCF shows the Best Chromosome Fitness which is the score of the best indiviual of the population in the current run. The score is between 0 and 1 which shows the signal coverage inside the polygon. For example, in the previous print box, BCF is 0.996. That means the best indivual of the population (which is just a set of cordinates for the modems) has 99.6% signal coverage. In another words, if you put your modems acording to the best indivual, you will have 99.6% coverage.<br>
+    Now the question rises, how can you see these best cordinates?<br>
+    There are series of _get_ methods included in the GeneticsAlgorithm class that you can use to get these cordinates.<br>
+    One example is the `getPopulation()` method which returns an ArrayList of the chromosoms (whole population). This ArrayList will always be in order of best to worst, meaning the 0 index is the best of all. The code below is one example of using this method to your advantage.
+    ```java
+    System.out.println(gna.getPopulation().get(0));
+    ```
+    This will print out the best indivuals genes which is the cordinates of the modem.
+    
 
-
-
+### How to Use<br>
 
 
 
