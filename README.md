@@ -93,7 +93,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 </code></pre>Congratulations, you just installed Maven.  
 
 
-3. **Installing JDK**  
+<br>3. **Installing JDK**  
 
     - Head to [Oracles Websit](https://www.oracle.com/java/technologies/javase-downloads.html) and download JDK.
     
