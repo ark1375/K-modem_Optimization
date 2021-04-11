@@ -126,8 +126,8 @@ Now that we installed all the requirements of the project, it's time to set them
     
 3. **Configuring NetBeans**  _Skip this part if you are using Maven_ <br>
 NetBeans should automaticaly recognize the repository as a _Project Direcotry_. Using __Open Project..._ from the file menu, open the project inside NetBeans.<br>
-If you are using NetBeans 11 or higher, you simply can Build and Run the project. NetBeans uses Maven directl to automaticaly install dependencies. __However__ it is recomended to update NetBeans Maven especialy if you are using an older version of NetBeans.<br>
-For updating NetBeans Maven:  
+If you are using NetBeans 11 or higher, you simply can Build and Run the project. NetBeans uses Maven directl to automaticaly install dependencies. __However__ it is recomended to update NetBeans Maven especialy if you are using an older version of NetBeans.<br><br>
+For updating NetBeans Maven:
     - Download the Maven's Bin file explained in **Installing Maven** section one. 
     - Extract it and copy all the files inside the `apache-maven-version` folder.
     - Navigate inside NetBeans installation directory and open `Java` folder.
