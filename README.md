@@ -42,46 +42,46 @@ Using the available code alongside JTS Testbuilder, you can create your own maps
 
 
 ## Requirements
-_Having knowledge of Java for running and simple use of the code is not essential though recomended_  
-  
-1. **JDK 8 (Or Higher)**   
+_Having knowledge of Java for running and simple use of the code is not essential though recomended_  
+  
+1. **JDK 8 (Or Higher)**   
 Because some essential part of the code is written using newer features of Java, installing JDK8 or higher is a requirement for running the project. 
 
-    *Warning!*  
-    You need **JDK (Java Development Kit)** for building and running the project.  
-    DO NOT INSTALL JRE (Java Runtime Environment).   
-2. **Maven 3.6**  
+    *Warning!*  
+    You need **JDK (Java Development Kit)** for building and running the project.  
+    DO NOT INSTALL JRE (Java Runtime Environment).   
+2. **Maven 3.6**  
 Having Maven around is Recommended. With Maven installed, you don't need to worry about dependencies and package installations. Also, the installation guide in this readme is directly using Maven for building the project.
 
-3. **Git and Git Bash**  
-Download and install the latest version of Git Bash for convinient use of Git.
+3. **Git and Git Bash**  
+Download and install the latest version of Git Bash for convenient use of Git.
 
-4. **NetBeans 8 (Or Higher)** _Recomended_  
-The project itself is written using NetBeans so for convenient use, it is recommended to have NetBeans installed as well.  
-However, you need to make a little modification to your NetBeans to build the project directly. More on that in the Installation section.  
+4. **NetBeans 8 (Or Higher)** _Recomended_  
+The project itself is written using NetBeans so for convenient use, it is recommended to have NetBeans installed as well.  
+However, you need to make a little modification to your NetBeans to build the project directly. More on that in the Installation section.  
 
-5. **Clone JTS Repository** _Recomended_  
-_Cloning_ and _Building_ the JTS repo is recomended though not neccesary. After building JTS, You can use the **JTS TestBuilder** to create your own test cases for runinng the code. Find out more about it in the installation section.  
+5. **Clone JTS Repository** _Recomended_  
+_Cloning_ and _Building_ the JTS repo is recommended though not necessary. After building JTS, You can use the **JTS TestBuilder** to create your own test cases for running the code. Find out more about it in the installation section.  
 
 ## Installation and Setup
-**_Note:_** This installation and setup guide is for Windows operating system. Future updates may include support for linux.  
-If you are new too writing and building programs, make sure to follow every step of the installation and setup. It will cover **ALL** the things you need to do to run the code.  
-The +++++ part of the guide is on building JTS and using it's TestBuilder tool for creating your own test cases. You can skip that if your not interestead in that. 
-### Installation  
+**_Note:_** This installation and setup guide is for Windows operating system. Future updates may include support for Linux.  
+If you are new to writing and building programs, make sure to follow every step of the installation and setup. It will cover **ALL** the things you need to do to run the code.  
+The +++++ part of the guide is on building JTS and using its TestBuilder tool for creating your own test cases. You can skip that if you are not interested in that. 
+### Installation  
 
-1. **Installing Git**  
-Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Componenet* window, make sure to check `Git Bash Here` under *Windows Explorer integration* tab. Other than that, use the installations recomended settings and you're good to go.  
+1. **Installing Git**  
+Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Component* window, make sure to check `Git Bash Here` under the *Windows Explorer integration* tab. Other than that, use the installation's recommended settings and you're good to go.  
 
-2. **Installing Maven**  
-    -   Download Maven's **Binary zip archive** from [here](https://maven.apache.org/download.cgi). Extract the zip file in a secure loaction (for example your Prograrm Files folder in Windows partition).  
-    -   Now you need to add the mavens bin folder to your windows path envoirment variables.
-        * In the extracted maven directory, copy the bin folder's path (ie. `C:\Program Files\apache-maven-3.8.1\bin`).  
-        * Press `WIN + R` to open up *Run* (`WIN` is windows key on the keyboard) and type in `SystemPropertiesAdvanced`.  
-        * In *System Properties* window, click on *Envoirment Variable*.
-        * From the _System Variable_ section, click on _Path_ and then click on _Edit_. 
-        * In the pop-up window, click on _New_ and paste the path that you just copied and click _OK_ to make the changes. 
+2. **Installing Maven**  
+    -   Download Maven's **Binary zip archive** from [here](https://maven.apache.org/download.cgi). Extract the zip file in a secure location (for example your Program Files folder in Windows partition).  
+    -   Now you need to add the maven's bin folder to your windows path environment variables.
+        * In the extracted maven directory, copy the bin folder's path (ie. `C:\Program Files\apache-maven-3.8.1\bin`).  
+        * Press `WIN + R` to open up *Run* (`WIN` is the windows key on the keyboard) and type in `SystemPropertiesAdvanced`.  
+        * In *System Properties* window, click on *Environment Variable*.
+        * From the _System Variable_ section, click on _Path_ and then click on _Edit_. 
+        * In the pop-up window, click on _New_ and paste the path that you just copied and click _OK_ to make the changes. 
 
-    -   Open up a command prompt and use `mvn --version`.
+    -   Open up a command prompt and use `mvn --version`.
 It must show something like this:<pre>
 <code>Apache Maven 3.6.3 (--------------some code--------------)
 Maven home: C:\Program Files (x86)\apache-maven-3.6.3\bin\..
@@ -90,21 +90,23 @@ Default locale: en_US, platform encoding: ---- some code ----
 OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 </code></pre>Congratulations, you just installed Maven.
 
-3. **Installing JDK**  
-    -   Head to [Oracles Websit](https://www.oracle.com/java/technologies/javase-downloads.html) and download JDK.  
-    
-    -   Run the installation. It must be prety straight forward. Just remember the directory that you are installing JDK in.  
-    
-    -   When the installation is over, follow [these](https://javatutorial.net/set-java-home-windows-10) instructions to add **JAVA_HOME** to your enviroment variables.  
-    
-    -   Open a command line prompt and type in `java -version`. It must show something like this:<pre>
+3. **Installing JDK**  
+    -   Head to [Oracles Websit](https://www.oracle.com/java/technologies/javase-downloads.html) and download JDK.  
+    
+    -   Run the installation. It must be pretty straightforward. Use the recommended settings for installation. Just remember the directory that you are installing JDK in.  
+    
+    -   When the installation is over, follow [these](https://javatutorial.net/set-java-home-windows-10) instructions to add **JAVA_HOME** to your environment variables.  
+    
+    -   Open a command line prompt and type in `java -version`. It must show something like this:<pre>
 <code>java version "1.8.0_261"
 Java(TM) SE Runtime Environment (build 1.8.0_261-b12)
 Java HotSpot(TM) 64-Bit Server VM (build 25.261-b12, mixed mode)
-</code></pre>  
-    
-4. **Installing NetBeans** _optional_  
-Installing the NetBeans is optional but recomended. Download and install NetBeans using [this](https://netbeans.apache.org/download/index.html) link.  
+</code></pre>  
+    -   If you encounter any errors, follow [these](https://www.javatpoint.com/how-to-set-path-in-java) instructions.
+    
+4. **Installing NetBeans** _optional_  
+    Installing the NetBeans is optional but recommended. Download and install NetBeans using [this link](https://netbeans.apache.org/download/index.html).<br>
+    **_Note:_** While installing the NetBeans, you will encounter a field in which you need to pass in the directory you installed JDK in. If you installed JDK correctly, this field should be filled automatically. If not, close the setup, follow the instructions provided in the last paragraph of _Installing JDK_ and run the setup again.
 
 ### Setup the Project
 
