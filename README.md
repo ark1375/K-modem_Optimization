@@ -120,8 +120,8 @@ Now that we installed all the requirements of the project, it's time to set them
     - Type in `mvn clean install`. Using this command, Maven handels the dependencies you need to run the project.
     
 3. **Configuring NetBeans**  _Skip this part if you are using Maven_ <br>
-NetBeans should automatically recognize the repository as a _Project Directory_. Using `Ctrl + Shift + O` you can open the repository directly inside NetBeans.<br>
-**Warning!**<br> _If you are using an older version of NetBeans (version 9 or bellow) you may want to update NetBeans Maven.<br><br>
+NetBeans should automatically recognize the repository as a _Project Directory_. Using `Ctrl + Shift + O` you can open the repository directly inside NetBeans.<br><br>
+:warning:**Warning!**<br> _If you are using an older version of NetBeans (version 9 or bellow) you may want to update NetBeans Maven._<br><br>
 For updating NetBeans Maven:
     - Download the Maven's Bin files as explained in **Installing Maven** section one. 
     - Extract it and copy all the files inside the `apache-maven-version` folder.
