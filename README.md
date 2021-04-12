@@ -3,7 +3,7 @@
 Welcome to Model-SA.   
 
 This project is a simple solution for the **K-Modem Illumination Problem**.<br>
-We used the Monte Carlo technique alongside with Genetics Algorithm for solving the problem.<br>  
+This soloution uses Monte Carlo technique alongside with Genetics Algorithm for solving the problem.<br>
 The code itself is written in __Java__ (Requirements are listed below) and it is heavily dependent on the JTS geometry library.   
 
 This repository contains   
@@ -20,8 +20,7 @@ For further information on technical details of the problem, experiments, and th
 * [Problem Description](#problem-description)
 * [Requirements](#requirements)
 * [Installation and Setup](#installation_and_setup) 
-* [A Tour of the Code](#a_tour_of_the_code) 
-* [How to use?](#how_to_use?)
+* [How to use?](#how_to_use)
 * [Credits](#credits)  
 
 ## Problem Description
@@ -57,7 +56,7 @@ _Having knowledge of Java for running and simple use of the code is not essentia
 ## Installation and Setup
 _**Note:** This installation and setup guide is for Windows operating system. Future updates may include support for Linux._<br><br>
 If you are new to writing and building programs, make sure to follow every step of the installation and setup. It will cover **ALL** the things you need to do to run the code.<br>
-**Setup the Project Section 4** is about building JTS and using its TestBuilder tool for creating your own test cases. You can skip it if you are not interested in that. 
+**Setup the Project, Section 4** is about building JTS and using its TestBuilder tool for creating your own test cases. You can skip it if you are not interested. 
 ### Installation Guide<br>  
 
 1. **Installing Git**  
@@ -65,11 +64,11 @@ If you are new to writing and building programs, make sure to follow every step 
 
 
 2. **Installing Maven**  
-    - Download Maven's **Binary zip archive** from [here](https://maven.apache.org/download.cgi). Extract the zip file in a secure location (for example your Program Files folder in Windows partition).
+    - Download Maven's **Binary zip archive** from [here](https://maven.apache.org/download.cgi). Extract the zip file in an arbiturary directory (for example your Program Files folder in Windows partition).
     
     - Now you need to add the Maven's bin folder to your windows path environment variables.
         * In the extracted Maven directory, copy the bin folder's path (ie. `C:\Program Files\apache-maven-3.8.1\bin`).
-        * Press `WIN + R` to open up *Run* (`WIN` is the windows key on the keyboard) and type in `SystemPropertiesAdvanced`.
+        * Press `WIN + R` to open up *Run* and type in `SystemPropertiesAdvanced`.
         * In *System Properties* window, click on *Environment Variable*.
         * From the _System Variable_ section, click on _Path_ and then click on _Edit_.
         * In the pop-up window, click on _New_ and paste the path that you just copied and click _OK_ to make the changes. 
@@ -105,23 +104,24 @@ Installing the NetBeans is optional but recommended. Download and install NetBea
     <br><br>
 
 ### Setup the Project<br>  
+After installing all the requirements, you can begin setting up the project
 Now that we installed all the requirements of the project, it's time to set them up.<br>
 1. **Clone the Repository**  
 
-    - Create an empty folder anywhere on your computer and navigate inside it.
+    - Create an empty folder on your computer and navigate inside it.
     - Right Click and chose __Git Bash Here__.
-    - In the opened-up Bash Prompt, type in `git clone https://github.com/ark1375/model_SA.git` and hit enter.<br>
-    Git will clone the repository from the GitHub server to your local machine.<br>
+    - Execute `git clone https://github.com/ark1375/model_SA.git` in the Bash Prompt.<br>
+    Git make's a clone of the repository in your local machine.<br>
 
 2. **Using Maven to Install Dependencies**  _Skip this part if you are using NetBeans_    
 
-    - Inside the cloned repository, you can find a **pom.xml** file. This is the Mavens pom file that specifies the details of the project including build options and most importantly, dependencies.
-    - Open a command prompt (cmd) and navigate inside the cloned repository. 
-    - Type in `mvn clean install`. Using this command, Maven will install all the dependencies you need to run the project.
+    - Inside the local repository, you can find a **pom.xml** file. This is the Maven's pom file which specifies details of the project including build options and most importantly, dependencies.
+    - Open a command prompt (cmd) and change directory to the local repository. 
+    - Type in `mvn clean install`. Using this command, Maven handels the dependencies you need to run the project.
     
 3. **Configuring NetBeans**  _Skip this part if you are using Maven_ <br>
-NetBeans should automatically recognize the repository as a _Project Direcotry_. Using __Open Project...__ from the file menu, open the project inside NetBeans.<br>
-If you are using NetBeans 11 or higher, you simply can Build and Run the project. NetBeans uses Maven directly to install dependencies. __However__ it is recomended to update NetBeans Maven especially if you are using an older version of NetBeans.<br><br>
+NetBeans should automatically recognize the repository as a _Project Directory_. Using `Ctrl + Shift + O` you can open the repository directly inside NetBeans.<br>
+**Warning!**<br> _If you are using an older version of NetBeans (version 9 or bellow) you may want to update NetBeans Maven.<br><br>
 For updating NetBeans Maven:
     - Download the Maven's Bin files as explained in **Installing Maven** section one. 
     - Extract it and copy all the files inside the `apache-maven-version` folder.
