@@ -11,7 +11,6 @@ This repository contains  
 - Documentation and Screenshots   
 - Test Cases   
 - A Randomly generated dataset of simple geometries   
-<br>
 
 > **Warning!**<br> _The following readme file **Dose Not** contains detailed information about the problem.<br>
 For further information on technical details of the problem, experiments, and their results, check out [Technical Details](TechincalDetails.md)_.
