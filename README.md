@@ -221,20 +221,22 @@ Polygon pl = new Polygon();
 ```
 Now, we have to import the polygon inside the program. Simply use `readPolygonXML(path)` method to do so.
 ```java
-//We asume that the local repo is on your desktop
 String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
 Polygon pl = new Polygon();
 pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
 ```
-After importing the polygon inside the program, you can begin working on it. Use `plotPolygon()` function to plot the Polygon and get an idea of what you'r working on.  
+>_Note:_ You can use `plotPolygon()` method to plot the Polygon and get an idea of what you'r working on.  
+
+After Importing the polygon, you may use **GeneticsAlgorithm** class to start the optimization process. Begin with creating an instence of __GeneticsAlgorithm__ class and pass some arbitary parameters to the constructor (for detail information about parameters, check out [here](#a-tour-of-the-code)).<br>Let's asume you have __3 k-modems__ with __0 penetration rate__ and you want to use __1000 Monte Carlo itterations__ with __200 initial population__, __25% mutation rate__. Last, let's run the algorithm for *20 generations** and see the results.<br>  
 ```java
 String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
 Polygon pl = new Polygon();
 pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
-pl.plotPolygon();
+
+GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 1000, 200, 0.25, 20);
+gna.runGenetics();
 ```
-You have to get something like this:<br>
-![sc3](/docs/screenshots/sc3.jpg)
+
 
 
 
