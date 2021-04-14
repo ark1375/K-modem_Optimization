@@ -220,6 +220,12 @@ pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
         
 //(Polygon , NumberOfModems , DefaultKValue , MonteCarloItterations , Population , MutationRate , Generations)
         
+Polygon pl = new Polygon();
+String repoPath = "E:\\Projects\\Projects 2020\\CS final project\\Model - SA\\Model_SA";
+pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
+        
+//(Polygon , NumberOfModems , DefaultKValue , MonteCarloItterations , Population , MutationRate , Generations)
+        
 GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 1000, 200, 0.25, 10);
 gna.runGenetics();
 System.out.println(gna.getPopulation().get(0));
@@ -227,9 +233,11 @@ System.out.println(gna.getPopulation().get(gna.getPopulation().size() -1));
         
 VPCalculator.monteCarloVP_SavePoints(10000 , pl , gna.getBestGene() , repoPath + "\\test_cases" , true);
         
-for ( int i = 0 ; i < 10 ; i++)
-    System.out.printf("Acurate Coverage Chromosome %d: %f \n", i , VPCalculator.monteCarloVP(10000 , pl , gna.getTopTenResults().get(i)));
-
+for ( int i = 0 ; i < 10 ; i++){
+    double coverage = VPCalculator.monteCarloVP(10000 , pl , gna.getTopTenResults().get(i));
+    System.out.printf("Acurate Coverage Chromosome %d: %f \n", i , coverage);
+        
+}
         
 String bestGene  = Arrays.toString(gna.getBestGene());
 System.out.println("\nMULTIPOINT("+ bestGene.substring(1 , bestGene.length() -2) +")");
