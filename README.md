@@ -213,18 +213,12 @@ As you are creating an object, the parameters that you'll need to pass to the co
 
 There are two ways you can use this code. First, you can run the code with given test cases and your parameters of choice for confirming the concluded results; Two, you can create your own test case using **JTS TestBuilder**, passing it to the program with your parameters of choice for finding the optimal positions of the modem. Either way, the process of running the code shoud be simple and straight forward.<br>
 After setting up the project, from `src/main/java/ku/cs/model/sa/` open the _**Main.java**_ file with a text editor. This is the main class of the program. Some pre written code is already avilave inside the clas. With a little of effort, it should give you a basic idea of how to use the code. For now, lets explain what is going on. 
-```java
+```java      
 Polygon pl = new Polygon();
 String repoPath = "E:\\Projects\\Projects 2020\\CS final project\\Model - SA\\Model_SA";
 pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
         
-//(Polygon , NumberOfModems , DefaultKValue , MonteCarloItterations , Population , MutationRate , Generations)
-        
-Polygon pl = new Polygon();
-String repoPath = "E:\\Projects\\Projects 2020\\CS final project\\Model - SA\\Model_SA";
-pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
-        
-//(Polygon , NumberOfModems , DefaultKValue , MonteCarloItterations , Population , MutationRate , Generations)
+//(Polygon , NumberOfModems , DefaultKValue , MC_Itterations , Population , MutationRate , Generations)
         
 GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 1000, 200, 0.25, 10);
 gna.runGenetics();
