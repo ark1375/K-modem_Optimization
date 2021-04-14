@@ -279,11 +279,11 @@ String bestGene  = Arrays.toString(gna.getBestGene());
 System.out.println("\nMULTIPOINT("+ bestGene.substring(1 , bestGene.length() -2) +")");
 ```
 ### One Last Neat Trick <br>
-There is one last neat trick. This trick involves working with a method called `VPCalculator.monteCarloVP_SavePoints();` alongside JTS TestBuilder. The `VPCalculator.monteCarloVP_SavePoints();` method works exactly like `VPCalculator.monteCarloVP();` with one additional difference. After calculating the signal coverage, it will save the random points it created for estimation inside a WKT file which you can use directly inside JTS TestBuilder. You just need to pass in two additional parameters. First the path to which it saves the points in and second a boolean value that if pass __true__ shows _How long it took the algorithm to finish_.
+There is one last neat trick. This trick involves working with a method called `VPCalculator.monteCarloVP_SavePoints();` alongside JTS TestBuilder. The _**monteCarloVP_SavePoints**_ method works exactly like _**monteCarloVP**_ with one additional difference. After calculating the signal coverage, it will save the random points it created for estimation inside a WKT file which you can use directly inside JTS TestBuilder. You just need to pass in two additional parameters. First the path to which it saves the points in and second a boolean value that if passed __true__ shows _How long it took the algorithm to finish_.
 ```java
-VPCalculator.monteCarloVP_SavePoints(10000 , pl , gna.getBestGene() , repoPath + "\\test_cases" , true);
+VPCalculator.monteCarloVP_SavePoints(100000 , pl , gna.getBestGene() , repoPath + "\\test_cases" , true);
 ```
-This will save a _montecarlo_out.wkt_ file inside the *test_cases* folder which you can drag and drop inside JTS TestBuilder to get an idea of the covered area.
+This will save a **montecarlo_out.wkt** file inside the **test_cases** folder which you can drag and drop inside JTS TestBuilder to get an idea of the covered area.
 <br><br>
 
 
