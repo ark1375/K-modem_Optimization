@@ -226,8 +226,7 @@ String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\";
 Polygon pl = new Polygon();
 pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
 ```
-<br>
-After importing the polygon inside the program, you can begin working on it. Use `plotPolygon()` function to plot the Polygon and get an idea of what you'r working on.
+After importing the polygon inside the program, you can begin working on it. Use `plotPolygon()` function to plot the Polygon and get an idea of what you'r working on.  
 ```java
 String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
 Polygon pl = new Polygon();
