@@ -236,48 +236,8 @@ pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
 GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 1000, 200, 0.25, 20);
 gna.runGenetics();
 ```
-
-
-
-
-
-
-
-
-
-
-```java      
-String repoPath = "your repo path";
-Polygon pl = new Polygon();
-pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
-        
-//(Polygon , NumberOfModems , DefaultKValue , MC_Itterations , Population , MutationRate , Generations)
-        
-GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 1000, 200, 0.25, 10);
-gna.runGenetics();
-System.out.println(gna.getPopulation().get(0));
-System.out.println(gna.getPopulation().get(gna.getPopulation().size() -1));
-        
-VPCalculator.monteCarloVP_SavePoints(10000 , pl , gna.getBestGene() , repoPath + "\\test_cases" , true);
-        
-for ( int i = 0 ; i < 10 ; i++){
-    double coverage = VPCalculator.monteCarloVP(10000 , pl , gna.getTopTenResults().get(i));
-    System.out.printf("Acurate Coverage Chromosome %d: %f \n", i , coverage);
-        
-}
-        
-String bestGene  = Arrays.toString(gna.getBestGene());
-System.out.println("\nMULTIPOINT("+ bestGene.substring(1 , bestGene.length() -2) +")");
-```
-The first three lines of code, creates a Polygon `pl` and from the *test_cases* folder inside repo, reads the **obviouscase.xml** file.<br>
-After that, an object is created from **GeneticsAlgorithm** class.
-
-
-
-
-
-
-For each itteration of the algorithim, you will have something printed out in your console.
+The program will begin running the optimization.<br>
+For each itteration of the optimization, you will have something printed out in your console.
 ```
 Itteration: 1
 Crossover Started
@@ -288,17 +248,44 @@ Selection Started
 Selection Done 
 BCF: 0.996000
 ```
-BCF shows the Best Chromosome Fitness which is the score of the best indiviual of the population in the current run. The score is between 0 and 1 which shows the signal coverage inside the polygon. For example, in the previous print box, BCF is 0.996. That means the best indivual of the population (which is just a set of cordinates for the modems) has 99.6% signal coverage. In another words, if you put your modems acording to the best indivual, you will have 99.6% coverage.<br>
-Now the question rises, how can you see these best cordinates?<br>
-There are series of _get_ methods included in the GeneticsAlgorithm class that you can use to get these cordinates.<br>
-One example is the `getPopulation()` method which returns an ArrayList of the chromosoms (whole population). This ArrayList will always be in order of best to worst, meaning the 0 index is the best of all. The code below is one example of using this method to your advantage.
+BCF shows the Best Chromosome Fitness which is the score of the best indiviual of the population in the current run. The score is between 0 and 1 which shows the signal coverage inside the polygon. For example, in the previous print box, BCF is 0.996. That means the best indivual of the population (which is just a set of cordinates for the modems) has 99.6% signal coverage. In another words, if you put your modems acording to the best indivual, you will have 99.6% coverage.<br><br>
+
+After the optimization is over, there are several _get_ methods included in the GeneticsAlgorithm class that you can use to retrive the result.<br>
+One such example is the `getPopulation()` method which returns an ArrayList of the chromosoms (whole population). This ArrayList will always be in order of best to worst, meaning the 0 index is the best of all.<br>
 ```java
+String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
+Polygon pl = new Polygon();
+pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
+
+GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 1000, 200, 0.25, 20);
+gna.runGenetics();
 System.out.println(gna.getPopulation().get(0));
 ```
-This will print out the best indivuals genes which is the cordinates of the modem.
+Because Monte Carlo is a hurestic method and thus the results are in a margin of error, it is a better practice to retrive more than one result from the algorithm. For that you may use `getTopTenResults();` method which retrives the Top Ten results from the instance.<br>
+It was stated that running the Monte Carlo with higher values of itterations will get you more acurate results. If you use too many itterations for running the optimization, the algorithim will take a long time to finish. But now that the optimization is over, it might be a good idea to see what happens if you use more itterations on Monte Carlo.<br>
+Ther is an option of calling Monte Carlo method directly from VPCalculator class. You may use, `VPCalculator.monteCarloVP(itter , poly , modems);`. The method takes in three values. First, the number of itterations, second, the polygon and third, an **Array of Modems**. It will return a double with values ranging from 0 to 1. It will indicate the  percentag of signal coverage isnide the polygon.<br>
+Because the `getTopTenResults()` method will return an **Array List of _Array of Modems_** (each element of the Array List is one result and each result have to have cordinates for all modems), you can use it to run MonteCarlo manulay with as much itterations as you need.
+```java
+for ( int i = 0 ; i < 10 ; i++){
+    double coverage = VPCalculator.monteCarloVP(1000000 , pl , gna.getTopTenResults().get(i));
+    System.out.printf("Acurate Coverage Chromosome %d: %f \n", i , coverage);
+        
+}
+```
+The last get method that you may use is `getBestGene();` which returns the best result as an **Array of Modems**. Bottom sample code is using this method alongside with some string minipulation to create a WKT text that you can copy and paste directly inside JTS TestBuilder.
 
-
-
+```java
+String bestGene  = Arrays.toString(gna.getBestGene());
+System.out.println("\nMULTIPOINT("+ bestGene.substring(1 , bestGene.length() -2) +")");
+```
+<br>
+### One Last Neat Trick
+There is one last neat trick. This trick involves working with a method called `VPCalculator.monteCarloVP_SavePoints(itter , poly , modems) , path , showDurration);` alongside JTS TestBuilder. The `VPCalculator.monteCarloVP_SavePoints();` method works exactly like `VPCalculator.monteCarloVP();` with one additional difference. After calculating the signal coverage, it will save the random points it created for estimation inside a WKT file which you can use directly inside JTS TestBuilder. You just need to pass in two additional parameters. First the path to which it saves the points in and second a boolean value that if pass __true__ shows _How long it took the algorithm to finish_.
+```java
+VPCalculator.monteCarloVP_SavePoints(10000 , pl , gna.getBestGene() , repoPath + "\\test_cases" , true);
+```
+This will save a _montecarlo_out.wkt_ file inside the *test_cases* folder which you can drag and drop inside JTS TestBuilder to get an idea of the covered area.
+<br><br>
 
 
 
