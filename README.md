@@ -211,11 +211,44 @@ As you are creating an object, the parameters that you'll need to pass to the co
     
 ### How to Use<br>
 
-There are two ways you can use this code. First, you can run the code with given test cases and your parameters of choice for confirming the concluded results; Two, you can create your own test case using **JTS TestBuilder**, passing it to the program with your parameters of choice for finding the optimal positions of the modem. Either way, the process of running the code shoud be simple and straight forward.<br>
-After setting up the project, from `src/main/java/ku/cs/model/sa/` open the _**Main.java**_ file with a text editor. This is the main class of the program. Some pre written code is already avilave inside the clas. With a little of effort, it should give you a basic idea of how to use the code. For now, lets explain what is going on. 
-```java      
+There are two ways you can use the code. First, you can run the code with given test cases and your parameters of choice for confirming the concluded results; Two, you can create your own test case using **JTS TestBuilder**, passing it to the program with your parameters of choice for finding the optimal positions of the modems. Either way, the process of minipulating and running the code shoud be simple and straight forward.<br>
+After setting up the project, from `src/main/java/ku/cs/model/sa/` open the _**Main.java**_ with a text editor. This is the main class of the program. Some pre written code is already avilave inside the file. With a little of effort, it should give you a basic idea of how to use the code. For now, lets start with something simple. Creating a polygon from one of the files avilabe in the *test_cases* folder (like _obiouscase.xml_).<br>
+Begin with creating a **Polygon** object and determining the path of the local repository.
+```java
+//We asume that the local repo is on your desktop
+String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
 Polygon pl = new Polygon();
-String repoPath = "E:\\Projects\\Projects 2020\\CS final project\\Model - SA\\Model_SA";
+```
+Now, we have to import the polygon inside the program. Simply use `readPolygonXML(path)` method to do so.
+```java
+//We asume that the local repo is on your desktop
+String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
+Polygon pl = new Polygon();
+pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
+```
+<br>
+After importing the polygon inside the program, you can begin working on it. Use `plotPolygon()` function to plot the Polygon and get an idea of what you'r working on.
+```java
+//We asume that the local repo is on your desktop
+String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
+Polygon pl = new Polygon();
+pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
+pl.plotPolygon();
+```
+You have to get something like this:
+![sc3](/docs/screenshots/sc3.jpg)
+
+
+
+
+
+
+
+
+
+```java      
+String repoPath = "your repo path";
+Polygon pl = new Polygon();
 pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
         
 //(Polygon , NumberOfModems , DefaultKValue , MC_Itterations , Population , MutationRate , Generations)
@@ -236,6 +269,13 @@ for ( int i = 0 ; i < 10 ; i++){
 String bestGene  = Arrays.toString(gna.getBestGene());
 System.out.println("\nMULTIPOINT("+ bestGene.substring(1 , bestGene.length() -2) +")");
 ```
+The first three lines of code, creates a Polygon `pl` and from the *test_cases* folder inside repo, reads the **obviouscase.xml** file.<br>
+After that, an object is created from **GeneticsAlgorithm** class.
+
+
+
+
+
 
 For each itteration of the algorithim, you will have something printed out in your console.
 ```
