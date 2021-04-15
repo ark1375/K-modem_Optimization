@@ -66,8 +66,8 @@ _Having knowledge of Java for running and simple use of the code is not essentia
 >:warning: &nbsp; _Do not Install JRE (Java Runtime Environment) instead of JDK._  
 
 ## Installation and Setup
-_**Note:** This installation and setup guide is for Windows operating system. Future updates may include support for Linux._<br><br>
-If you are new to writing and building programs, make sure to follow every step of the installation and setup. It will cover **ALL** the things you need to do to run the code.<br>
+_**Note:** This guide is for Windows operating system. Future updates may include support for Linux._<br><br>
+If you are new to writing and building programs, make sure to follow every step of the installation and setup. It will cover all the things you need to do to run the code.<br>
 **Setup the Project, Section 4** is about building JTS and using its TestBuilder tool for creating your own test cases. You can skip it if you are not interested. 
 ### Installation Guide<br>  
 
@@ -80,19 +80,18 @@ If you are new to writing and building programs, make sure to follow every step 
     
     - Now you need to add the Maven's bin folder to your windows path environment variables.
         * In the extracted Maven directory, copy the bin folder's path (ie. `C:\Program Files\apache-maven-3.8.1\bin`).
-        * Press `WIN + R` to open up *Run* and type in `SystemPropertiesAdvanced`.
-        * In *System Properties* window, click on *Environment Variable*.
-        * From the _System Variable_ section, click on _Path_ and then click on _Edit_.
-        * In the pop-up window, click on _New_ and paste the path that you just copied and click _OK_ to make the changes. 
+        * Press `WIN + R` to open up *Run*, type in `powershell` and press `Ctrl + Shift + Enter`. This will open Powershell as administrator.
+        * Type `[Environment]::SetEnvironmentVariable("Path", $env:Path + ";--path--", "User")`, replace `--path--` with the location that you just copied and execute.  
 
-    - Open up a command prompt and use `mvn --version`.
-It must show something like this:<pre>
+
+    - Executer `mvn --version` command in Powershell.
+Something like this should be displayed:<pre>
 <code>Apache Maven 3.6.3 (--------------some code--------------)
 Maven home: C:\Program Files (x86)\apache-maven-3.6.3\bin\..
 Java version: 15.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-15.0.1
 Default locale: en_US, platform encoding: ---- some code ----
 OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
-</code></pre>Congratulations, you just installed Maven.<br><br> 
+</code></pre><br><br> 
 
 
 3. **Installing JDK**  
