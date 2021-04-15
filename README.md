@@ -42,20 +42,20 @@ _**Note**: This problem is a subset of the original K-Modem illumination problem
 
 Let **_P_** be a simple polygon consist of an outer shell (the outer walls) and zero or more holes (check the screenshot below). Given the number of k-modems available **_q_**, and the penetration rate **_k_**, what are the best coordinates to put the k-modems on, such that the maximum area of the given polygon is covered.<br>
 Another custom variation of the problem comes from the assumption that the k-modems can have signal confliction. If any point is covered by more than one k-modem, signal confliction happens and the point is not covered anymore.<br>
-> _The current code takes __Signal Confliction__ in consideration. Future updates will make this an optional choice._
+> _The current code takes __Signal Confliction__ into consideration. Future updates will make this an optional choice._
 
 ![sc1](/docs/screenshots/sc1.jpg)
 
 ### Practical Usage
 The main practical usage of the problem comes from finding the optimal positions of a set of wireless modems with given signal strength in a given map for the maximum coverage of the signal (eg. Maximum WiFi coverage inside a given building).
-Using the available code alongside JTS Testbuilder, you can create your own maps and find the optimal position for your modems inside the map (check out [How to Use?](#how_to_use?)).
+Using the available code alongside JTS Testbuilder, you can create your own maps and find the optimal position of your modems inside the map (check out [How to Use?](#how_to_use)).
 
 
 ## Requirements
 _Having knowledge of Java for running and simple use of the code is not essential though recomended_  
 
 1. **JDK 8 (Or Higher)**<br>
-*Warning!* You need **JDK (Java Development Kit)** for building and running the project.<br>DO NOT INSTALL JRE (Java Runtime Environment).  
+_Do **NOT** Install JRE (Java Runtime Environment)._  
 2. **Maven 3.6 (Or Higher)**  
 
 3. **Git and Git Bash**  
