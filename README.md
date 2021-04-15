@@ -98,9 +98,9 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
     - Download JDK installation from [Oracles Website](https://www.oracle.com/java/technologies/javase-downloads.html).
     
-    - Run the installation. Use the recommended settings for installing it. Just remember the directory that you are installing JDK in.
+    - Start the installation and use the recommended settings to do so. Just remember the directory that you are installing JDK in.
     - When the installation is over, follow [these](https://javatutorial.net/set-java-home-windows-10) instructions to add **JAVA_HOME** to your environment variables.
-    - Open a command-line prompt and type in `java -version`. It must show something like this:<pre>
+    - Open a command-line prompt and type in `java -version`. Something like this should be displayed:<pre>
 <code>java version "1.8.0_261"
 Java(TM) SE Runtime Environment (build 1.8.0_261-b12)
 Java HotSpot(TM) 64-Bit Server VM (build 25.261-b12, mixed mode)
@@ -111,7 +111,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.261-b12, mixed mode)
 4. **Installing NetBeans** _optional_  
 Installing Apache NetBeans is optional but recommended. Download and install NetBeans using [this link](https://netbeans.apache.org/download/index.html).<br>
 
-    **_Note:_** While installing NetBeans, you will encounter a field in which you need to pass in the directory you installed JDK in. If you installed JDK correctly, this field should be filled automatically. If not, cancel the installation, follow the instructions provided in the last paragraph of _Installing JDK_ and run the setup again.
+    **_Note:_** While installing NetBeans, you will encounter a field in which you need to pass in the directory you installed JDK in. If you installed JDK correctly, this field should be filled automatically. If not, cancel the installation, follow the instructions provided in the last paragraph of _Installing JDK_ and run the installation again.
     <br><br>
 
 ### Setup the Project<br>  
