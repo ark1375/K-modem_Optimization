@@ -72,7 +72,7 @@ If you are new to writing and building programs, make sure to follow every step 
 ### Installation Guide<br>  
 
 1. **Installing Git**  
-    Simply download and install Git from [here](https://git-scm.com/downloads). When you are installing git, in the *Select Component* window, make sure to check `Git Bash Here` under the *Windows Explorer integration* tab. Other than that, use the installation's recommended settings and you're good to go.<br><br>
+    Download and install Git from [here](https://git-scm.com/downloads). When in installation, from *Select Component* window, make sure to check `Git Bash Here` under the *Windows Explorer integration* tab. Other than that, use the installation's recommended settings.<br>
 
 
 2. **Installing Maven**  
@@ -96,9 +96,9 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
 3. **Installing JDK**  
 
-    - Head to [Oracles Website](https://www.oracle.com/java/technologies/javase-downloads.html) and download JDK.
+    - Download JDK installation from [Oracles Website](https://www.oracle.com/java/technologies/javase-downloads.html).
     
-    - Run the installation. Use the recommended settings for installation. Just remember the directory that you are installing JDK in.
+    - Run the installation. Use the recommended settings for installing it. Just remember the directory that you are installing JDK in.
     - When the installation is over, follow [these](https://javatutorial.net/set-java-home-windows-10) instructions to add **JAVA_HOME** to your environment variables.
     - Open a command-line prompt and type in `java -version`. It must show something like this:<pre>
 <code>java version "1.8.0_261"
@@ -109,9 +109,9 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.261-b12, mixed mode)
     
     
 4. **Installing NetBeans** _optional_  
-Installing the NetBeans is optional but recommended. Download and install NetBeans using [this link](https://netbeans.apache.org/download/index.html).<br>
+Installing Apache NetBeans is optional but recommended. Download and install NetBeans using [this link](https://netbeans.apache.org/download/index.html).<br>
 
-    **_Note:_** While installing the NetBeans, you will encounter a field in which you need to pass in the directory you installed JDK in. If you installed JDK correctly, this field should be filled automatically. If not, close the setup, follow the instructions provided in the last paragraph of _Installing JDK_ and run the setup again.
+    **_Note:_** While installing NetBeans, you will encounter a field in which you need to pass in the directory you installed JDK in. If you installed JDK correctly, this field should be filled automatically. If not, cancel the installation, follow the instructions provided in the last paragraph of _Installing JDK_ and run the setup again.
     <br><br>
 
 ### Setup the Project<br>  
