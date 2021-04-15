@@ -12,8 +12,14 @@ This repository contains  
 - Test Cases   
 - A Randomly generated dataset of simple geometries  (_will be included in future updates_)<br>
 
-:loudspeaker:  __Note that this project is still in development.__<br>
+:loudspeaker:  __Note that this project is still in development.__ Stay tuned for further updates.<br><br>
 
+__Under Development:__
+- Technical Detaild
+- Solve for the original K-Modem Problem
+- Changing signal confliction to a removable option
+  
+  
 > **Warning!**  _The following readme file **Dose Not** contains detailed information about the problem.<br>
 For further information on technical details of the problem, experiments, and their results, check out [Technical Details](TechincalDetails.md)_.
 
@@ -22,12 +28,7 @@ For further information on technical details of the problem, experiments, and th
 * [Problem Description](#problem-description)
 * [Requirements](#requirements)
 * [Installation and Setup](#installation-and-setup)
-    * [Instalation Guide](#installation-guide)
-    * [Setup the Project](#setup-the-project)
 * [How to use?](#how-to-use)
-    * [A Tour of the Code](#a-tour-of-the-code)
-    * [How to use?](#how-to-use-1)
-    * [One Last Neat Trick](#one-last-neat-trick-)
 * [Credits](#credits)  
 
 ## Problem Description
@@ -35,7 +36,7 @@ For further information on technical details of the problem, experiments, and th
 For the original description of the K-Modem problem, check out the [Technical Details](TechincalDetails.md#problem_description).
 
 ### This Variation of K-Modem Problem
-_**Note**: This is a subset of the original K-Modem illumination problem and it is the actual problem that the code is written for. With little adjustments (check [Technical Details](TechincalDetails.md#problem_description)) the code can solve the original problem as well. The solution code for the original K-Modem Illumination problem will be included in future updates._  
+_**Note**: This problem is a subset of the original K-Modem illumination problem and the current code is the solution to this problem. With some little alteration of the code (check [Technical Details](TechincalDetails.md#problem_description)) it can solve the original problem as well. The solution code for the original K-Modem Illumination problem will be included in future updates._  
   
 
 Let **_P_** be a simple polygon consist of an outer shell (the outer walls) and zero or more holes (check the screenshot below). Given the number of k-modems available **_q_**, and the penetration rate **_k_**, what are the best coordinates to put the k-modems on, such that the maximum area of the given polygon is covered<br>
