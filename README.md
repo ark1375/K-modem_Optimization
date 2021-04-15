@@ -40,8 +40,10 @@ For the original description of the K-Modem problem, check out the [Technical De
 _**Note**: This problem is a subset of the original K-Modem illumination problem and the current code is the solution to this problem. With some little alteration of the code (check [Technical Details](TechincalDetails.md#problem_description)) it can solve the original problem as well. The solution code for the original K-Modem Illumination problem will be included in future updates._  
   
 
-Let **_P_** be a simple polygon consist of an outer shell (the outer walls) and zero or more holes (check the screenshot below). Given the number of k-modems available **_q_**, and the penetration rate **_k_**, what are the best coordinates to put the k-modems on, such that the maximum area of the given polygon is covered<br>
-Another custom variation of the problem comes from the assumption that the k-modems can have signal confliction. If any point is covered by more than one k-modem, signal confliction happens and the point is not covered anymore.   
+Let **_P_** be a simple polygon consist of an outer shell (the outer walls) and zero or more holes (check the screenshot below). Given the number of k-modems available **_q_**, and the penetration rate **_k_**, what are the best coordinates to put the k-modems on, such that the maximum area of the given polygon is covered.<br>
+Another custom variation of the problem comes from the assumption that the k-modems can have signal confliction. If any point is covered by more than one k-modem, signal confliction happens and the point is not covered anymore.<br>
+> _The current solution takes __Signal Confliction__ in consideration. Future updates will make this an optional choice._
+
 ![sc1](/docs/screenshots/sc1.jpg)
 
 ### Practical Usage
