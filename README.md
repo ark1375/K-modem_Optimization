@@ -10,7 +10,7 @@ This repository contains  
 - The Projects Source   
 - Documentations and Screenshots   
 - Test Cases   
-- A Randomly generated dataset of simple geometries  (_will be included in future updates_)  
+- A Randomly generated dataset of simple geometries  (_will be included in future updates_)  
 Note that this project is still in development.<br><br>
 
 > **Warning!**  _The following readme file **Dose Not** contains detailed information about the problem.<br>
