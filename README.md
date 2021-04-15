@@ -144,7 +144,8 @@ In order to use JTS TestBuilder to create your own polygons and geometries, you 
     - Execute `git clone https://github.com/locationtech/jts.git` command.
     - Navigate inside the cloned repository using `cd` command (`cd jts`).
     - Type `mvn clean install` to install dependencies and build JTS.
-    - Use `java -jar modules/app/target/JTSTestBuilder.jar` to run JTS TestBuilder.<br><br>  
+    - Use `java -jar modules/app/target/JTSTestBuilder.jar` to run JTS TestBuilder.<br>
+    
     You can find  more information on JTS geometry library in [JTS Repository](https://github.com/locationtech/jts).<br>
 
 ## How to Use?<br>
