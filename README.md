@@ -20,8 +20,7 @@ __Under Development:__
 - Changing signal confliction to a removable option
   
   
-  
-> **Warning!**  _The following readme file **Dose Not** contains detailed information about the problem.<br>
+**Warning!**  _The following readme file **Dose Not** contains detailed information about the problem.<br>
 For further information on technical details of the problem, experiments, and their results, check out [Technical Details](TechincalDetails.md)_.
 
 ## Table of Contents   
@@ -115,38 +114,37 @@ Installing Apache NetBeans is optional but recommended. Download and install Net
     <br><br>
 
 ### Setup the Project<br>  
-After installing all the requirements, you can begin setting up the project
-Now that we installed all the requirements of the project, it's time to set them up.<br>
+After installing all the requirements, you can begin setting up the project.<br>
 1. **Clone the Repository**  
 
-    - Create an empty folder on your computer and navigate inside it.
+    - Create an empty folder on your computer and open it.
     - Right Click and chose __Git Bash Here__.
     - Execute `git clone https://github.com/ark1375/model_SA.git` in the Bash Prompt.<br>
-    Git make's a clone of the repository in your local machine.<br>
+    Git will create a clone of the repository in your machine.<br>
 
 2. **Using Maven to Install Dependencies**  _Skip this part if you are using NetBeans_    
 
     - Inside the local repository, you can find a **pom.xml** file. This is the Maven's pom file which specifies details of the project including build options and most importantly, dependencies.
     - Open a command prompt (cmd) and change directory to the local repository. 
-    - Type in `mvn clean install`. Using this command, Maven handels the dependencies you need to run the project.
+    - Type in `mvn clean install`. Using this command, Maven handels all the dependencies you need to run the project.
     
 3. **Configuring NetBeans**  _Skip this part if you are using Maven_ <br>
 NetBeans should automatically recognize the repository as a _Project Directory_. Using `Ctrl + Shift + O` you can open the repository directly inside NetBeans.<br><br>
-**Warning!**<br> _If you are using an older version of NetBeans (version 9 or bellow) you may want to update NetBeans Maven._<br><br>
+**Warning!**<br> _If you are using an older version of NetBeans (version 9 or bellow) you need to update NetBeans Maven._<br><br>
 For updating NetBeans Maven:
-    - Download the Maven's Bin files as explained in **Installing Maven** section one. 
+    - Download the Maven's Bin files as explained in **Installing Maven**, section one. 
     - Extract it and copy all the files inside the `apache-maven-version` folder.
     - Navigate inside NetBeans installation directory and open the `Java` folder.
-    - Inside the `maven` folder, paste and replace everything that you copied.
+    - Open the `maven` folder, paste and replace everything that you copied inside it.
     
 4. **Clone and Build JTS** _optional_<br>
-In order to use JTS TestBuilder to create your own polygons and geometries, you need to clone and build JTS libreary.<br>
-    - Create another empty folder and open GitBash prompt as explained previously.
-    - Type in `git clone https://github.com/locationtech/jts.git` and hit enter.
+In order to use JTS TestBuilder to create your own polygons and geometries, you need to clone and build the JTS library.<br>
+    - Create another empty folder and open Git Prompt as explained previously.
+    - Execute `git clone https://github.com/locationtech/jts.git` command.
     - Navigate inside the cloned repository using `cd` command (`cd jts`).
     - Type `mvn clean install` to install dependencies and build JTS.
     - Use `java -jar modules/app/target/JTSTestBuilder.jar` to run JTS TestBuilder.<br><br>
-    Head to [JTS Repository](https://github.com/locationtech/jts) for more information about JTS geometry library.<br>
+    You can find  more information on JTS geometry library in [JTS Repository](https://github.com/locationtech/jts).<br>
 
 ## How to Use?<br>
 Now that you setedup everything you need, it's time to learn how to run and how to properly use the code. A little tour of the code will be a great place to start.
