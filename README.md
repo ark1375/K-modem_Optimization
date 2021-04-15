@@ -8,9 +8,11 @@ The code itself is written in __Java__ (Requirements are listed below) and it is
 
 This repository contains   
 - The Projects Source   
-- Documentation and Screenshots   
+- Documentations and Screenshots   
 - Test Cases   
-- A Randomly generated dataset of simple geometries   
+- A Randomly generated dataset of simple geometries  (_will be included in future updates_)  
+<br>
+Note that this project is still in development.<br>
 
 > **Warning!**  _The following readme file **Dose Not** contains detailed information about the problem.<br>
 For further information on technical details of the problem, experiments, and their results, check out [Technical Details](TechincalDetails.md)_.
@@ -18,8 +20,13 @@ For further information on technical details of the problem, experiments, and th
 ## Table of Contents
 * [Problem Description](#problem-description)
 * [Requirements](#requirements)
-* [Installation and Setup](#installation_and_setup) 
+* [Installation and Setup](#installation-and-setup)
+    * [Instalation Guide](#installation-guide)
+    * [Setup the Project](#setup-the-project)
 * [How to use?](#how-to-use)
+    * [A Tour of the Code](#a-tour-of-the-code)
+    * [How to use?](#how-to-use-1)
+    * [One Last Neat Trick](#one-last-neat-trick-)
 * [Credits](#credits)  
 
 ## Problem Description
