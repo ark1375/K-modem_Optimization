@@ -12,12 +12,13 @@ This repository contains  
 - Test Cases   
 - A Randomly generated dataset of simple geometries  (_will be included in future updates_)<br>
 
-:loudspeaker:  __Note that this project is still in development.__ Stay tuned for further updates.<br><br>
+:loudspeaker:  __Note that this project is still in development.__ Stay tuned for further updates.<br>
 
 __Under Development:__
 - Technical Detaild
 - Solve for the original K-Modem Problem
 - Changing signal confliction to a removable option
+  
   
   
 > **Warning!**  _The following readme file **Dose Not** contains detailed information about the problem.<br>
