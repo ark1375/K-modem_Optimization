@@ -79,8 +79,8 @@ If you are new to writing and building programs, make sure to follow every step 
     - Download Maven's **Binary zip archive** from [here](https://maven.apache.org/download.cgi). Extract the zip file in an arbiturary directory (for example your Program Files folder in Windows partition).
     
     - Now you need to add the Maven's bin folder to your windows path environment variables.
-        * In the extracted Maven directory, copy the bin folder's path (ie. `C:\Program Files\apache-maven-3.8.1\bin`).
-        * Press `WIN + R` to open up *Run*, type in `powershell` and press `Ctrl + Shift + Enter`. This will open Powershell as administrator.
+        * From the extracted Maven directory, copy the bin folder's path (ie. `C:\Program Files\apache-maven-3.8.1\bin`).
+        * Press `WIN + R` to open Run, type in `powershell` and press `Ctrl + Shift + Enter`. This will open Powershell as administrator.
         * Type `[Environment]::SetEnvironmentVariable("Path", $env:Path + ";--path--", "User")`, replace `--path--` with the location that you just copied and execute.  
 
 
