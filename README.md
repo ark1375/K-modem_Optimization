@@ -55,14 +55,16 @@ Using the available code alongside JTS Testbuilder, you can create your own maps
 _Having knowledge of Java for running and simple use of the code is not essential though recomended_  
 
 1. **JDK 8 (Or Higher)**<br>
-> _Do not Install JRE (Java Runtime Environment)._  
+  
 2. **Maven 3.6 (Or Higher)**  
 
 3. **Git and Git Bash**  
 
 4. **NetBeans 8 (Or Higher)** _Recomended_   
 
-5. **Clone JTS Repository** _Recomended_  
+5. **Clone JTS Repository** _Recomended_ 
+
+> _Do not Install JRE (Java Runtime Environment) instead of JDK._
 
 ## Installation and Setup
 _**Note:** This installation and setup guide is for Windows operating system. Future updates may include support for Linux._<br><br>
