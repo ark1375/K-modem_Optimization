@@ -63,7 +63,7 @@ _Having knowledge of Java for running and simple use of the code is not essentia
 4. **NetBeans 8 (Or Higher)** _Recomended_   
 
 5. **Clone JTS Repository** _Recomended_ 
-<br>
+<br>  
 > _Do not Install JRE (Java Runtime Environment) instead of JDK._
 
 ## Installation and Setup
