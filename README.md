@@ -49,7 +49,6 @@ Another custom variation of the problem comes from the assumption that the k-mod
 ### Practical Usage
 The main practical usage of the problem comes from finding the optimal positions of a set of wireless modems with given signal strength in a given map for the maximum coverage of the signal (eg. Maximum WiFi coverage inside a given building).
 Using the available code alongside JTS Testbuilder, you can create your own maps and find the optimal position of your modems inside the map (check out [How to Use?](#how_to_use)).  
-<br>  
 
 ## Requirements
 _Having knowledge of Java for running and simple use of the code is not essential though recomended_  
@@ -65,7 +64,6 @@ _Having knowledge of Java for running and simple use of the code is not essentia
 5. **Clone JTS Repository** _Recomended_  
 
 > _Do not Install JRE (Java Runtime Environment) instead of JDK._  
-<br>  
 
 ## Installation and Setup
 _**Note:** This installation and setup guide is for Windows operating system. Future updates may include support for Linux._<br><br>
