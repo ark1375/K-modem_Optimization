@@ -63,7 +63,7 @@ _Having knowledge of Java for running and simple use of the code is not essentia
 
 5. **Clone JTS Repository** _Recomended_  
 
-> _Do not Install JRE (Java Runtime Environment) instead of JDK._  
+> :warning: &nbsp; _Do not Install JRE (Java Runtime Environment) instead of JDK._  
 
 ## Installation and Setup
 _**Note:** This installation and setup guide is for Windows operating system. Future updates may include support for Linux._<br><br>
