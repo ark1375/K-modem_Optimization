@@ -291,9 +291,7 @@ Selection Started
 Selection Done 
 BCF: 0.996000
 ```
-BCF stands for Best Chromosome Fitness which is the score of the best indiviual of the population in the current run. The score is between 0 and 1 and shows the percentage of signal coverage inside the polygon.<br> For example, in the previous print box, BCF is 0.996. That means the best indivual of the population (which is just a set of cordinates for the modems) has 99.6% signal coverage. In another words, if you put your modems acording to the best indivual, you will have 99.6% coverage.<br><br>
-
-<br>  
+BCF stands for Best Chromosome Fitness which is the score of the best indiviual of the population in the current run. The score is between 0 and 1 and shows the percentage of signal coverage inside the polygon.<br> For example, in the previous print box, BCF is 0.996. That means the best indivual of the population (which is just a set of cordinates for the modems) has 99.6% signal coverage. In another words, if you put your modems acording to the best indivual, you will have 99.6% coverage.<br><br>  
 
 #### Retrive the Results  
 After the optimization is over, there are several _get_ methods included in the GeneticsAlgorithm class that you can use to retrive the result.<br>
