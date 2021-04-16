@@ -247,23 +247,27 @@ The parameters that you'll need to pass to the constructor in order to create an
 ### How to Use<br>
 
 There are two main ways you can use the code.<br> First, you can run the code with given test cases and some arbitary parameters for confirming the concluded results; Two, you can create your own test case using **JTS TestBuilder**, passing it to the program with your parameters of choice for finding the optimal positions of the modems. Either way, the process of minipulating and running the code shoud be simple and straight forward.<br><br>
+
+#### How to Build and Run Using Maven
+Open cmd or powershell and change directory (using `cd`) to the local repository. Use `mvn package` command to build the project. After building it, a folder with the name __target__ should appear in the local repository folder. Use `java -cp ./target/Model-SA-1.0-SNAPSHOT.jar ku.cs.model.sa.Main` to run the program. 
+
 #### Create and Import a Polygon  
-After setting up the project, from `src/main/java/ku/cs/model/sa/` open the _**Main.java**_ with a text editor. This is the main class of the program. Some pre written code is already avilave inside the file. With a little of effort, it should give you a basic idea of how to use the code. For now, lets start with something simple. Creating a polygon from one of the files avilabe in the *test_cases* folder (like _obiouscase.xml_).<br>
+From `src/main/java/ku/cs/model/sa/` open the _**Main.java**_ file with a text editor. This is the main class of the program. Some pre written code is already avilable inside it. Reading it should give you a basic idea of how to use the code.<br> For now, lets start with something simple. Creating a polygon from one of the files availabe in the *test_cases* folder (like _obiouscase.xml_).<br>
 Begin with creating a **Polygon** object and determining the path of the local repository.
 ```java
-//We asume that the local repo is on your desktop
-String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
+String repositoryPath = ".\\"; 
 Polygon pl = new Polygon();
 ```
-Now, we have to import the polygon inside the program. Simply use `readPolygonXML(path)` method to do so.
+Now, you may import the polygon inside the program. Simply use `readPolygonXML(path)` method to do so.
 ```java
-String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
+String repositoryPath = ".\\"; 
 Polygon pl = new Polygon();
-pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
+pl.readPolygonXML(repoPath + "test_cases\\obviouscase.xml");
 ```
 >_Note:_ You can use `plotPolygon()` method to plot the Polygon and get an idea of what you'r working on.  
 
-After Importing the polygon, you may use **GeneticsAlgorithm** class to start the optimization process. Begin with creating an instence of __GeneticsAlgorithm__ class and pass some arbitary parameters to the constructor (for detail information about parameters, check out [here](#a-tour-of-the-code)).<br>Let's asume you have __3 k-modems__ with __0 penetration rate__ and you want to use __1000 Monte Carlo itterations__ with __200 initial population__, __25% mutation rate__. Last, let's run the algorithm for *20 generations** and see the results.<br>  
+#### Run the Optimization
+After Importing the polygon, you may use **GeneticsAlgorithm** class to start the optimization process. Begin with creating an instence of __GeneticsAlgorithm__ and pass some arbitary parameters to the constructor (for detail information about parameters, check out [here](#a-tour-of-the-code)).<br>Let's asume you have __3 k-modems__ with __0 penetration rate__ and you want to use __1000 Monte Carlo itterations__ with __200 initial population__ and __25% mutation rate__. Last, let's run the algorithm for *20 generations** and see the results.<br>  
 ```java
 String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
 Polygon pl = new Polygon();
