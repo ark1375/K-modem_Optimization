@@ -149,9 +149,9 @@ In order to use JTS TestBuilder to create your own polygons and geometries, you 
     You can find  more information on JTS geometry library in [JTS Repository](https://github.com/locationtech/jts).<br>
 
 ## How to Use?<br>
-Now that you setedup everything you need, it's time to learn how to run and how to properly use the code. A little tour of the code will be a great place to start.
+Now that you are finished setting up the project, it's time to learn how to run and properly use the code. Let's begin with a little tour of the code.
 ### A Tour of the Code<br>
-_**Note**: Reading this section is optional, skip to **How To Use** if not interestead._<br>
+> :pencil2: &nbsp;  Reading this section is optional, skip to [How to use](#how-to-use-1) if not interestead._<br>
 I won't go deep into details of the code (for that, refer to [Technical Details](TechincalDetails.md#problem_description)) but I will give you enough information to be able to understand the basic idea of it.<br>
 I will begin with explaining the important classes.<br>
 * __The Polygon Class__  
