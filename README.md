@@ -211,19 +211,20 @@ The parameters that you'll need to pass to the constructor in order to create an
     
     - Number of Modems
     
-    - Default K Value<br>   An integer with the minimum value of 0 that represents the Peneteration Rate of Signals (_how many walls signals can pass thorugh_).
+    - Default K Value<br>   An integer with the minimum value of 0 that represents the Penetration Rate of the Signals (_how many walls signals can pass thorugh_).
     
-    - Monte Carlo Itterations<br>   Because the program is using a method called Monte Carlo Method to estimate the signal coverage of the modems, you need to determain the number of itterations for the method. Obviouslt, higher number of itterations will lead to higher precisions but at the cost of system resources.<br> **Set this number somewhere between 1000 and 10000 based on your CPU power.**
+    - Monte Carlo Itterations<br>   Because the program is using a method called Monte Carlo Method to estimate the signal coverage of the modems, you need to determain a number of itterations for it. Obviously, higher number of itterations will lead to higher precisions but at the cost of your system's resources.<br> **Set this number somewhere between 1000 and 10000 based on your CPU power.**
     
     - Size of Population<br>
-    This is the population that you'll be running genetics algorithm on. Higher values will lead to faster convergance and higher precissions but proceed with caution. Setting this number too high will consume an enormous amount of system power.<br> **Set this number somewhere between 100 and 1000 based on your CPU power.**
+    This is the population that you'll be running genetics algorithm on. Higher values will lead to faster convergance and higher precissions. But proceed with caution. Setting this number too high will consume an enormous amount of your system's resources.<br> **Set this number somewhere between 100 and 1000 based on your CPU power.**
     
     - Mutation Rate<br>
-    This will determain how many indiviuals in the population will Mutate in every generation. You have to pass in a number between 0 and 1.
-    For example if you have a mutation rate of 0.1, in every generation, 10% of the population will be mutated randomly.
+    This value will determain how many indiviuals in the population will Mutate in every generation. You have to pass in a double Ranging from 0 to 1.
+    For example if you pass a mutation rate of 0.1, in every generation, 10% of the population will be mutated randomly.
     
     - Generations<br>
-    This parameter will detrmin the number of itterations for genetics algorihthim. Obviously, higher number of itterations will lead to more acurate result but at the price of time.<br> **Set this number between 25 and 100 based on your system power and your own patiance.**
+    This parameter will detrmin the number of itterations for genetics algorihthim. Obviously, higher number of itterations will lead to more acurate results but at the cost of time.<br> **Set this number between 25 and 100 based on your system power and your own patiance.**  <br>
+    _**Note**:  An automatic method of detecing convergence will be included in the future updates._<br>  
     
     Now that you are familiar with the parameters, you can create objects like this:
     ```java
