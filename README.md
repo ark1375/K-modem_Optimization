@@ -246,10 +246,10 @@ The parameters that you'll need to pass to the constructor in order to create an
     
 ### How to Use<br>
 
-There are two main ways you can use the code.<br> First, you can run the code with given test cases and some arbitary parameters for confirming the concluded results; Two, you can create your own test case using **JTS TestBuilder**, passing it to the program with your parameters of choice for finding the optimal positions of the modems. Either way, the process of minipulating and running the code shoud be simple and straight forward.<br><br>
+There are two main ways you can use the code.<br> First, you can run the code with given test cases and some arbitary parameters for confirming the concluded results; Two, you can create your own test case using **JTS TestBuilder**, passing it to the program with your parameters of choice for finding the optimal positions of the modems. Either way, the process of minipulating and running the code shoud be simple and straight forward.<br>
 
 #### How to Build and Run Using Maven
-Open cmd or powershell and change directory (using `cd`) to the local repository. Use `mvn package` command to build the project. After building it, a folder with the name __target__ should appear in the local repository folder. Use `java -cp ./target/Model-SA-1.0-SNAPSHOT.jar ku.cs.model.sa.Main` to run the program. 
+Open cmd or powershell and change directory (using `cd`) to the local repository. Use `mvn package` command to build the project. After building it, a folder with the name __target__ should appear in the local repository folder.<br> Use `java -cp ./target/Model-SA-1.0-SNAPSHOT.jar ku.cs.model.sa.Main` to run the program. 
 
 #### Create and Import a Polygon  
 From `src/main/java/ku/cs/model/sa/` open the _**Main.java**_ file with a text editor. This is the main class of the program. Some pre written code is already avilable inside it. Reading it should give you a basic idea of how to use the code.<br> For now, lets start with something simple. Creating a polygon from one of the files availabe in the *test_cases* folder (like _obiouscase.xml_).<br>
