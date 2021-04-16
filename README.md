@@ -153,29 +153,32 @@ Now that you are finished setting up the project, it's time to learn how to run 
 ### A Tour of the Code<br>
 > _**Note:** Reading this section is optional, skip to [How to use](#how-to-use-1) if not interestead._<br>
 
-I won't go deep into details of the code (for that, refer to [Technical Details](TechincalDetails.md#problem_description)) but I will give you enough information to be able to understand the basic idea of it.<br>
-I will begin with explaining the important classes.<br>
+Getting into the detail of the code is beyond the scope of this text (for that, refer to [Technical Details](TechincalDetails.md#problem_description)). However, some basic explanation about the available classes and their important methods seems necessary.<br>
 * __The Polygon Class__  
-    As the name implies, Using this class you can import your polygons into the program. Note that the programs design is based  on **Importing the Polygons** and not to create them on sight using code or GUI.<br><br>
-You can create polygons in two ways.  
+    As the name implies, this class represents the main geometry structure that the program handles. Using this class you can import your polygons inside the program. Note that the design pattern of this code is based on **_Importing the Polygons_**, not creating them inside the program using code or GUI.<br><br>
+You can import the polygons in two ways.  
+    > The XML files that are mentioned in this text is the geometry file format created by JTS TestBuilder.
 
-    - Using empty constructor to build an object and reading the poygon later.
+    - Using the empty constructor to build an object and importing the poygon using `obj.readPolygonXML(path)` or `obj.readPolygonWKT(path)` methods.<br>
+    Using XML file:
         ```java
         Polygon pl = new Polygon();
         pl.readPolygonXML(path);
         ```
-    - Passing path directly to the constructor.
+        Using WKT file:
+        ```java
+        Polygon pl = new Polygon();
+        pl.readPolygonWKT(path);
+        ```
+    - Passing the polygon's XML file path directly to the constructor.
         ```java
         Polygon pl = new Polygon(path);
         ```
-    Polygon class can read XML files created by JTS TestBuilder. It is also compatible with WKT files. But in order to take advantage of WKT you need to create an empty object and use `readPolygonWKT` method to read WKT directly (check out the box bellow).<br>
-    ```java
-    Polygon pl = new Polygon();
-    pl.readPolygonWKT(path);
-    ```
-    
+        > :warning:  This method only works for XML files created by JTS TestBuilder. The program won't accept WKT file path in the constructor.
+         
     Future updates may include support for common CAD file formats like .DXF or .DWG.
 
+    Because this class uses JTS Polygon structure to handle the geometry, you can retrive a JTS Polygon directly from the class using `obj.getPoly();` method. In addition, if you are not satesifed with the provided methods of importing the polygons, you can use `obj.setPoly(poly);` method for directly setting the polygon. You need to pass a JTS Polygon object as the parameter. 
 
 * **The Moedem Class**  
 You won't need to use this class directly. Just know that this is K-Modem class. Every modem will have a Peneteration Rate (_k_) and a 2D cordinate (_x_ and _y_).  
