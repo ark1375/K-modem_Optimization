@@ -200,7 +200,8 @@ Three important public methods of this class includes, `monteCarloVP()` , `monte
     Basicaly, this method is `monteCarloVP()` that uses Multi Threading for faster calculations. 
         > :warning: Because in the current updates this method is unstable, it is not recomend to use it.
     
-<br>
+<br>  
+
 * **GeneticsAlgorithm Class**  
 This is the heart of the project. GeneticAlgorithm is the class that handles everything. After importing a polygon into the program, you have to use this class to pass in your desiered parameters and find the optimal solutions. It will do so by creating a population of arbitary size and run **Genetics Algorithm** on them.<br>
 As you are creating an object, the parameters that you'll need to pass to the constructor are listed in order:
