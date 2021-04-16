@@ -327,6 +327,8 @@ The last get method that you may use is `getBestGene();`. It returns only the be
 String bestGene  = Arrays.toString(gna.getBestGene());
 System.out.println("\nMULTIPOINT("+ bestGene.substring(1 , bestGene.length() -2) +")");
 ```
+<br>  
+
 ### One Last Neat Trick <br>
 There is one last neat trick. This trick involves working with a method called `VPCalculator.monteCarloVP_SavePoints();` alongside JTS TestBuilder. The _**monteCarloVP_SavePoints**_ method works exactly like _**monteCarloVP**_ with one additional difference. After calculating the signal coverage, it will save the random points it created for estimation inside a WKT file which you can use directly inside JTS TestBuilder. You just need to pass in two additional parameters. First the path to which it saves the points in and second a boolean value that if passed __true__ shows _How long it took the algorithm to finish_.
 ```java
