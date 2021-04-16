@@ -304,6 +304,7 @@ gna.runGenetics();
 System.out.println(gna.getPopulation().get(0));
 ```
 <br>  
+
 Because Monte Carlo is a hurestic method and thus the results are in a margin of error, it is a better practice to retrive more than one result from the algorithm. For that you may use `getTopTenResults();` method which retrives the Top Ten results. This method returns a size 10 ArrayList of Arrays of Modems. (`ArrayList<Modem[]>`)<br>  
 
 It was stated that running the Monte Carlo with higher values of itterations will result in more acurate results.<br>
