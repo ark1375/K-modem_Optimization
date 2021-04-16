@@ -247,6 +247,7 @@ The parameters that you'll need to pass to the constructor in order to create an
 ### How to Use<br>
 
 There are two main ways you can use the code.<br> First, you can run the code with given test cases and some arbitary parameters for confirming the concluded results; Two, you can create your own test case using **JTS TestBuilder**, passing it to the program with your parameters of choice for finding the optimal positions of the modems. Either way, the process of minipulating and running the code shoud be simple and straight forward.<br>  
+  
 
 #### How to Build and Run Using Maven
 Open cmd or powershell and change directory (using `cd`) to the local repository. Use `mvn package` command to build the project. After building it, a folder with the name __target__ should appear in the local repository folder.<br> Use `java -cp ./target/Model-SA-1.0-SNAPSHOT.jar ku.cs.model.sa.Main` to run the program.  
