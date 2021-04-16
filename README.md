@@ -204,13 +204,14 @@ Three important public methods of this class includes, `monteCarloVP()` , `monte
 <br>  
 
 * **GeneticsAlgorithm Class**  
-This is the heart of the project. GeneticAlgorithm is the class that handles everything. After importing a polygon into the program, you have to use this class to pass in your desiered parameters and find the optimal solutions. It will do so by creating a population of arbitary size and run **Genetics Algorithm** on them.<br>
-As you are creating an object, the parameters that you'll need to pass to the constructor are listed in order:
+This is the heart of the project. GeneticAlgorithm is the class that handles everything about optimization.<br>
+You can use this class and pass in your desiered parameters to find the optimal solution. It will do so by creating a population of arbitary size and run **Genetics Algorithm** on them.<br>
+The parameters that you'll need to pass to the constructor in order to create an object are listed in order bellow:
     - The Polygon
     
     - Number of Modems
     
-    - Default K Value<br>   Peneteration Rate of Signals, (_how many walls signals can pass thorugh_)
+    - Default K Value<br>   An integer with the minimum value of 0 that represents the Peneteration Rate of Signals (_how many walls signals can pass thorugh_).
     
     - Monte Carlo Itterations<br>   Because the program is using a method called Monte Carlo Method to estimate the signal coverage of the modems, you need to determain the number of itterations for the method. Obviouslt, higher number of itterations will lead to higher precisions but at the cost of system resources.<br> **Set this number somewhere between 1000 and 10000 based on your CPU power.**
     
