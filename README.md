@@ -250,6 +250,7 @@ There are two main ways you can use the code.<br> First, you can run the code wi
 
 #### How to Build and Run Using Maven
 Open cmd or powershell and change directory (using `cd`) to the local repository. Use `mvn package` command to build the project. After building it, a folder with the name __target__ should appear in the local repository folder.<br> Use `java -cp ./target/Model-SA-1.0-SNAPSHOT.jar ku.cs.model.sa.Main` to run the program. 
+<br>  
 
 #### Create and Import a Polygon  
 From `src/main/java/ku/cs/model/sa/` open the _**Main.java**_ file with a text editor. This is the main class of the program. Some pre written code is already avilable inside it. Reading it should give you a basic idea of how to use the code.<br> For now, lets start with something simple. Creating a polygon from one of the files availabe in the *test_cases* folder (like _obiouscase.xml_).<br>
@@ -265,6 +266,7 @@ Polygon pl = new Polygon();
 pl.readPolygonXML(repoPath + "test_cases\\obviouscase.xml");
 ```
 >_Note:_ You can use `plotPolygon()` method to plot the Polygon and get an idea of what you'r working on.  
+<br>  
 
 #### Run the Optimization
 After Importing the polygon, you may use **GeneticsAlgorithm** class to start the optimization process. Begin with creating an instence of __GeneticsAlgorithm__ and pass some arbitary parameters to the constructor (for detail information about parameters, check out [here](#a-tour-of-the-code)).<br>Let's asume you have __3 k-modems__ with __0 penetration rate__ and you want to use __1000 Monte Carlo itterations__ with __200 initial population__ and __25% mutation rate__. Last, let's run the algorithm for **20 generations** and see the results.<br>  
@@ -290,6 +292,7 @@ BCF: 0.996000
 ```
 BCF stands for Best Chromosome Fitness which is the score of the best indiviual of the population in the current run. The score is between 0 and 1 and shows the percentage of signal coverage inside the polygon.<br> For example, in the previous print box, BCF is 0.996. That means the best indivual of the population (which is just a set of cordinates for the modems) has 99.6% signal coverage. In another words, if you put your modems acording to the best indivual, you will have 99.6% coverage.<br><br>
 
+<br>  
 
 #### Retrive the Results  
 After the optimization is over, there are several _get_ methods included in the GeneticsAlgorithm class that you can use to retrive the result.<br>
