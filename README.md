@@ -197,7 +197,7 @@ Three important public methods of this class includes, `monteCarloVP()` , `monte
     This method works exactly like `monteCarloVP()` with two additional functionality. Saving all the calculated points in a WKT file and showing how long it took the algorithm to finish. You need to pass in two more variables to this function. A string that indicates the path that the result shoud be saved in and a boolean that if true, prints out the spent time.
     
     - **monteCarloVP_MT**<br>
-    Basicaly, this method is `monteCarloVP()` which uses Multi Threading.<br>  
+    Basicaly, this method is `monteCarloVP()` which uses Multi Threading. 
     > :warning: Because in the current updates this method is unstable, it is not recomend to use it.
     
     
