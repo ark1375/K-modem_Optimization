@@ -151,7 +151,7 @@ In order to use JTS TestBuilder to create your own polygons and geometries, you 
 ## How to Use?<br>
 Now that you are finished setting up the project, it's time to learn how to run and properly use the code. Let's begin with a little tour of the code.
 ### A Tour of the Code<br>
-> **Note:** &nbsp; Reading this section is optional, skip to [How to use](#how-to-use-1) if not interestead._<br>
+> _**Note:** Reading this section is optional, skip to [How to use](#how-to-use-1) if not interestead._<br>
 
 I won't go deep into details of the code (for that, refer to [Technical Details](TechincalDetails.md#problem_description)) but I will give you enough information to be able to understand the basic idea of it.<br>
 I will begin with explaining the important classes.<br>
