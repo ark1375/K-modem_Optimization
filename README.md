@@ -155,11 +155,12 @@ Now that you are finished setting up the project, it's time to learn how to run 
 
 Getting into the detail of the code is beyond the scope of this text (for that, refer to [Technical Details](TechincalDetails.md#problem_description)). However, some basic explanation about the available classes and their important methods seems necessary.<br>
 * __The Polygon Class__  
-    As the name implies, this class represents the main geometry structure that the program handles. Using this class you can import your polygons inside the program. Note that the design pattern of this code is based on **_Importing the Polygons_**, not creating them inside the program using code or GUI.<br><br>
+    As the name implies, this class represents the main geometry structure that the program handles. Using this class you can import your polygons inside the program. Note that the design pattern of this code is based on **_Importing the Polygons_**, not creating them inside the program using code or GUI.<br>
 You can import the polygons in two ways.  
     > The XML files that are mentioned in this text is the geometry file format created by JTS TestBuilder.
 
     - Using the empty constructor to build an object and importing the poygon using `obj.readPolygonXML(path)` or `obj.readPolygonWKT(path)` methods.<br>
+    
     Using XML file:
         ```java
         Polygon pl = new Polygon();
