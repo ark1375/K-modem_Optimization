@@ -184,11 +184,15 @@ You can import the polygons in two ways.
     
     <br>
 * **The Moedem Class**  
-You won't need to use this class directly. Just know that this is K-Modem class. Every modem will have a Peneteration Rate (_k_) and a 2D cordinate (_x_ and _y_).  
+This is the K-Modem class. Every modem will have a Peneteration Rate _k_ and a 2D cordinate _x_ and _y_. Because the `obj.toString();` method of this class is over writen, you can directly print the objects. The `toString()` method only prints the cordinate of the modem and the peneteration rate k, is left out. For the most part, you will not use this class directly.  
 
 * **VPCalculator Class**
-This static class contains algorithms for calculating the visiblity areas of modems (where there is signal coverage).<br>
-You won't be using this class directly as well.
+This static class contains algorithms for calculating the visiblity areas of modems (aka Visiblity Polygon, aka Signal coverage).<br>
+Three important public methods of this class includes, `monteCarloVP()` , `monteCarloVP_SavePoints()` and `monteCarloVP_MT()`.
+    - monteCarloVP
+    This method is for calculating the Signal coverage. It'll take in three parameters. First, number of itterations, second the polygon and third, an array of modems. After calculation, it'll return a double which indicates the ratio of **_coverage area_** to **_total area_**. The value of this double will always be in range of 0 to 1.<br>
+    Higher numbers of itterations in the algorithm will lead to more acurate result. However, this acuracy comes at the price of time.<br> 
+    For the most part, you will not use this class directly.
 
 * **GeneticsAlgorithm Class**  
 This is the heart of the project. GeneticAlgorithm is the class that handles everything. After importing a polygon into the program, you have to use this class to pass in your desiered parameters and find the optimal solutions. It will do so by creating a population of arbitary size and run **Genetics Algorithm** on them.<br>
