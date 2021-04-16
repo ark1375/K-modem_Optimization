@@ -227,6 +227,7 @@ The parameters that you'll need to pass to the constructor in order to create an
     
         _**Note**:  An automatic method of detecing convergence will be included in the future updates._<br>  
     <br>  
+    
     Now that you are familiar with the parameters, you can create objects like this:
     ```java
     GeneticsAlgorithm gna;
