@@ -267,11 +267,11 @@ pl.readPolygonXML(repoPath + "test_cases\\obviouscase.xml");
 >_Note:_ You can use `plotPolygon()` method to plot the Polygon and get an idea of what you'r working on.  
 
 #### Run the Optimization
-After Importing the polygon, you may use **GeneticsAlgorithm** class to start the optimization process. Begin with creating an instence of __GeneticsAlgorithm__ and pass some arbitary parameters to the constructor (for detail information about parameters, check out [here](#a-tour-of-the-code)).<br>Let's asume you have __3 k-modems__ with __0 penetration rate__ and you want to use __1000 Monte Carlo itterations__ with __200 initial population__ and __25% mutation rate__. Last, let's run the algorithm for *20 generations** and see the results.<br>  
+After Importing the polygon, you may use **GeneticsAlgorithm** class to start the optimization process. Begin with creating an instence of __GeneticsAlgorithm__ and pass some arbitary parameters to the constructor (for detail information about parameters, check out [here](#a-tour-of-the-code)).<br>Let's asume you have __3 k-modems__ with __0 penetration rate__ and you want to use __1000 Monte Carlo itterations__ with __200 initial population__ and __25% mutation rate__. Last, let's run the algorithm for **20 generations** and see the results.<br>  
 ```java
-String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
+String repositoryPath = ".\\"; 
 Polygon pl = new Polygon();
-pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
+pl.readPolygonXML(repoPath + "test_cases\\obviouscase.xml");
 
 GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 1000, 200, 0.25, 20);
 gna.runGenetics();
@@ -288,14 +288,16 @@ Selection Started
 Selection Done 
 BCF: 0.996000
 ```
-BCF shows the Best Chromosome Fitness which is the score of the best indiviual of the population in the current run. The score is between 0 and 1 which shows the signal coverage inside the polygon. For example, in the previous print box, BCF is 0.996. That means the best indivual of the population (which is just a set of cordinates for the modems) has 99.6% signal coverage. In another words, if you put your modems acording to the best indivual, you will have 99.6% coverage.<br><br>
+BCF stands for Best Chromosome Fitness which is the score of the best indiviual of the population in the current run. The score is between 0 and 1 and shows the percentage of signal coverage inside the polygon. For example, in the previous print box, BCF is 0.996. That means the best indivual of the population (which is just a set of cordinates for the modems) has 99.6% signal coverage. In another words, if you put your modems acording to the best indivual, you will have 99.6% coverage.<br><br>
 
+
+#### Retrive the Results  
 After the optimization is over, there are several _get_ methods included in the GeneticsAlgorithm class that you can use to retrive the result.<br>
 One such example is the `getPopulation()` method which returns an ArrayList of the chromosoms (whole population). This ArrayList will always be in order of best to worst, meaning the 0 index is the best of all.<br>
 ```java
-String repositoryPath = "C:\\users\\your user\\desktop\\Model_sa\\"; 
+String repositoryPath = ".\\"; 
 Polygon pl = new Polygon();
-pl.readPolygonXML(repoPath + "\\test_cases\\obviouscase.xml");
+pl.readPolygonXML(repoPath + "test_cases\\obviouscase.xml");
 
 GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 1000, 200, 0.25, 20);
 gna.runGenetics();
