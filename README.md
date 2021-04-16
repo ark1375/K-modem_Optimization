@@ -343,5 +343,3 @@ This will create a **montecarlo_out.wkt** file inside the **test_cases** folder 
 
 
 ## Credits
-
-## Sources
