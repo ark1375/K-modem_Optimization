@@ -174,11 +174,11 @@ You can import the polygons in two ways.
         ```java
         Polygon pl = new Polygon(path);
         ```
-        > :warning:  This method only works for XML files created by JTS TestBuilder. The program won't accept WKT file path in the constructor.
+        > :warning:  This method only works for XML files created by JTS TestBuilder. The program won't accept a WKT file path in the constructor.
          
     Future updates may include support for common CAD file formats like .DXF or .DWG.
 
-    Because this class uses JTS Polygon structure to handle the geometry, you can retrive a JTS Polygon directly from the class using `obj.getPoly();` method. In addition, if you are not satesifed with the provided methods of importing the polygons, you can use `obj.setPoly(poly);` method for directly setting the polygon. You need to pass a JTS Polygon object as the parameter. 
+    Because this class uses JTS Polygon structure to handle the geometry, you can retrive a JTS Polygon directly from the class using `obj.getPoly();` method.<br> In addition, if you are not satesifed with the provided methods of importing the polygons, you can use `obj.setPoly(poly);` method for directly setting the polygon. You need to pass a JTS Polygon object as the parameter. 
     
     > _**Note:** The XML files that are mentioned in this text is the geometry file format created by JTS TestBuilder._
 * **The Moedem Class**  
