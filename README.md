@@ -189,8 +189,8 @@ This is the K-Modem class. Every modem will have a Peneteration Rate _k_ and a 2
 * **VPCalculator Class**
 This static class contains algorithms for calculating the visiblity areas of modems (aka Visiblity Polygon, aka Signal coverage).<br>
 Three important public methods of this class includes, `monteCarloVP()` , `monteCarloVP_SavePoints()` and `monteCarloVP_MT()`.
-    - monteCarloVP
-    This method is for calculating the Signal coverage. It'll take in three parameters. First, number of itterations, second the polygon and third, an array of modems. After calculation, it'll return a double which indicates the ratio of **_coverage area_** to **_total area_**. The value of this double will always be in range of 0 to 1.<br>
+    - **monteCarloVP**<br>
+    This method is for calculating the Signal coverage.<br> It'll take in three parameters. First, number of itterations, second the polygon, and third an array of modems.<br>After calculation, it'll return a double which indicates the ratio of **_coverage area_** to **_total area_**. The value of this double will always be in range of 0 to 1.<br>
     Higher numbers of itterations in the algorithm will lead to more acurate result. However, this acuracy comes at the price of time.<br> 
     For the most part, you will not use this class directly.
 
