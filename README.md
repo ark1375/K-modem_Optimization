@@ -305,11 +305,11 @@ System.out.println(gna.getPopulation().get(0));
 ```
 <br>  
 
-Because Monte Carlo is a hurestic method and thus the results are in a margin of error, it is a better practice to retrive more than one result from the algorithm. For that you may use `getTopTenResults();` method which retrives the Top Ten results. This method returns a size 10 ArrayList of Arrays of Modems. (`ArrayList<Modem[]>`)<br>  
+Because Monte Carlo is a hurestic method and thus the results are in a margin of error, it is a better practice to retrive more than one result from the algorithm.<br> For that you may use `getTopTenResults();` method which retrives the Top Ten results. This method returns a size 10 ArrayList of Arrays of Modems. (`ArrayList<Modem[]>`)<br>  
 
 It was stated that running the Monte Carlo with higher values of itterations will result in more acurate results.<br>
 If you use too many Monte Carlo itterations for running the optimization, the algorithim will take a long time to finish. But now that the optimization is over, it might be a good idea to see what happens if you use more itterations on Monte Carlo.<br>  
-You can call the Monte Carlo method directly from VPCalculator class using `VPCalculator.monteCarloVP(itter , poly , modems);`. The method takes in three values.<br>First, the number of itterations, second, the polygon and third, an **Array of Modems**.<br>It will return a double with values ranging from 0 to 1. This value indicates the percentag of signal coverage inside the polygon.<br>  
+You can call the Monte Carlo method directly from VPCalculator class using `VPCalculator.monteCarloVP(itter , poly , modems);`.<br>The method takes in three values. First, the number of itterations, second, the polygon and third, an **Array of Modems**.<br>It will return a double with values ranging from 0 to 1. This value indicates the percentag of signal coverage inside the polygon.<br>  
 
 You can use `getTopTenResults();` to run MonteCarlo manulay with as much itterations as you want.
 ```java
