@@ -187,7 +187,7 @@ You can import the polygons in two ways.
 This is the K-Modem class. Every modem will have a Peneteration Rate _k_ and a 2D cordinate _x_ and _y_. Because the `obj.toString();` method of this class is over writen, you can directly print the objects. The `toString()` method only prints the cordinate of the modem and the peneteration rate k, is left out. For the most part, you will not use this class directly.  
 <br>  
 
-* **VPCalculator Class**
+* **VPCalculator Class**  
 This static class contains algorithms for calculating the visiblity areas of modems (aka Visiblity Polygon, aka Signal coverage).<br>
 Three important public methods of this class includes, `monteCarloVP()` , `monteCarloVP_SavePoints()` and `monteCarloVP_MT()`.
     - **monteCarloVP**<br>
