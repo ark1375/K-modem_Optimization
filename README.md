@@ -161,7 +161,7 @@ You can import the polygons in two ways.
 
     - Using the empty constructor to build an object and importing the poygon using `obj.readPolygonXML(path)` or `obj.readPolygonWKT(path)` methods.<br>
     
-    Using XML file:
+        Using XML file:
         ```java
         Polygon pl = new Polygon();
         pl.readPolygonXML(path);
