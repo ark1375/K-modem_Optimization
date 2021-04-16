@@ -225,7 +225,7 @@ The parameters that you'll need to pass to the constructor in order to create an
     - Generations<br>
     This parameter will detrmin the number of itterations for genetics algorihthim. Obviously, higher number of itterations will lead to more acurate results but at the cost of time.<br> **Set this number between 25 and 100 based on your system power and your own patiance.**<br>  
     
-    _**Note**:  An automatic method of detecing convergence will be included in the future updates._<br>  
+        _**Note**:  An automatic method of detecing convergence will be included in the future updates._<br>  
     
     Now that you are familiar with the parameters, you can create objects like this:
     ```java
