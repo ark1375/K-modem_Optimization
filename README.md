@@ -157,7 +157,6 @@ Getting into the detail of the code is beyond the scope of this text (for that, 
 * __The Polygon Class__  
     As the name implies, this class represents the main geometry structure that the program handles. Using this class you can import your polygons inside the program. Note that the design pattern of this code is based on **_Importing the Polygons_**, not creating them inside the program using code or GUI.<br>
 You can import the polygons in two ways.  
-    > The XML files that are mentioned in this text is the geometry file format created by JTS TestBuilder.
 
     - Using the empty constructor to build an object and importing the poygon using `obj.readPolygonXML(path)` or `obj.readPolygonWKT(path)` methods.<br>
     
@@ -180,7 +179,8 @@ You can import the polygons in two ways.
     Future updates may include support for common CAD file formats like .DXF or .DWG.
 
     Because this class uses JTS Polygon structure to handle the geometry, you can retrive a JTS Polygon directly from the class using `obj.getPoly();` method. In addition, if you are not satesifed with the provided methods of importing the polygons, you can use `obj.setPoly(poly);` method for directly setting the polygon. You need to pass a JTS Polygon object as the parameter. 
-
+    
+    > The XML files that are mentioned in this text is the geometry file format created by JTS TestBuilder.
 * **The Moedem Class**  
 You won't need to use this class directly. Just know that this is K-Modem class. Every modem will have a Peneteration Rate (_k_) and a 2D cordinate (_x_ and _y_).  
 
