@@ -247,6 +247,7 @@ The parameters that you'll need to pass to the constructor in order to create an
 ### How to Use<br>
 
 There are two main ways you can use the code.<br> First, you can run the code with given test cases and some arbitary parameters for confirming the concluded results; Two, you can create your own test case using **JTS TestBuilder**, passing it to the program with your parameters of choice for finding the optimal positions of the modems. Either way, the process of minipulating and running the code shoud be simple and straight forward.<br><br>
+#### 1. Create and Import a Polygon  
 After setting up the project, from `src/main/java/ku/cs/model/sa/` open the _**Main.java**_ with a text editor. This is the main class of the program. Some pre written code is already avilave inside the file. With a little of effort, it should give you a basic idea of how to use the code. For now, lets start with something simple. Creating a polygon from one of the files avilabe in the *test_cases* folder (like _obiouscase.xml_).<br>
 Begin with creating a **Polygon** object and determining the path of the local repository.
 ```java
