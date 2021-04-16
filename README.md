@@ -228,7 +228,7 @@ The parameters that you'll need to pass to the constructor in order to create an
         _**Note**:  An automatic method of detecing convergence will be included in the future updates._<br>  
     <br>  
     
-    Now that you are familiar with the parameters, you can create objects like this:
+    Now that you are familiar with the constructor's parameters, you can create objects like this:
     ```java
     GeneticsAlgorithm gna;
     gna = new GeneticsAlgorithm( poly, numOfModems, k , MCItter, popSize, mutRate, numOfGens );
@@ -239,11 +239,10 @@ The parameters that you'll need to pass to the constructor in order to create an
     gna = new GeneticsAlgorithm( poly, numOfModems, k , MCItter, popSize, mutRate, numOfGens );
     gna.runGenetics();
     ```
-    For getting the output of the algorithim, there are several `get` methodes provided in GeneticAlgorithm class for convinient use.<br>
-    `gna.getPopulation()` will return an ArrayList of the population. Each element of ArrayList is a **Chromosome** which contains an array of K-Modems. You can use a code like `gna.getPopulation().get(someIndex).modemList` to have access to the ArrayList of K-Modems.<br>
-    Also you can use `gna.getBestGene()` to directly access the best gene availabe. This will return an array of K-Modems.
-    One additional option is `gna.getTopTenResults()` which returns a 10 size ArrayList of best K-Modem Arrays.<br><br>
-    _**Note:** Future updates will include a faster algorithims for calculating modem coverage. This will increase total speed of program considerably._
+    There are several `get` methods provided for getting the output of the algorithm.<br>
+    `gna.getPopulation()` will return an ArrayList of the population. Each element of ArrayList is a **Chromosome** which itself, contains an array of K-Modems (can be accessed using `chromosome.modmList`).<br>
+    Also you can use `gna.getBestGene()` to directly access the best gene availabe. This will return an array of K-Modems.<br>
+    One additional option is `gna.getTopTenResults()` which returns an ArrayList of 10 best K-Modem Arrays.<br><br>
     
 ### How to Use<br>
 
