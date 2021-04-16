@@ -240,9 +240,9 @@ The parameters that you'll need to pass to the constructor in order to create an
     gna.runGenetics();
     ```
     There are several `get` methods provided for getting the output of the algorithm.<br>
-    First is `gna.getPopulation()` which returns an ArrayList of the population. Each element of the ArrayList is a **Chromosome** which itself, contains an array of K-Modems (can be accessed using `chromosome.modmList`).<br>
-    The second option is `gna.getBestGene()` that returns the best gene availabe as an array of K-Modems.<br>
-    Last option is `gna.getTopTenResults()` which returns an ArrayList of 10 best K-Modem Arrays.<br><br>
+    First is `gna.getPopulation()` which returns an ArrayList of the population. Each element of the ArrayList is a *Chromosome* which itself, contains an array of K-Modems (can be accessed using `chromosome.modmList`).<br>
+    The second option is `gna.getBestGene()`. It returns the best gene availabe as an array of K-Modems.<br>
+    And the last option is `gna.getTopTenResults()` which returns an ArrayList of 10 best K-Modem Arrays.<br><br>
     
 ### How to Use<br>
 
