@@ -319,6 +319,8 @@ for ( int i = 0 ; i < 10 ; i++){
         
 }
 ```
+<br>  
+
 The last get method that you may use is `getBestGene();` which returns the best result as an **Array of Modems**. Bottom sample code is using this method alongside with some string minipulation to create a WKT text that you can copy and paste directly inside JTS TestBuilder.
 
 ```java
