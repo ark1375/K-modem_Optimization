@@ -288,12 +288,12 @@ Selection Started
 Selection Done 
 BCF: 0.996000
 ```
-BCF stands for Best Chromosome Fitness which is the score of the best indiviual of the population in the current run. The score is between 0 and 1 and shows the percentage of signal coverage inside the polygon. For example, in the previous print box, BCF is 0.996. That means the best indivual of the population (which is just a set of cordinates for the modems) has 99.6% signal coverage. In another words, if you put your modems acording to the best indivual, you will have 99.6% coverage.<br><br>
+BCF stands for Best Chromosome Fitness which is the score of the best indiviual of the population in the current run. The score is between 0 and 1 and shows the percentage of signal coverage inside the polygon.<br> For example, in the previous print box, BCF is 0.996. That means the best indivual of the population (which is just a set of cordinates for the modems) has 99.6% signal coverage. In another words, if you put your modems acording to the best indivual, you will have 99.6% coverage.<br><br>
 
 
 #### Retrive the Results  
 After the optimization is over, there are several _get_ methods included in the GeneticsAlgorithm class that you can use to retrive the result.<br>
-One such example is the `getPopulation()` method which returns an ArrayList of the chromosoms (whole population). This ArrayList will always be in order of best to worst, meaning the 0 index is the best of all.<br>
+One such example is the `getPopulation()` method which returns the population as an ArrayList of the chromosoms. This ArrayList will always be in order of best to worst, meaning the 0 index is the best chromosome of all.<br>
 ```java
 String repositoryPath = ".\\"; 
 Polygon pl = new Polygon();
@@ -303,10 +303,14 @@ GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 3, 0, 1000, 200, 0.25, 20);
 gna.runGenetics();
 System.out.println(gna.getPopulation().get(0));
 ```
-Because Monte Carlo is a hurestic method and thus the results are in a margin of error, it is a better practice to retrive more than one result from the algorithm. For that you may use `getTopTenResults();` method which retrives the Top Ten results from the instance.<br>
-It was stated that running the Monte Carlo with higher values of itterations will get you more acurate results. If you use too many itterations for running the optimization, the algorithim will take a long time to finish. But now that the optimization is over, it might be a good idea to see what happens if you use more itterations on Monte Carlo.<br>
-Ther is an option of calling Monte Carlo method directly from VPCalculator class. You may use, `VPCalculator.monteCarloVP(itter , poly , modems);`. The method takes in three values. First, the number of itterations, second, the polygon and third, an **Array of Modems**. It will return a double with values ranging from 0 to 1. It will indicate the  percentag of signal coverage isnide the polygon.<br>
-Because the `getTopTenResults()` method will return an **Array List of _Array of Modems_** (each element of the Array List is one result and each result have to have cordinates for all modems), you can use it to run MonteCarlo manulay with as much itterations as you need.
+<br>  
+Because Monte Carlo is a hurestic method and thus the results are in a margin of error, it is a better practice to retrive more than one result from the algorithm. For that you may use `getTopTenResults();` method which retrives the Top Ten results. This method returns a size 10 ArrayList of Arrays of Modems. (`ArrayList<Modem[]>`)<br>  
+
+It was stated that running the Monte Carlo with higher values of itterations will result in more acurate results.<br>
+If you use too many Monte Carlo itterations for running the optimization, the algorithim will take a long time to finish. But now that the optimization is over, it might be a good idea to see what happens if you use more itterations on Monte Carlo.<br>  
+You can call the Monte Carlo method directly from VPCalculator class using `VPCalculator.monteCarloVP(itter , poly , modems);`. The method takes in three values.<br>First, the number of itterations, second, the polygon and third, an **Array of Modems**.<br>It will return a double with values ranging from 0 to 1. This value indicates the percentag of signal coverage inside the polygon.<br>  
+
+You can use `getTopTenResults();` to run MonteCarlo manulay with as much itterations as you want.
 ```java
 for ( int i = 0 ; i < 10 ; i++){
     double coverage = VPCalculator.monteCarloVP(1000000 , pl , gna.getTopTenResults().get(i));
