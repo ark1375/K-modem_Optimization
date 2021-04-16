@@ -33,7 +33,9 @@ For further information on technical details of the problem, experiments, and th
 
 ## Problem Description
 ### Original K-Modem Description
-For the original description of the K-Modem problem, check out the [Technical Details](TechincalDetails.md#problem_description).
+The K-Modem problem is actually not a stand-alone problem itself. It is a variation of an old, computational geometry problem called **Art Gallery Illumination Probelm** that consists of _finding the minimum number of light sources needed to illuminate a simple polygon (eg. map of a gallery)_<sup>[1](#credits)</sup>.    
+One of the famous variations of the problem is **K-Modem Illumination Problem**.  
+For a non-negative number _k_, a _k-modem_ is a wireless deice that can penetrate _k_ "walls". Let _L_ be a set of _n_ line segments (or lines) in the plane. A k-modem __illuminates all__ points _p_ of the plane such that the interior of the line segment joining p and the k-modem intersects at most _k_ elements of _L_. In general, k-modem illumination problems consist on finding the minimum number of k-modems necessary to illuminate a certain subset of the plane, for a given L.  
 
 ### This Variation of K-Modem Problem
 _**Note**: This problem is a subset of the original K-Modem illumination problem and the current code is the solution to this problem. With some little alteration of the code (check [Technical Details](TechincalDetails.md#problem_description)) it can solve the original problem as well. The solution code for the original K-Modem Illumination problem will be included in future updates._  
