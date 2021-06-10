@@ -18,8 +18,11 @@ public class GeneticsAlgorithm {
     private int numberOfGenerations = 100;
     private int numberOfModems = 1;
     private int defaultKValue = 2;
+    private int numberOfAllowedCollisions = 0;
     private double mutationRate = 0.1;
+    boolean multiThreading = false;
     private ArrayList<Chromosome> population = new ArrayList<>();
+    private ArrayList<Double> history = new ArrayList<>();
     
     public void initializeAlgorithm(){
         
@@ -33,22 +36,45 @@ public class GeneticsAlgorithm {
     public GeneticsAlgorithm( 
             Polygon ply ,
             int numberOfModems,
-            int defalutKValue,
+            int defaultKValue,
+            int numberOfAllowedCollisions,
             int monteCarloItterations , 
             int geneticPopulation , 
             double mutationRate , 
-            int numberOfGenerations ){
+            int numberOfGenerations,
+            boolean multiThreading){
         
         this.ply = ply;
+        this.numberOfModems = numberOfModems;
+        this.defaultKValue = defaultKValue;
+        this.numberOfAllowedCollisions = numberOfAllowedCollisions;
         this.monteCarloItterations = monteCarloItterations;
         this.geneticPopulation = geneticPopulation;
-        this.numberOfGenerations = numberOfGenerations;
-        this.numberOfModems = numberOfModems;
-        this.defaultKValue = defalutKValue;
         this.mutationRate = mutationRate;
+        this.numberOfGenerations = numberOfGenerations;
+        this.population = new ArrayList<>();
+        this.multiThreading = multiThreading;
+        
+        initializeAlgorithm();
+        
+    }
+    
+    public GeneticsAlgorithm(Polygon ply, GA_Config configs){
+        
+        this.ply = ply;
+        this.numberOfModems = configs.getNumberOfModems();
+        this.defaultKValue = configs.getDefaultKValue();
+        this.numberOfAllowedCollisions = configs.getNumberOfAllowedCollisions();
+        this.monteCarloItterations = configs.getMonteCarloItterations();
+        this.geneticPopulation = configs.getGeneticPopulation();
+        this.mutationRate = configs.getMutationRate();
+        this.numberOfGenerations = configs.getNumberOfGenerations();
+        this.multiThreading = configs.isMultiThreading();
+        
         this.population = new ArrayList<>();
         
         initializeAlgorithm();
+        
         
     }
     
@@ -70,7 +96,8 @@ public class GeneticsAlgorithm {
         
     }
     
-    public void runGenetics(){
+    public void runGenetics(double threshold){
+        
         
         for (int i = 0 ; i < numberOfGenerations ; i++){
             
@@ -81,7 +108,10 @@ public class GeneticsAlgorithm {
             System.out.println("Mutation Done \nSelection Started");
             selection();
             System.out.printf("Selection Done \nBCF: %f \n\n**********************\n" , population.get(0).getFitness());
+            history.add(population.get(0).getFitness());
             
+            if (population.get(0).getFitness() >= threshold)
+                break;
 //            System.out.printf("\nItteration: %d\nMutation Started\n" , i+1 );
 //            mutatePopulation();
 //            System.out.println("Mutation Done \nCrossover Started");
@@ -94,6 +124,7 @@ public class GeneticsAlgorithm {
         
         for (int i=0 ; i < 10 ; i++)
             System.out.printf("Chromosome %d Fitness: %f\n" , i , population.get(i).getFitness());
+            System.out.println("\n************ End **********\n\n");
     
     }
     
@@ -176,7 +207,9 @@ public class GeneticsAlgorithm {
         return population;
     }
 
-    
+    public ArrayList<Double> getHistory(){
+        return history;
+    }
     
     
     
@@ -241,7 +274,10 @@ public class GeneticsAlgorithm {
         }
         
         public void setFitness(){
-            fitness = VPCalculator.monteCarloVP(monteCarloItterations, ply, modemList);
+            if (multiThreading)
+                fitness = VPCalculator.monteCarloVP_MT(monteCarloItterations, ply, modemList , numberOfAllowedCollisions);
+            else
+                fitness = VPCalculator.monteCarloVP(monteCarloItterations, ply, modemList , numberOfAllowedCollisions);
         }
         
         @Override
