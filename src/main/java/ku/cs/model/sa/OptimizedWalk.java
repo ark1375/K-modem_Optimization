@@ -12,6 +12,7 @@ import org.locationtech.jts.geom.GeometryFactory;
 import java.util.Random;
 import java.lang.Math;
 import org.locationtech.jts.geom.Point;
+import org.locationtech.jts.shape.random.RandomPointsBuilder;
 
 /* Test this Class*/
 
@@ -23,7 +24,8 @@ public class OptimizedWalk {
     private double agentPace;
     private double deteriorationRate;
     private int monteCarloItterations;
-    private int numberOfPopulation;
+    private int numberOfInitialPopulation;
+    private int numberOfSelectedPopulation;
     private double monteCarloErrorThreshold ;
     private ArrayList<Agent> population = new ArrayList<>();
 
@@ -34,7 +36,8 @@ public class OptimizedWalk {
             double agentPace,
             double deteriorationRate,
             int monteCarloItterations,
-            int numberOfPopulation,
+            int numberOfInitialPopulation,
+            int numberOfSelectedPopulation,
             double monteCarloErrorThreshold){
         
         this.poly = poly;
@@ -43,18 +46,41 @@ public class OptimizedWalk {
         this.agentPace = agentPace;
         this.deteriorationRate = deteriorationRate;
         this.monteCarloItterations = monteCarloItterations;
-        this.numberOfPopulation = numberOfPopulation;
+        this.numberOfInitialPopulation = numberOfInitialPopulation;
+        this.numberOfSelectedPopulation = numberOfSelectedPopulation;
         this.monteCarloErrorThreshold = monteCarloErrorThreshold;
         
-        for(int i = 0; i < numberOfPopulation ; i++){
+        for(int i = 0; i < numberOfInitialPopulation ; i++){
             population.add(new Agent());
 //            System.out.printf("Agent #%d Added\n",i);
         }
     }
     
+    
+    public OptimizedWalk(Polygon poly, OW_Config configs){
+        
+        this.poly = poly;
+        this.defaultK = configs.getDefaultK();
+        this.movingThreshold = configs.getMovingThreshold();
+        this.agentPace = configs.getAgentPace();
+        this.deteriorationRate = configs.getDeteriorationRate();
+        this.monteCarloItterations = configs.getMonteCarloItterations();
+        this.numberOfInitialPopulation = configs.getNumberOfInitialPopulation();
+        this.numberOfSelectedPopulation = configs.getNumberOfSelectedPopulation();
+        this.monteCarloErrorThreshold = configs.getMonteCarloErrorThreshold();
+        
+        for(int i = 0; i < numberOfInitialPopulation ; i++){
+            population.add(new Agent());
+//            System.out.printf("Agent #%d Added\n",i);
+        }
+        
+    }
+    
     public void optimizePopulation(){
+        population.sort(Comparator.comparing(OptimizedWalk.Agent::getCurrentFitness));
+        Collections.reverse(population);
         System.out.println("Begin Optimization with OptimizedWalk");
-        for (int i = 0 ; i < this.numberOfPopulation ; i++){
+        for (int i = 0 ; i < this.numberOfSelectedPopulation ; i++){
             System.out.printf("Optimizing Agent #%d\n  Starting fitness: %f" , i+1 ,population.get(i).currentFitness );
             population.get(i).optimize();
             System.out.printf(" -> End Fitness %f\n_________________________\n\n",population.get(i).currentFitness);            
@@ -116,15 +142,21 @@ public class OptimizedWalk {
                 boolean validMove = false;
                 
                 while(!validMove){
-                    double direction = new Random().nextDouble() * 360;
+                    double direction = new Random().nextDouble() * Math.PI;
+                    direction *= new Random().nextInt(2) % 2 == 0 ? 1 : -1 ; 
+                    double moveInX = currentPace * Math.cos(direction);
+                    double moveInY = currentPace * Math.sin(direction);
                     
-                    double moveInX = currentPace * Math.cos(Math.toRadians(direction));
-                    double moveInY = currentPace * Math.sin(Math.toRadians(direction));
+//                    System.out.println(Math.sin(direction));
+//                    System.out.println(Math.cos(direction));
+//                    System.out.printf("\nMove in X:%f , Move in Y:%f" ,moveInX,moveInY);
                     Coordinate newCord = new Coordinate(cord.x + moveInX , cord.y + moveInY);
                     
                     Point radnomPoint = new GeometryFactory().createPoint(newCord);
-                    if( !poly.getPoly().contains(radnomPoint) )
+                    if( !poly.getPoly().contains(radnomPoint) ){
+//                        System.out.printf("Finding random Point for %f , %f\n" , cord.x , cord.y);
                         continue;
+                    }
                     
                     else{
                         validMove = true;
@@ -142,9 +174,11 @@ public class OptimizedWalk {
                         
                         else{
                             numberOfBadMoves ++;
-                            checkDeactivation();
+//                            System.out.println("bad move");
                         }
-                            
+                        
+                        checkDeactivation();
+
                     }
                 
                 }
@@ -158,8 +192,10 @@ public class OptimizedWalk {
         }
         
         public void checkDeactivation(){
-            if (isActive && numberOfBadMoves >= movingThreshold)
+//            System.out.println(currentPace);
+            if (isActive && numberOfBadMoves >= movingThreshold || isActive && this.currentPace <= 0.01 )
                 isActive = false;
+            
         }
         
         public void resetAgent(){
