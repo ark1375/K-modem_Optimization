@@ -19,7 +19,9 @@ import java.util.logging.Logger;
 import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.LinearRing;
 import org.locationtech.jts.geom.Point;
+import org.locationtech.jts.geom.impl.CoordinateArraySequence;
 import org.locationtech.jts.shape.random.RandomPointsInGridBuilder;
 
 public class VPCalculator {
@@ -85,9 +87,10 @@ public class VPCalculator {
         return criticalVertices;
         
     }
+    
+    
+    public static double monteCarloVP_MT(int itterations , Polygon poly , Modem[] modem , int numberOfAllowedCollisions){
 
-    public static double monteCarloVP_MT(int itterations , Polygon poly , Modem[] modem){
-                
         int totalVisiblePoints = 0;
         
         long t = System.currentTimeMillis();
@@ -102,7 +105,7 @@ public class VPCalculator {
 
                 Coordinate radnomCord = poly.randomPoint();
                 Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
-                totalNumberOfPoints++;
+//                totalNumberOfPoints++;
                 
                 int numberOfVisibleModems = 0;
 
@@ -121,7 +124,7 @@ public class VPCalculator {
 
                 }
 
-                if (numberOfVisibleModems == 1 )
+                if (numberOfVisibleModems > 0 && numberOfVisibleModems <= numberOfAllowedCollisions + 1 )
                     nPointsInVisibilityPolygon++ ;
 
             }            
@@ -137,7 +140,7 @@ public class VPCalculator {
 
                 Coordinate radnomCord = poly.randomPoint();
                 Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
-                totalNumberOfPoints++;
+//                totalNumberOfPoints++;
                 
                 int numberOfVisibleModems = 0;
 
@@ -156,7 +159,7 @@ public class VPCalculator {
 
                 }
 
-                if (numberOfVisibleModems == 1 )
+                if (numberOfVisibleModems > 0 && numberOfVisibleModems <= numberOfAllowedCollisions + 1)
                     nPointsInVisibilityPolygon++ ;
 
             }            
@@ -173,7 +176,7 @@ public class VPCalculator {
 
                 Coordinate radnomCord = poly.randomPoint();
                 Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
-                totalNumberOfPoints++;
+//                totalNumberOfPoints++;
                 
                 int numberOfVisibleModems = 0;
 
@@ -192,7 +195,7 @@ public class VPCalculator {
 
                 }
 
-                if (numberOfVisibleModems == 1 )
+                if (numberOfVisibleModems > 0 && numberOfVisibleModems <= numberOfAllowedCollisions + 1 )
                     nPointsInVisibilityPolygon++ ;
 
             }            
@@ -209,7 +212,7 @@ public class VPCalculator {
 
                 Coordinate radnomCord = poly.randomPoint();
                 Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
-                totalNumberOfPoints++;
+//                totalNumberOfPoints++;
                 
                 int numberOfVisibleModems = 0;
 
@@ -228,7 +231,7 @@ public class VPCalculator {
 
                 }
 
-                if (numberOfVisibleModems == 1 )
+                if (numberOfVisibleModems > 0 && numberOfVisibleModems <= numberOfAllowedCollisions + 1 )
                     nPointsInVisibilityPolygon++ ;
 
             }            
@@ -263,17 +266,18 @@ public class VPCalculator {
             }
             exs.shutdownNow();
         }
+//        System.out.println(itterations);
 //        System.out.println(totalVisiblePoints);
 //        System.out.println(totalNumberOfPoints);
         
-        double returnedValue = totalVisiblePoints / (double) totalNumberOfPoints;
-        totalNumberOfPoints = 0;
+        double returnedValue = totalVisiblePoints / (double) itterations;
+//        totalNumberOfPoints = 0;
         
         return returnedValue;
         
     }
 
-    public static double monteCarloVP(int itterations , Polygon poly , Modem[] modem ){
+    public static double monteCarloVP(int itterations , Polygon poly , Modem[] modem , int numberOfAllowedCollisions){
                 
         long t = System.currentTimeMillis();
         
@@ -303,7 +307,7 @@ public class VPCalculator {
 
                 }
 
-                if (numberOfVisibleModems == 1 )
+                if (numberOfVisibleModems > 0 && numberOfVisibleModems <= numberOfAllowedCollisions + 1)
                     nPointsInVisibilityPolygon++ ;
 
         }
@@ -312,7 +316,9 @@ public class VPCalculator {
         
     }
     
-    public static void monteCarloVP_SavePoints(int itterations , Polygon poly , Modem[] modem , String path , boolean showTimeDifference){
+    public static void monteCarloVP_SavePoints(
+            int itterations , Polygon poly , Modem[] modem , int numberOfAllowedCollisions , String path , boolean showTimeDifference
+    ){
        
         ArrayList<Coordinate> vPoly = new ArrayList<>();
         
@@ -339,12 +345,12 @@ public class VPCalculator {
 //                    if ( gm.getCoordinates().length - 2 <= m.getK())
 //                        numberOfVisibleModems++;
 
-                    if ( numberOfIntersections(poly, ray) <= m.getK() )
+                    if ( numberOfIntersections(poly, ray) <= m.getK()  )
                         numberOfVisibleModems++;
 
                 }
 
-                if (numberOfVisibleModems == 1 ){ 
+                if (numberOfVisibleModems > 0 && numberOfVisibleModems <= numberOfAllowedCollisions + 1){ 
                     vPoly.add(new Coordinate( radnomCord.x ,radnomCord.y ) );
                     nPointsInVisibilityPolygon++ ;
                 }
@@ -362,7 +368,7 @@ public class VPCalculator {
 //        System.out.println(str);
         
         try {
-            BufferedWriter br = new BufferedWriter(new FileWriter(path + "\\montecarlo_out.txt"));
+            BufferedWriter br = new BufferedWriter(new FileWriter(path + "\\montecarlo_out.wkt"));
             br.write(str);
             br.close();
         } catch (IOException ex) {
@@ -370,6 +376,29 @@ public class VPCalculator {
         }
         
         
+        
+    }
+    
+    public static double monteCarloBenchmark(Polygon poly , int itterations){
+        
+        int nPointsInPolygon = 0;
+        
+        for(int i = 0 ; i < itterations ; i++ ){
+            
+            Envelope exteriorBound = poly.getPoly().getEnvelope().getEnvelopeInternal();
+            RandomPointsInGridBuilder rpigb = new RandomPointsInGridBuilder();
+            rpigb.setNumPoints(1);
+            rpigb.setExtent( exteriorBound );   
+            Coordinate radnomCord = rpigb.getGeometry().getCoordinate();
+            Point radnomPoint = new GeometryFactory().createPoint(radnomCord);
+            
+            if(poly.getPoly().contains(radnomPoint))
+                nPointsInPolygon++;
+            
+
+        }
+        
+        return (nPointsInPolygon / (double) itterations);
         
     }
     
@@ -382,35 +411,82 @@ public class VPCalculator {
         
         for (int i = 1 ; i < poly.getPoly().getNumInteriorRing() + 1 ; i++)
             shells[i] = poly.getPoly().getInteriorRingN(i-1);
+//        System.out.println(Arrays.toString(shells));
         
         for (LineString ls : shells){
-        
-            for (int i = 0 ; i < ls.getNumPoints() - 1 ; i++){
+                        
+            for (int i = 0 ; i < ls.getNumPoints() - 2 ; i++){
                 Coordinate A , B , C , D , intersction_point;
-
-                A = new Coordinate (ls.getCoordinateN(i).x , ls.getCoordinateN(i).y);
-                B = new Coordinate (ls.getCoordinateN(i + 1).x , ls.getCoordinateN(i + 1).y);
+               
+                A = new Coordinate(ls.getCoordinateN(i));
+                B = new Coordinate(ls.getCoordinateN(i+1));
                 C = new Coordinate (string.p1.x , string.p1.y);
                 D = new Coordinate (string.p0.x , string.p0.y);
                 
+//                boolean cond1 = (Math.min(C.x , D.x) - Math.max(A.x , B.x) <= 0.05  && Math.max(C.x, D.x) - Math.min(A.x , B.x) >= 0.05);
+//                boolean cond2 = (Math.min(C.y , D.y) - Math.max(A.y , B.y) <= 0.05  && Math.max(C.y, D.y) - Math.min(A.y , B.y) >= 0.05);
                 
-                double difX_1 = A.x - B.x;
-                double difY_1 = A.y - B.y;
-                double difX_2 = C.x - D.x;
-                double difY_2 = C.y - D.y;
-                double denominator = difX_1 * difY_2 - difX_2 * difY_1;
+//                if (cond1 && cond2){
+//                    continue;
+//                }
                 
-                if (denominator == 0)
-                    continue;
+                double hC = implicitFunction(A, B, C);
+                double hD = implicitFunction(A, B, D);
                 
-                intersction_point = new Coordinate();
-                intersction_point.x = (((A.x * B.y - A.y * B.x) * difX_2 - (C.x * D.y - C.y * D.x) * difX_1) / denominator);
-                intersction_point.y = (((A.x * B.y - A.y * B.x) * difY_2 - (C.x * D.y - C.y * D.x) * difY_1) / denominator);
+                double gA = implicitFunction(C, D, A);
+                double gB = implicitFunction(C, D, B);
                 
-                boolean isItBetweenLine1 = intersction_point.x >= Math.min(A.x, B.x) && intersction_point.x <= Math.max(A.x, B.x);
-                boolean isItBetweenLine2 = intersction_point.x >= Math.min(C.x, D.x) && intersction_point.x <= Math.max(C.x, D.x);
-                if ( isItBetweenLine1 && isItBetweenLine2)
+                if (hC * hD <= 0.05 && gA * gB <= 0.05 )
                     count++;
+                
+                
+//                CoordinateArraySequence cas = new CoordinateArraySequence(new Coordinate[]{A,B});
+//                CoordinateArraySequence cas2 = new CoordinateArraySequence(new Coordinate[]{C,D});
+//                
+//                LineString ls1 = new LineString(cas, new GeometryFactory());
+//                LineString ls2 = new LineString(cas2, new GeometryFactory());
+//                
+//                if ( ls1.crosses(ls2) )
+//                    count++;
+                
+//                double slopeCD = Math.atan((C.y - D.y) / (C.x - D.x));
+//                double slopeCA = Math.atan((A.y - C.y) / (A.x - C.x));
+//                double slopeCB = Math.atan((B.y - C.y) / (B.x - C.x));
+//                
+//                boolean cond1 = (slopeCD <= Math.max(slopeCA, slopeCB)) && (slopeCD >= Math.min(slopeCA, slopeCB)) ;
+//                
+//                   
+//                double slopeAB = Math.atan((A.y - B.y) / (A.x - B.x));
+//                double slopeAD = Math.atan((A.y - D.y) / (A.x - D.x));
+//                double slopeAC = Math.atan(A.y - C.y) / (A.x - C.x);
+//                               
+//                boolean cond2 = (slopeAB <= Math.max(slopeAD, slopeAC)) && (slopeAB >= Math.min(slopeAD, slopeAC)) ;  
+//                
+//                if (slopeAB - slopeCD <= 0.01)
+//                    continue;
+//                
+//                if (cond1 && cond2)
+//                    count++;
+
+
+                
+//                double difX_1 = (A.x - B.x);
+//                double difY_1 = (A.y - B.y);
+//                double difX_2 = (C.x - D.x);
+//                double difY_2 = (C.y - D.y);
+//                double denominator = (difX_1 * difY_2 - difX_2 * difY_1);
+//                if (denominator <= 0.01)
+//                    denominator = 0;
+//                if (denominator == 0)
+//                    continue;
+//                
+//                intersction_point = new Coordinate();
+//                intersction_point.x = (((A.x * B.y - A.y * B.x) * difX_2 - (C.x * D.y - C.y * D.x) * difX_1) / denominator);
+//                intersction_point.y = (((A.x * B.y - A.y * B.x) * difY_2 - (C.x * D.y - C.y * D.x) * difY_1) / denominator);
+//                boolean isItBetweenLine1 = intersction_point.x >= Math.min(A.x, B.x) && intersction_point.x <= Math.max(A.x, B.x);
+//                boolean isItBetweenLine2 = intersction_point.x >= Math.min(C.x, D.x) && intersction_point.x <= Math.max(C.x, D.x);
+//                if ( isItBetweenLine1 && isItBetweenLine2)
+//                    count++;
                 
 //                double x = 0;
 //                double y = 0;
@@ -450,6 +526,15 @@ public class VPCalculator {
         return count;
     }
 
+    
+    private static double implicitFunction(Coordinate A, Coordinate B, Coordinate C){
+        
+        double hp = ((B.x - A.x) * (C.y - A.y)) - ((B.y - A.y) * (C.x - A.x));
+        return hp;
+        
+    }
+    
+    
     public static double rayTracingVP(double minDegre , Polygon poly , Modem[] modem){
         
         
