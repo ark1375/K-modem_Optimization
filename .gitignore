@@ -9,3 +9,8 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+./dataset/WKT/Holed/bcp
+/montecarlo_out.wkt
+/benchmark.csv
+/montecarlo_becnhmark.csv
+/test_cases/montecarlo_out.wkt
