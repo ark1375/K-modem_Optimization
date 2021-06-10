@@ -34,6 +34,8 @@ public final class GA_Config {
         
     }
     
+    public GA_Config(){}
+    
     
     public int getMonteCarloItterations() {
         return monteCarloItterations;
@@ -108,6 +110,18 @@ public final class GA_Config {
 
     public void setMultiThreading(boolean multiThreading) {
         this.multiThreading = multiThreading;
+    }
+    
+    @Override
+    public String toString(){
+        return "Number of Modems: " + this.numberOfModems +
+                "\nDefault Peneteration Value: " + this.defaultKValue +
+                "\nNumber of Allowed Signal Collisions: " + this.numberOfAllowedCollisions +
+                "\nMonte Carlo Itterations: " + this.monteCarloItterations +
+                "\nGenetic Population: " + this.geneticPopulation +
+                "\nNumber of Generations: " + this.numberOfGenerations +
+                "\nMutation Rate: " + this.mutationRate +
+                "\nUse Multi-Threading: " + this.multiThreading;
     }
     
 }

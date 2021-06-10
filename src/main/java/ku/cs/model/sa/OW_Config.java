@@ -36,6 +36,8 @@ public final class OW_Config {
         setUseMultiThreading(useMultiThreading);
         
     }
+    
+    public OW_Config(){}
 
     public void setDefaultK(int defaultK) {
         
@@ -128,5 +130,17 @@ public final class OW_Config {
     }
     
     
-    
+    @Override
+    public String toString(){
+        return 
+                "\nDefault Peneteration Value: " + this.defaultK +
+                "\nMonte Carlo Itterations: " + this.monteCarloItterations +
+                "\nMonte Carlo Error Threshold: " + this.monteCarloErrorThreshold +
+                "\nInitial Population: " + this.numberOfInitialPopulation +
+                "\nSelected Population: " + this.numberOfSelectedPopulation +
+                "\nAgent Pace: " + this.agentPace +
+                "\nSpeed Deterioration Rate: " + this.deteriorationRate +
+                "\nAgent Wrong Moves Threshold: " + this.movingThreshold +
+                "\nUse Multi-Threading: " + this.useMultiThreading;
+    }
 }
