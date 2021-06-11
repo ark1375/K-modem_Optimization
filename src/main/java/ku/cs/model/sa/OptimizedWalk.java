@@ -1,6 +1,7 @@
 
 package ku.cs.model.sa;
 
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,6 +28,8 @@ public class OptimizedWalk {
     private int numberOfInitialPopulation;
     private int numberOfSelectedPopulation;
     private double monteCarloErrorThreshold ;
+    public boolean showTextWhenRunning = false;
+
     private ArrayList<Agent> population = new ArrayList<>();
 
     public OptimizedWalk(
@@ -38,7 +41,8 @@ public class OptimizedWalk {
             int monteCarloItterations,
             int numberOfInitialPopulation,
             int numberOfSelectedPopulation,
-            double monteCarloErrorThreshold){
+            double monteCarloErrorThreshold,
+            boolean showTextWhenRunning){
         
         this.poly = poly;
         this.defaultK = defaultK;
@@ -49,6 +53,7 @@ public class OptimizedWalk {
         this.numberOfInitialPopulation = numberOfInitialPopulation;
         this.numberOfSelectedPopulation = numberOfSelectedPopulation;
         this.monteCarloErrorThreshold = monteCarloErrorThreshold;
+        this.showTextWhenRunning = showTextWhenRunning;
         
         for(int i = 0; i < numberOfInitialPopulation ; i++){
             population.add(new Agent());
@@ -68,6 +73,7 @@ public class OptimizedWalk {
         this.numberOfInitialPopulation = configs.getNumberOfInitialPopulation();
         this.numberOfSelectedPopulation = configs.getNumberOfSelectedPopulation();
         this.monteCarloErrorThreshold = configs.getMonteCarloErrorThreshold();
+        this.showTextWhenRunning = configs.isShowTextWhenRunning();
         
         for(int i = 0; i < numberOfInitialPopulation ; i++){
             population.add(new Agent());
@@ -79,11 +85,19 @@ public class OptimizedWalk {
     public void optimizePopulation(){
         population.sort(Comparator.comparing(OptimizedWalk.Agent::getCurrentFitness));
         Collections.reverse(population);
-        System.out.println("Begin Optimization with OptimizedWalk");
+        
+        if(showTextWhenRunning)
+            System.out.println("Begin Optimization with OptimizedWalk");
+        
         for (int i = 0 ; i < this.numberOfSelectedPopulation ; i++){
-            System.out.printf("Optimizing Agent #%d\n  Starting fitness: %f" , i+1 ,population.get(i).currentFitness );
+            
+            if(showTextWhenRunning)
+                System.out.printf("Optimizing Agent #%d\n  Starting fitness: %f" , i+1 ,population.get(i).currentFitness );
+            
             population.get(i).optimize();
-            System.out.printf(" -> End Fitness %f\n_________________________\n\n",population.get(i).currentFitness);            
+            
+            if(showTextWhenRunning)
+                System.out.printf(" -> End Fitness %f\n_________________________\n\n",population.get(i).currentFitness);            
         }
         
     }

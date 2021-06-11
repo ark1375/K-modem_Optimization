@@ -13,6 +13,7 @@ public final class OW_Config {
     private int numberOfSelectedPopulation = 50;
     private double monteCarloErrorThreshold = 0.015;
     private boolean useMultiThreading = false;
+    boolean showTextWhenRunning = false;
 
     public OW_Config(
             int defaultK,
@@ -23,7 +24,8 @@ public final class OW_Config {
             int numberOfInitialPopulation,
             int numberOfSelectedPopulation,
             double monteCarloErrorThreshold,
-            boolean useMultiThreading) {
+            boolean useMultiThreading,
+            boolean showTextWhenRunning) {
         
         setDefaultK(defaultK);
         setMovingThreshold(movingThreshold);
@@ -34,7 +36,7 @@ public final class OW_Config {
         setNumberOfSelectedPopulation(numberOfSelectedPopulation);
         setMonteCarloErrorThreshold(monteCarloErrorThreshold);
         setUseMultiThreading(useMultiThreading);
-        
+        setShowTextWhenRunning(showTextWhenRunning);
     }
     
     public OW_Config(){}
@@ -92,6 +94,10 @@ public final class OW_Config {
         this.useMultiThreading = useMultiThreading;
     }
 
+    public void setShowTextWhenRunning(boolean showTextWhenRunning){
+        this.showTextWhenRunning = showTextWhenRunning;
+    }
+    
     public int getDefaultK() {
         return defaultK;
     }
@@ -129,6 +135,10 @@ public final class OW_Config {
         return useMultiThreading;
     }
     
+    public boolean isShowTextWhenRunning(){
+        return this.showTextWhenRunning;
+    }
+    
     
     @Override
     public String toString(){
@@ -141,6 +151,7 @@ public final class OW_Config {
                 "\nAgent Pace: " + this.agentPace +
                 "\nSpeed Deterioration Rate: " + this.deteriorationRate +
                 "\nAgent Wrong Moves Threshold: " + this.movingThreshold +
-                "\nUse Multi-Threading: " + this.useMultiThreading;
+                "\nUse Multi-Threading: " + this.useMultiThreading +
+                "\nShow Text When Running: " + this.showTextWhenRunning;
     }
 }

@@ -20,13 +20,16 @@ public class GeneticsAlgorithm {
     private int defaultKValue = 2;
     private int numberOfAllowedCollisions = 0;
     private double mutationRate = 0.1;
-    boolean multiThreading = false;
+    public boolean multiThreading = false;
+    public boolean showTextWhenRunning = false;
+    
     private ArrayList<Chromosome> population = new ArrayList<>();
     private ArrayList<Double> history = new ArrayList<>();
     
     public void initializeAlgorithm(){
         
-        System.out.println("\n ***** Initializing the Algorithim *****\n");
+        if(showTextWhenRunning)
+            System.out.println("\n ***** Initializing the Algorithim *****\n");
 
         for (int i = 0 ; i < geneticPopulation ; i++)
             population.add(new Chromosome(true));
@@ -42,7 +45,8 @@ public class GeneticsAlgorithm {
             int geneticPopulation , 
             double mutationRate , 
             int numberOfGenerations,
-            boolean multiThreading){
+            boolean multiThreading,
+            boolean showTextWhenRunning ){
         
         this.ply = ply;
         this.numberOfModems = numberOfModems;
@@ -54,6 +58,7 @@ public class GeneticsAlgorithm {
         this.numberOfGenerations = numberOfGenerations;
         this.population = new ArrayList<>();
         this.multiThreading = multiThreading;
+        this.showTextWhenRunning = showTextWhenRunning;
         
         initializeAlgorithm();
         
@@ -84,7 +89,8 @@ public class GeneticsAlgorithm {
         
         population.sort(Comparator.comparing(Chromosome::getFitness));
         Collections.reverse(population);
-        System.out.printf("Best Chromosome:%f\tWorst Chromosome:%f\n" , population.get(0).getFitness() , population.get(population.size()-1).getFitness());
+        if(showTextWhenRunning)
+            System.out.printf("Best Chromosome:%f\tWorst Chromosome:%f\n" , population.get(0).getFitness() , population.get(population.size()-1).getFitness());
         
     }
     
@@ -100,14 +106,22 @@ public class GeneticsAlgorithm {
         
         
         for (int i = 0 ; i < numberOfGenerations ; i++){
+            if(showTextWhenRunning)
+                System.out.printf("\nItteration: %d\nCrossover Started\n" , i+1 );
             
-            System.out.printf("\nItteration: %d\nCrossover Started\n" , i+1 );
             crossoverThePopulation();
-            System.out.println("Crossover Done \nMutation Started");
+            if(showTextWhenRunning)
+                System.out.println("Crossover Done \nMutation Started");
+            
             mutatePopulation();
-            System.out.println("Mutation Done \nSelection Started");
+            if(showTextWhenRunning)
+                System.out.println("Mutation Done \nSelection Started");
+            
             selection();
-            System.out.printf("Selection Done \nBCF: %f \n\n**********************\n" , population.get(0).getFitness());
+            
+            if(showTextWhenRunning)
+                System.out.printf("Selection Done \nBCF: %f \n\n**********************\n" , population.get(0).getFitness());
+            
             history.add(population.get(0).getFitness());
             
             if (population.get(0).getFitness() >= threshold)
@@ -122,9 +136,11 @@ public class GeneticsAlgorithm {
             
         }
         
-        for (int i=0 ; i < 10 ; i++)
-            System.out.printf("Chromosome %d Fitness: %f\n" , i , population.get(i).getFitness());
-            System.out.println("\n************ End **********\n\n");
+        if(showTextWhenRunning)
+            for (int i=0 ; i < 10 ; i++){
+                System.out.printf("Chromosome %d Fitness: %f\n" , i , population.get(i).getFitness());
+                System.out.println("\n************ End **********\n\n");
+            }
     
     }
     
@@ -152,6 +168,10 @@ public class GeneticsAlgorithm {
             
         }
     
+    }
+    
+    public double getRunFitness(){
+        return population.get(0).getFitness();
     }
 
     

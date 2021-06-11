@@ -1,5 +1,6 @@
 
 package ku.cs.model.sa;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import org.locationtech.jts.geom.Coordinate;
@@ -13,7 +14,20 @@ public class Main {
 
         Polygon pl = new Polygon();
         String repoPath = ".\\dataset\\Picked";
-        pl.readPolygonWKT(repoPath + "\\87.wkt");
+        pl.readPolygonWKT(repoPath + "\\95.wkt");
+        
+        OW_Config owconf = new OW_Config(0, 10, 20 , 0.2, 1000, 100, 20, 0.015, true , false);
+        GA_Config gaconf = new GA_Config(1000 , 200 , 20 , 0 , 0 , 0 , 0.15 , true , false);
+        
+        ArrayList<Modem[]> m = Util.K_ModmSolver(pl, owconf, gaconf, 1 , 1, 10, true , true);
+        
+        System.out.println( Arrays.toString(m.get(m.size() -1)) );
+        
+        VPCalculator.monteCarloVP_SavePoints(10000, pl, m.get(m.size() -1), 0 , "./" , false);
+        
+        
+        
+        
 //        OW_Config owconf = new OW_Config(0, 10, 20 , 0.2, 1000, 100, 20, 0.015, true);
 //        System.out.println(owconf + "\n");
 //        
@@ -30,6 +44,11 @@ public class Main {
 //        VPCalculator.monteCarloVP_MT(1000000, pl, new Modem[]{new Modem(178, 750 , 0)});          ::::DEBUG LINE::::
 //        VPCalculator.monteCarloVP_SavePoints(10000, pl, new Modem[]{new Modem(178, 750 , 0) , new Modem(45, 368 , 0)} , 0 , "./" , false);  ::::DEBUG LINE::::
 //        
+
+
+
+
+
 //        //(Polygon , NumberOfModems , DefaultKValue , MonteCarloItterations , Population , MutationRate , Generations)
 //        
 //        GeneticsAlgorithm gna = new GeneticsAlgorithm(pl, 2, 0, 0 , 1000, 200, 0.25, 10,true);

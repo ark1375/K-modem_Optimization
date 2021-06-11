@@ -12,6 +12,7 @@ public final class GA_Config {
     private int numberOfGenerations = 20;
     private double mutationRate = 0.1;
     private boolean multiThreading = false;
+    public boolean showTextWhenRunning = false;
     
     GA_Config(
             int monteCarloItterations,
@@ -21,7 +22,8 @@ public final class GA_Config {
             int defaultKValue,
             int numberOfAllowedCollisions,
             double mutationRate,
-            boolean multiThreading ){
+            boolean multiThreading ,
+            boolean showTextWhenRunning){
         
         setNumberOfModems(numberOfModems);
         setDefaultKValue(defaultKValue);
@@ -31,6 +33,7 @@ public final class GA_Config {
         setNumberOfGenerations(numberOfGenerations);
         setMutationRate(mutationRate);
         setMultiThreading(multiThreading);
+        setShowTextWhenRunning(showTextWhenRunning);
         
     }
     
@@ -111,6 +114,16 @@ public final class GA_Config {
     public void setMultiThreading(boolean multiThreading) {
         this.multiThreading = multiThreading;
     }
+
+    public boolean isShowTextWhenRunning() {
+        return showTextWhenRunning;
+    }
+
+    public void setShowTextWhenRunning(boolean showTextWhenRunning) {
+        this.showTextWhenRunning = showTextWhenRunning;
+    }
+    
+    
     
     @Override
     public String toString(){
@@ -121,7 +134,8 @@ public final class GA_Config {
                 "\nGenetic Population: " + this.geneticPopulation +
                 "\nNumber of Generations: " + this.numberOfGenerations +
                 "\nMutation Rate: " + this.mutationRate +
-                "\nUse Multi-Threading: " + this.multiThreading;
+                "\nUse Multi-Threading: " + this.multiThreading +
+                "\nShow Text When Running: " + this.showTextWhenRunning;
     }
     
 }
