@@ -75,7 +75,7 @@ public class GeneticsAlgorithm {
         this.mutationRate = configs.getMutationRate();
         this.numberOfGenerations = configs.getNumberOfGenerations();
         this.multiThreading = configs.isMultiThreading();
-        
+        this.showTextWhenRunning = configs.isShowTextWhenRunning();
         this.population = new ArrayList<>();
         
         initializeAlgorithm();
@@ -110,10 +110,12 @@ public class GeneticsAlgorithm {
                 System.out.printf("\nItteration: %d\nCrossover Started\n" , i+1 );
             
             crossoverThePopulation();
+            
             if(showTextWhenRunning)
                 System.out.println("Crossover Done \nMutation Started");
             
             mutatePopulation();
+            
             if(showTextWhenRunning)
                 System.out.println("Mutation Done \nSelection Started");
             
@@ -136,11 +138,12 @@ public class GeneticsAlgorithm {
             
         }
         
-        if(showTextWhenRunning)
-            for (int i=0 ; i < 10 ; i++){
+        if(showTextWhenRunning){
+            for (int i=0 ; i < 10 ; i++)
                 System.out.printf("Chromosome %d Fitness: %f\n" , i , population.get(i).getFitness());
-                System.out.println("\n************ End **********\n\n");
-            }
+            System.out.println("\n************ End **********\n\n");
+        }
+            
     
     }
     
