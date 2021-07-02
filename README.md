@@ -16,8 +16,10 @@ This repository contains  
 
 __Under Development:__
 - Technical Detaild
-- Solve for the original K-Modem Problem
-- Changing signal confliction to a removable option
+- ~~Solve for the original K-Modem Problem~~
+- ~~Changing signal confliction to a removable option~~
+
+[Code Documentation](/docs/code_documentation.md)
   
   
 **Warning!**  _The following readme file **Dose Not** contains detailed information about the problem.<br>
