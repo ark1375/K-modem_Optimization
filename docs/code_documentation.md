@@ -32,11 +32,14 @@ The logic of the program can be takean apart into three different sections.
 2. The __Algorithm and Optimization__ which carry the main functionality of the program and consist of classes *VPCalculator* , *GeneticsAlgorithm* and *OptimizedWalk*.
 3. The **Util** class in which you can find static methods for different uses such as *Benchmarkingthe algorithms* and *Solving K-Modem Probelm*.
   
-There are two ways in which you can use the program.  
-The first way, is to find optimal positions of k-modems for given number of _k-modems_ and peneteration rate _k_ in a polygon _p_.  
-The second way is to use the static methods provided in _Util_ class to either verify the concluded results in the article or to solve the K-Modem problem for a given polygon.  
+There are two ways in which the program can be used.
+
+- The first way, is to find optimal positions of k-modems for given number of _k-modems_ and peneteration rate _k_ in a polygon _p_.  
+- The second way is to use the static methods provided in _Util_ class to either verify the concluded results in the article or to solve the K-Modem problem for a given polygon.  
+
 The workflow for both aproaches are shown in the diagram bellow.
-![Image1](./screenshots/diagram1.jpg)
+![Image1](./screenshots/diagram1_red.jpg)
+![Image2](./screenshots/diagram2_red.jpg)
 
 ### First Aproach
 
@@ -44,14 +47,14 @@ The workflow for both aproaches are shown in the diagram bellow.
 
 ## Logic Classes
 
-- [__Modem__](###Modem)
-- [__Polygon__](###Polygon)
-- [__VPCalculator__](###VPCalculator)
-- [__GA_Config__](###GA_Config)
-- [__OW_config__](###OW_Config)
-- [__Genetics Algorithm__](###GeneticsAlgorithm)
-- [__OptimizedWalk__](###OptimizedWalk)
-- [__Util__](###Util)
+- [__Modem__](#Modem)
+- [__Polygon__](#Polygon)
+- [__VPCalculator__](#VPCalculator)
+- [__GA_Config__](#GA_Config)
+- [__OW_config__](#OW_Config)
+- [__Genetics Algorithm__](#GeneticsAlgorithm)
+- [__OptimizedWalk__](#OptimizedWalk)
+- [__Util__](#Util)
 
 ### Modem
 
