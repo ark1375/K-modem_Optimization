@@ -76,8 +76,9 @@ The Modem class is the implementation of K-Modems. It hold's a coordinate and a 
 
 ##### `Modem()`
 
-Empty constructot. Default coordinate and default peneteration rate is loaded inside the object.  
-__Default Coordinate:__ `X = 0` and `Y = 0`
+Empty constructot.  
+Default coordinate and default peneteration rate is loaded inside the object.  
+__Default Coordinate:__ `X = 0` and `Y = 0`  
 __Default Peneteration Rate:__ `K = 0`  
 
 ##### `Modem(double x , double y)`
@@ -87,6 +88,24 @@ __Default Peneteration Rate:__ `K = 0`
 ##### `Modem(double x , double y, int k)`
 
 `x` coordinate, `y` coordinate and `k` are loaded inside the object. `k` should be a none zero positive integer. If not, the __default k__ is loaded automaticaly.
+
+#### Methods
+
+##### `setK(int k)`
+
+`k` should be positive and none zero. Otherwise, ignored.
+
+##### `setX(double x)`
+
+Sets the value of x coordinate manualy.
+
+##### `setY(double y)`
+
+Sets the value of y coordinate manualy.
+
+##### `getCoordinateXY()`
+
+Return a JTS `coordinate` object. More on that [here - not set]().
 
 ### Polygon
 
