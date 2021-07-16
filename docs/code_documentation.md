@@ -36,13 +36,23 @@ There are two ways in which the program can be used.
 
 - The first way, is to find optimal positions of k-modems for given number of _k-modems_ and peneteration rate _k_ in a polygon _p_.  
 - The second way is to use the static methods provided in _Util_ class to either verify the concluded results in the article or to solve the K-Modem problem for a given polygon.  
-
+_
 The workflow for both aproaches are shown in the diagram bellow.
 ![Image1](./screenshots/diagram3.jpg)
 
-### First Aproach
+### First Aproach, Manual Optimization
 
-### Second Aproach
+For manulay using the optimization algorithms, the user is asked to provide a configuration file based on the algorithm and an input polygon to perform optimization on.  
+The user can use the `polygon` class directly to import the polygon into the program. Currently there is no way to create the polygon on sight. Supported file formats for the polygon calss are __wkt__ and JTS __XML__ polygon file which can be used to import simple or complex polygons.  
+The configuration onject has to be created based on the optimization algorithm. In this configuration object, the parameters required for runnig the optimization are saved. These parameters can be divided into tow category. __Problem parameters__ provide constraints of the problem which are _number of modems_ , _peneteration rate_ and _number of allowed collision_. __Optimization Parameters__ are used to provide constratints for the algorithms them self. These parameters are explained thorughly for each algorithm later on in the docs.  
+After running the optimization, the user can use the provided methods in each optimization class to retrive the result of the run.
+
+### Second Aproach, Benchmarks and K-Modem Solver
+
+Each benchmarking mehtod is explained throughly in it's own section later on.  
+The K-Modem solver requires a polygon, a genetic optimization config, a optimized walk optimization config some and additional parameters which is explained later on.  
+The method then uses these parameters to loop through optimizing the polygon for different number of modems. For `numberOfModems = 1` the Optimized Walk is used as it is suited to optimize the position of one modem. For `numberOfModems > 1` genetics optimization is used instead.  
+After reaching 100% coverage (or the threshold provided by user) the algorithm is halted and an ArrayList of agents (genes) is returend for each number of input modems. The user can later use this ArrayList to retrive the modem's positions.
 
 ## Logic Classes
 
