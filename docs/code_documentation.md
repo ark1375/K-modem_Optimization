@@ -115,9 +115,74 @@ The Modem class is the implementation of K-Modems. It hold's a coordinate and a 
 
 #### Explanation
 
-This class is a container for the JTS Polygon class. Along with the methods provided by the JTS, some input/output methods are 
+This class is a container for the JTS Polygon class. Although the program is mostly using the JTS polygon methods, all input arguments of the methods inside the program are as this type.  
 
-#### Constructors
+#### Constructor
+
+- ##### `Polygon()`
+  
+  Empty constructor. Nothing is loaded inside the object.
+
+- ##### `Polygon(String path)`
+  
+  Polygon file inside the path is loaded inside the object.
+  `path` should refer to a JTS XML polygon file.
+
+#### Methods
+
+- ##### `readPolygonWKT(String path)`
+   
+   Using the provided path, loades a wkt polygon file inside the object.
+
+- ##### `readPolygonXML(String path)`
+
+   Using the provided path, loades a JTS XML polygon file inside the object.  
+   Relies on `readXMLFile(String path)` private method.
+
+- ##### `convertXMLFile(String path)`
+
+   Using the provided path, coverts a JTS XML polygon file into a WKT file. The converted file is saved in the same directoryand the file name is preserved. The file name extension is changed to wkt instead.  
+   Relies on `readXMLFile(String path)` private method.
+
+- ##### `readXMLFile(String path)` :lock:
+
+   __DEVELOPER GUIDE__
+   This method will read an XML file, itterates inside the file and ignores the header. Extracts the coordinates and convert it to WKT standard coordinate.  
+   In the end it'll return the WKT standard string.
+
+- ##### `plotPolygon()` :warning:
+
+  Plots the polygon.
+
+  > It is recomended to not use this method as it is still in development.
+
+- ##### `randomPoint()`
+
+  Returns a random JTS Coordinate object such that the x and y coordinate are inside the polygon.
+
+- ##### `setPoly(jts.geom.Polygon poly)`
+
+  Manually sets the polygon. Polygon input argument is as JTS Polygon type.
+
+- ##### `getPloy()`
+
+  Returns the polygon as JTS Polygon type.
+
+- ##### `getArea()`
+
+  Returns the area of the polygon as a double.
+
+- ##### `isHoled()`
+
+  Returns false if the polygon is simple. True otherwise.
+
+
+
+
+
+
+
+
 
 ### VPCalculator  
 
