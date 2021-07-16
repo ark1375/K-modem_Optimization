@@ -115,7 +115,7 @@ The Modem class is the implementation of K-Modems. It hold's a coordinate and a 
 
 #### Explanation
 
-
+This class is a container for the JTS Polygon class. Along with the methods provided by the JTS, some input/output methods are 
 
 #### Constructors
 
