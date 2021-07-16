@@ -67,6 +67,27 @@ After reaching 100% coverage (or the threshold provided by user) the algorithm i
 
 ### Modem
 
+#### Explanation
+
+The Modem class is the implementation of K-Modems. It hold's a coordinate and a peneteration rate _k_.
+> For the most part, creation of the modems are handled by the logic itself.  
+
+#### Constructor
+
+##### `Modem()`
+
+Empty constructot. Default coordinate and default peneteration rate is loaded inside the object.  
+__Default Coordinate:__ `X = 0` and `Y = 0`
+__Default Peneteration Rate:__ `K = 0`  
+
+##### `Modem(double x , double y)`
+
+`x` coordinate, `y` coordinate and __default k__ are loaded inside the object.
+
+##### `Modem(double x , double y, int k)`
+
+`x` coordinate, `y` coordinate and `k` are loaded inside the object. `k` should be a none zero positive integer. If not, the __default k__ is loaded automaticaly.
+
 ### Polygon
 
 ### VPCalculator  
