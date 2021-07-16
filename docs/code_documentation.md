@@ -38,8 +38,7 @@ There are two ways in which the program can be used.
 - The second way is to use the static methods provided in _Util_ class to either verify the concluded results in the article or to solve the K-Modem problem for a given polygon.  
 
 The workflow for both aproaches are shown in the diagram bellow.
-![Image1](./screenshots/diagram1.jpg)
-![Image2](./screenshots/diagram2.jpg)
+![Image1](./screenshots/diagram3.jpg)
 
 ### First Aproach
 
