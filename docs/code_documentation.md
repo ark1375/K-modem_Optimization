@@ -91,8 +91,6 @@ The Modem class is the implementation of K-Modems. It hold's a coordinate and a 
 
 #### Methods
 
-
-
 - ##### `setK(int k)`
 
   `k` should be positive and none zero. Otherwise, ignored.
@@ -133,7 +131,7 @@ This class is a container for the JTS Polygon class. Although the program is mos
 #### Methods
 
 - ##### `readPolygonWKT(String path)`
-   
+  
    Using the provided path, loades a wkt polygon file inside the object.
 
 - ##### `readPolygonXML(String path)`
@@ -178,15 +176,14 @@ This class is a container for the JTS Polygon class. Although the program is mos
 
   Returns false if the polygon is simple. True otherwise.
 
-
-
-
-
-
-
-
-
 ### VPCalculator  
+
+#### Explanation
+
+This class is for calculating the visiblity polygon, aka the coverage area of a k-modem.  
+The main alogrithm used for calculating the coverage area derived from Monte-Carlo area estimation.  
+Basically some number of points (which is present as _itterations_ prarameter) is chosen inside the polygon using a uniform distribution. Then the algorithm calculates to see which of these points are covered by the modems. After that, the algorithms returns the ratio of _**number of visible points to total number of points**_ which is roughly speaking the ratio of _**visiblity polygon area to polygon area**_.
+
 
 ### GA_Config  
 
