@@ -91,6 +91,8 @@ The Modem class is the implementation of K-Modems. It hold's a coordinate and a 
 
 #### Methods
 
+
+
 - ##### `setK(int k)`
 
   `k` should be positive and none zero. Otherwise, ignored.
