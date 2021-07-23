@@ -180,9 +180,35 @@ This class is a container for the JTS Polygon class. Although the program is mos
 
 #### Explanation
 
-This class is for calculating the visiblity polygon, aka the coverage area of a k-modem.  
-The main alogrithm used for calculating the coverage area derived from Monte-Carlo area estimation.  
-Basically some number of points (which is present as _itterations_ prarameter) is chosen inside the polygon using a uniform distribution. Then the algorithm calculates to see which of these points are covered by the modems. After that, the algorithms returns the ratio of _**number of visible points to total number of points**_ which is roughly speaking the ratio of _**visiblity polygon area to polygon area**_.
+This is a static class for calculating the visiblity polygon, aka the coverage area of a k-modem.  
+The main alogrithm used for calculating the coverage area derivs from Monte-Carlo area estimation.  
+Basically some number of points (which is present as _itterations_ prarameter) is chosen inside the polygon using a uniform distribution. Then the algorithm calculates to see which of these points are covered by the modems. After that, it returns the ratio of _**number of visible points to total number of points**_ which is roughly speaking the ratio of _**visiblity polygon area to polygon area**_. We later use this as our fittness parameter.
+
+#### Methods
+
+- ##### `unholedVisibilityPolygon` :no_entry:
+
+__Do Not Use.__ This function is obsolete and should not be used.
+
+- ##### `riticalVerticesCalc` :no_entry:
+
+__Do Not Use.__ This function is obsolete and should not be used.
+
+- ##### `monteCarloVP(int itterations , Polygon poly , Modem[] modem , int numberOfAllowedCollisions)`
+
+  This is the main class that is used for calculating the ratio of area of visiblity polygon to area of the polygon.  
+  As explained, this function drives it's algorithm from [__Monte Carlo Area Estimation__](https://en.wikipedia.org/wiki/Monte_Carlo_method).  
+
+  __Input Arguments__:  
+  - `itterations`: Number of random points used for area estimation. The larger this parameter is, the better the estimation but at the cost of processing power and time.
+  - `poly`: The polygon which the algorithm should perform the estimation on.
+  - `modem`: An array of `Modem`s which determines the location and the peneteration rate of all the modems.  
+  - `numberOfAllowedCollisions`: Determines how many collision between the signals are alowed. This number is between 0 (no collision is allowed) to `modem.length` (not to consider any collision).  
+  
+  EXPLANATION OF ALGORITHM
+  
+
+
 
 
 ### GA_Config  
