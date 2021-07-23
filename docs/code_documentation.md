@@ -188,11 +188,11 @@ Basically some number of points (which is present as _itterations_ prarameter) i
 
 - ##### `unholedVisibilityPolygon` :no_entry:
 
-__Do Not Use.__ This function is obsolete and should not be used.
+  __Do Not Use.__ This function is obsolete and should not be used.
 
 - ##### `riticalVerticesCalc` :no_entry:
 
-__Do Not Use.__ This function is obsolete and should not be used.
+  __Do Not Use.__ This function is obsolete and should not be used.
 
 - ##### `monteCarloVP(int itterations , Polygon poly , Modem[] modem , int numberOfAllowedCollisions)`
 
@@ -200,16 +200,35 @@ __Do Not Use.__ This function is obsolete and should not be used.
   As explained, this function drives it's algorithm from [__Monte Carlo Area Estimation__](https://en.wikipedia.org/wiki/Monte_Carlo_method).  
 
   __Input Arguments__:  
-  - `itterations`: Number of random points used for area estimation. The larger this parameter is, the better the estimation but at the cost of processing power and time.
-  - `poly`: The polygon which the algorithm should perform the estimation on.
-  - `modem`: An array of `Modem`s which determines the location and the peneteration rate of all the modems.  
-  - `numberOfAllowedCollisions`: Determines how many collision between the signals are alowed. This number is between 0 (no collision is allowed) to `modem.length` (not to consider any collision).  
+  - `itterations` Number of random points used for area estimation. The larger this parameter is, the better the estimation but at the cost of processing power and time.
+  - `poly` The polygon which the algorithm should perform the estimation on.
+  - `modem` An array of `Modem`s which determines the location and the peneteration rate of all the modems.  
+  - `numberOfAllowedCollisions` Determines how many collision between the signals are alowed. This number is between 0 (no collision is allowed) to `modem.length` (not to consider any collision).  
   
-  EXPLANATION OF ALGORITHM
+  __The Algorithm__:  
   
+  Loop Through the following steps __itterations__ time:
+  1. Generate a random point inside the polygon using a uniform distribution.
+  2. Draw the line from each _modem_ to the generated points.
+  3. For each line:
+      1. Calculate number of intersections (`numberOfIntersections`) with the polygon's edges.
+      2. If number of intersections is greater than **_K_ of the current modem**, add `numberOfVisibleModems` by one.
+  4. if `numberOfVisibleModems` is greater than 0 and less than `numberOfAllowedCollisions` increase number of points in visiblity polygon (`nPointsInVisibilityPolygon`) by one. 
 
+  Return number of points in visiblity polygon divided by to total number of points (`nPointsInVisibilityPolygon / itterations`)
 
+- ##### `monteCarloVP_MT(int itterations , Polygon poly , Modem[] modem , int numberOfAllowedCollisions)`
 
+  This function uses the same algorithm as `monteCarloVP`, with the differnece that the itterations run in 4 paralell thread.
+
+- ##### `monteCarloVP_SavePoints( int itterations , Polygon poly , Modem[] modem , int numberOfAllowedCollisions , String path , boolean showTimeDifference)`
+
+  This function uses the same algorithm as `monteCarloVP`. The only differnece is that it saves the created random points inside a _WKT_ file using the provided `path`. It also show the duration of algorithm process if a `true` value is passed as `showTimeDifference`.  
+  Note that the `path` should be a __directory__ not a __filename__. The algorithm creates a file name _montecarlo_out.wkt_ in the passed directory and saves the points inside that.
+  
+- ##### `monteCarloBenchmark(Polygon poly , int itterations)` :warning:
+  
+  Do not use. Still in development.
 
 ### GA_Config  
 
